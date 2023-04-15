@@ -13,3 +13,6 @@ GRUPO 7
   Santiago Maffini - 1724794
   
   Encunciado: [ACA](https://suriweb.com.ar/archivos/general/DDS-TPA-2023.pdf)
+
+  Diagrama de clases
+  ![diagrama](src/diagramaDeClases.png)
