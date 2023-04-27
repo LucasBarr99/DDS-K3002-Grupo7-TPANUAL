@@ -116,7 +116,7 @@ public class ValidadorContrasenias {
   public void validarContrasenia(String contrasenia) throws ContraseñaInvalidaException
   {
     Boolean[] lista = listaDeValidaciones(contrasenia);
-    if(Arrays.stream(lista).allMatch(aBoolean -> !aBoolean)){
+    if(!Arrays.stream(lista).allMatch(aBoolean -> aBoolean)){
      throw new ContraseñaInvalidaException("La contraseña no es valida");
     }
   }
