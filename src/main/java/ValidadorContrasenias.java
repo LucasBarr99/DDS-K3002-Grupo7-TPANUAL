@@ -116,7 +116,7 @@ public class ValidadorContrasenias {
   public void validarContrasenia(String contrasenia) throws ContraseñaInvalidaException
   {
     Boolean[] lista = listaDeValidaciones(contrasenia);
-    if(!Arrays.stream(lista).allMatch(aBoolean -> aBoolean)){
+    if(!Arrays.stream(lista).allMatch(aBoolean -> aBoolean == true)){
      throw new ContraseñaInvalidaException("La contraseña no es valida");
     }
   }
@@ -163,7 +163,7 @@ public class ValidadorContrasenias {
 
   private boolean EstaEnElTop10000(String unString)
   {
-    Path myPath = Paths.get("src/main/ListaContraseñas/top10000contraseñas.txt");
+    Path myPath = Paths.get("src/main/ListaContraseñas/top10000contraseñas");
     try{
       List < String > lines = Files.readAllLines(myPath, StandardCharsets.UTF_8);
       return lines.stream().anyMatch(s -> s.equals(unString));
