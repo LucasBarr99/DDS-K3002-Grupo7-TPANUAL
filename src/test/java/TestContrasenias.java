@@ -11,7 +11,7 @@ public class TestContrasenias {
 
 
  @Test
-  void contrseniaNoCumpleConMinimaCantidadDeCaracteres(){
+  void contraseniaNoCumpleConMinimaCantidadDeCaracteres(){
    ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("d"));
    assertEquals(exception.getMessage(),"La contraseña no es valida");
    List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("d");
