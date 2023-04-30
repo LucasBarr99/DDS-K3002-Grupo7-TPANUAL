@@ -1,3 +1,7 @@
+package Comunidades;
+
+import Comunidades.Comunidad;
+
 import java.util.List;
 
 public class Miembro {

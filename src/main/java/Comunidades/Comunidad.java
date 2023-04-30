@@ -1,3 +1,5 @@
+package Comunidades;
+
 import java.util.List;
 
 public class Comunidad {

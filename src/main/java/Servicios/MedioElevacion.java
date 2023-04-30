@@ -1,6 +1,10 @@
+package Servicios;
+
+import Servicios.Servicio;
+
 import java.util.List;
 
-public class MedioElevacion extends Servicio{
+public class MedioElevacion extends Servicio {
   PuntoElevacion origen;
   PuntoElevacion destino;
 

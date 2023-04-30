@@ -1,3 +1,8 @@
+package Comunidades;
+
+import Excepciones.ContraseñaInvalidaException;
+import Validadores.ValidadorContrasenias;
+
 import java.io.IOException;
 
 public class Usuario {

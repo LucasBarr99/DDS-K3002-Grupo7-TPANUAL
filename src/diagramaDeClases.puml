@@ -1,6 +1,13 @@
 @startuml
 'https://plantuml.com/class-diagram
 
+
+class Ubicacion{
+    int latitud
+    int longitud
+}
+
+package "Servicios Publicos"{
 class LineaDeTransporte{
     String nombre;
     Estacion origen
@@ -13,6 +20,16 @@ Enum MedioDeTransporte{
     FERROCARRIL
 }
 
+
+
+class Estacion{
+    String nombre
+    Ubicacion ubicacion
+    List<Servicio> servicios
+}
+}
+
+package "Servicios"{
 class Servicio{
     String descripcion
     List<Servicio> subServicios
@@ -28,18 +45,9 @@ Enum PuntoElevacion {
     ANDEN
     BARRERA
 }
-
-class Estacion{
-    String nombre
-    Ubicacion ubicacion
-    List<Servicio> servicios
 }
 
-class Ubicacion{
-    int latitud
-    int longitud
-}
-
+package "Comunidades"{
 class Comunidad{
     List <Miembro> miembros
     List <Usuario> administradores
@@ -55,6 +63,7 @@ class Usuario{
      String nombre
      String contraseña    
 
+}
 }
 
 LineaDeTransporte -->"*" Estacion
