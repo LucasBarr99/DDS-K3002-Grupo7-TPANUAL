@@ -22,7 +22,7 @@ public class ValidadorContrasenias {
     return instance;
   }
 
-  public void mostrarMsjValidador(String contrasenia) throws IOException {
+  public void mostrarMsjValidador(String contrasenia)  {
     Boolean [] lista = listaDeValidaciones(contrasenia);
 
     for (int i = 0; i<lista.length; i++)
@@ -132,18 +132,18 @@ public class ValidadorContrasenias {
     //listaBool[2] = true;
 
 
-    Pattern paternMinisculas = Pattern.compile("[a-z]+", Pattern.CASE_INSENSITIVE);
-    Pattern paternMayusculas = Pattern.compile("[A-Z]+", Pattern.CASE_INSENSITIVE);
+    Pattern paternMinusculas = Pattern.compile("[a-z]+", Pattern.UNICODE_CASE);
+    Pattern paternMayusculas = Pattern.compile("[A-Z]+", Pattern.UNICODE_CASE);
     Pattern paternNumeros = Pattern.compile("[0-9]+", Pattern.CASE_INSENSITIVE);
     Pattern paternCantidad = Pattern.compile(".{8,64}", Pattern.CASE_INSENSITIVE);
 
-    Matcher matcherMinisculas = paternMinisculas.matcher(contrasenia);
+    Matcher matcherMinusculas = paternMinusculas.matcher(contrasenia);
     Matcher matcherMayuscula = paternMayusculas.matcher(contrasenia);
     Matcher matcherNumeros = paternNumeros.matcher(contrasenia);
     Matcher matcherCantidad = paternCantidad.matcher(contrasenia);
 
 
-    listaBool[3] = matcherMinisculas.find();
+    listaBool[3] = matcherMinusculas.find();
 
     listaBool[4] = matcherMayuscula.find();
 
