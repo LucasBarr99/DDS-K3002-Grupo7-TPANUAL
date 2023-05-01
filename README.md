@@ -15,4 +15,4 @@ GRUPO 7
   Enunciado: [ACA](https://suriweb.com.ar/archivos/general/DDS-TPA-2023.pdf)
 
   Diagrama de clases
-  ![diagrama](src/diagramaDeClasesPackages.png)
+  ![diagrama](src/diagramaDeClases-OK.png)

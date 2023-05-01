@@ -51,6 +51,7 @@ package "Comunidades"{
 class Comunidad{
     List <Miembro> miembros
     List <Usuario> administradores
+    List <Servicio> serviciosDeInteres
 }
 class Miembro{
     String nombre
@@ -75,6 +76,7 @@ Estacion --> Ubicacion
 Estacion -->"*" Servicio
 Comunidad -->"*" Miembro
 Comunidad -->"*" Usuario
+Comunidad -->"*" Servicio
 Miembro -->"*" Comunidad
 
 
