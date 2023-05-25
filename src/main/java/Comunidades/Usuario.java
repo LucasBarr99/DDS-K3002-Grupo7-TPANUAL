@@ -1,6 +1,7 @@
 package Comunidades;
 
 import Excepciones.ContraseñaInvalidaException;
+import Localizaciones.Localizacion;
 import Validadores.ValidadorContrasenias;
 
 import java.io.IOException;
@@ -9,7 +10,9 @@ public class Usuario {
   String nombre;
   String contraseña;
 
-  public Usuario(String nombre, String contraseña) {
+  Localizacion localizacion;
+
+  public Usuario(String nombre, String contraseña, Localizacion localizacion) {
     this.nombre = nombre;
     try{
       ValidadorContrasenias.getInstance().validarContrasenia(contraseña);
@@ -19,5 +22,6 @@ public class Usuario {
     }
 
     this.contraseña = contraseña;
+    this.localizacion = localizacion;
   }
 }

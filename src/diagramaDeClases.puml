@@ -2,11 +2,34 @@
 'https://plantuml.com/class-diagram
 
 
-class Ubicacion{
+class Localizacion{
+    TipoLocalizacion tipo
+    String nombre
     int latitud
     int longitud
 }
+enum TipoLocalizacion{
+    PROVINCIA
+    MUNICIPIO
+    DEPARTAMENTO
+}
 
+package "Responsables Servicios"{
+
+    class Empresa{
+        Usuario usuario
+        List<LineaDeTransporte> serviciosPublicos
+        Usuario usuarioDesignado
+
+    }
+
+    class OrganismoDeControl{
+        Usuario usuario
+        List<Servicio> servicios
+        Usuario usuarioDesignado
+    }
+
+}
 package "Servicios Publicos"{
 class LineaDeTransporte{
     String nombre;
@@ -69,15 +92,31 @@ class Usuario{
 
 LineaDeTransporte -->"*" Estacion
 LineaDeTransporte --> MedioDeTransporte
+LineaDeTransporte --> Localizacion
+
 Servicio <|-- MedioElevacion
+
 MedioElevacion --> PuntoElevacion
 MedioElevacion --> PuntoElevacion
-Estacion --> Ubicacion
+
+Estacion --> Localizacion
 Estacion -->"*" Servicio
+
 Comunidad -->"*" Miembro
 Comunidad -->"*" Usuario
 Comunidad -->"*" Servicio
-Miembro -->"*" Comunidad
 
+Miembro -->"*" Comunidad
+Miembro -->"*" Servicio
+
+Empresa --> Usuario
+Empresa -->"*" LineaDeTransporte
+
+OrganismoDeControl --> Usuario
+OrganismoDeControl -->"*" LineaDeTransporte
+
+Usuario --> Localizacion
+
+Localizacion --> TipoLocalizacion
 
 @endum
