@@ -18,7 +18,7 @@ public class Usuario {
       ValidadorContrasenias.getInstance().validarContrasenia(contraseña);
     }
     catch (ContraseñaInvalidaException s){
-        System.out.println("La Contrseña no cumple con los requisitos de seguridad");
+        System.out.println("La Contraseña no cumple con los requisitos de seguridad");
     }
 
     this.contraseña = contraseña;
