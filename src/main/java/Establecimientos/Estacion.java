@@ -8,6 +8,6 @@ import java.util.List;
 
 public class Estacion {
   String nombre;
-  Ubicacion ubicacion;
+  Localizacion localizacion;
   List<Servicio> servicios;
 }
