@@ -35,6 +35,7 @@ class LineaDeTransporte{
     String nombre;
     Estacion origen
     Estacion destino
+    Localizacion ubicacion
     List<Estacion> estaciones
     MedioDeTransporte medioTransporte
 }
@@ -47,7 +48,7 @@ Enum MedioDeTransporte{
 
 class Estacion{
     String nombre
-    Ubicacion ubicacion
+    Localizacion ubicacion
     List<Servicio> servicios
 }
 }
@@ -81,11 +82,14 @@ class Miembro{
     String apellido
     String correo
     List<Comunidad> comunidades
+    List<Servicio> serviciosDeInteres
+    List<LineaDeTransporte> serviciosPublicos
 }
 
 class Usuario{
      String nombre
-     String contraseña    
+     String contraseña
+     Localizacion localizacion
 
 }
 }
@@ -108,6 +112,7 @@ Comunidad -->"*" Servicio
 
 Miembro -->"*" Comunidad
 Miembro -->"*" Servicio
+Miembro -->"*" LineaDeTransporte
 
 Empresa --> Usuario
 Empresa -->"*" LineaDeTransporte
