@@ -2,7 +2,7 @@ package Entidades;
 
 import Establecimientos.Estacion;
 import Localizaciones.Localizacion;
-import ServiciosPublicos.MedioDeTransporte;
+import CargaDeDatosCSV.MedioDeTransporte;
 
 import java.util.List;
 
