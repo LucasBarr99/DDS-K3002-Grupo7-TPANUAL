@@ -28,12 +28,13 @@ public class DatoOrganismosEmpresasCSV {
       boolean validarHeader = true ;
       for (CSVRecord csvRecord : csvParser) {
         if (!validarHeader) {
-          String nombreEmpresa = csvRecord.get(1);
           String tipoEmpresa = csvRecord.get(0);
+          String nombreEmpresa = csvRecord.get(1);
           String lineaDeTransporte = csvRecord.get(2);
           String estacionOrigen = csvRecord.get(3);
           String estacionDestino = csvRecord.get(4);
-          String medioDeTransporte = csvRecord.get(4);
+          String medioDeTransporte = csvRecord.get(5);
+
           Map<String, MedioDeTransporte> mapa = getMapConTransporte();
           DatosParser nuevoDato = new DatosParser(nombreEmpresa,
               tipoEmpresa, lineaDeTransporte, estacionOrigen, estacionDestino, mapa.get(medioDeTransporte));
