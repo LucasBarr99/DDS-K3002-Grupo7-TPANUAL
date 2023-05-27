@@ -1,4 +1,4 @@
-package CargaDeDatosCSV;
+package Excepciones;
 
 public class ExcepcionParseoCSV extends RuntimeException {
 

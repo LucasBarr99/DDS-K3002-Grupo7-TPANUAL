@@ -4,6 +4,7 @@ package CargaDeDatosCSV;
 
 
 
+import Excepciones.ExcepcionParseoCSV;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -36,8 +37,8 @@ public class DatoOrganismosEmpresasCSV {
           String medioDeTransporte = csvRecord.get(5);
 
           Map<String, MedioDeTransporte> mapa = getMapConTransporte();
-          DatosParser nuevoDato = new DatosParser(nombreEmpresa,
-              tipoEmpresa, lineaDeTransporte, estacionOrigen, estacionDestino, mapa.get(medioDeTransporte));
+          DatosParser nuevoDato = new DatosParser(tipoEmpresa,
+              nombreEmpresa, lineaDeTransporte, estacionOrigen, estacionDestino, mapa.get(medioDeTransporte));
           datos.add(nuevoDato);
         }
         else {

@@ -21,4 +21,28 @@ public class DatosParser {
     this.estacionDestino = estacionDestino;
     this.medioDeTransporte = medioDeTransporte;
   }
+
+  public String getTipo() {
+    return tipo;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public String getLinea() {
+    return linea;
+  }
+
+  public String getEstacionOrigen() {
+    return estacionOrigen;
+  }
+
+  public String getEstacionDestino() {
+    return estacionDestino;
+  }
+
+  public MedioDeTransporte getMedioDeTransporte() {
+    return medioDeTransporte;
+  }
 }
