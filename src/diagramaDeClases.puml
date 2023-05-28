@@ -114,6 +114,7 @@ class Usuario{
      String contraseña
      Localizacion localizacion
      List<Miembro> membresias
+     List<Servicio> serviciosDeInteres
 
 }
 }
@@ -146,6 +147,7 @@ OrganismoDeControl -->"*" LineaDeTransporte
 
 Usuario --> Localizacion
 Usuario -->"*" Miembro
+Usuario -->"*" Servicio
 
 Localizacion --> TipoLocalizacion
 
