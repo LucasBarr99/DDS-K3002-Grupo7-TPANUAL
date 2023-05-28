@@ -1,7 +1,7 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-
+package "Ubicacion"{
 class Localizacion{
     TipoLocalizacion tipo
     String nombre
@@ -13,7 +13,7 @@ enum TipoLocalizacion{
     MUNICIPIO
     DEPARTAMENTO
 }
-
+}
 package "Responsables Servicios"{
 
     class Empresa{
@@ -25,17 +25,22 @@ package "Responsables Servicios"{
 
     class OrganismoDeControl{
         Usuario usuario
-        List<Servicio> servicios
+        List<LineaDeTransporte> servicios
         Usuario usuarioDesignado
     }
 
 }
-package "Servicios Publicos"{
+package "Entidades"{
+
+class Entidad{
+    String nombre
+    Localizacion localizacion
+    List<Usuario> interesados
+}
+
 class LineaDeTransporte{
-    String nombre;
     Estacion origen
     Estacion destino
-    Localizacion ubicacion
     List<Estacion> estaciones
     MedioDeTransporte medioTransporte
 }
@@ -44,13 +49,30 @@ Enum MedioDeTransporte{
     FERROCARRIL
 }
 
+class Organizacion{
+    List<Sucursal> sucursales
+}
+}
 
+package "Establecimientos"{
+
+class Establecimiento{
+    String nombre
+    Localizacion localizacion
+    List<Servicio> servicios
+    List<Usuario> interesados
+
+}
 
 class Estacion{
     String nombre
-    Localizacion ubicacion
     List<Servicio> servicios
 }
+class Sucursal{
+    String nombre
+    List<Servicio> servicios
+}
+
 }
 
 package "Servicios"{
@@ -81,38 +103,40 @@ class Miembro{
     String nombre
     String apellido
     String correo
-    List<Comunidad> comunidades
-    List<Servicio> serviciosDeInteres
-    List<LineaDeTransporte> serviciosPublicos
+    Comunidad comunidad
 }
 
+
+}
+package "Personas"{
 class Usuario{
      String nombre
      String contraseña
      Localizacion localizacion
+     List<Miembro> membresias
 
 }
 }
+
+
 
 LineaDeTransporte -->"*" Estacion
 LineaDeTransporte --> MedioDeTransporte
-LineaDeTransporte --> Localizacion
+LineaDeTransporte --|> Entidad
 
 Servicio <|-- MedioElevacion
 
 MedioElevacion --> PuntoElevacion
 MedioElevacion --> PuntoElevacion
 
-Estacion --> Localizacion
-Estacion -->"*" Servicio
+
+Estacion --|> Establecimiento
 
 Comunidad -->"*" Miembro
 Comunidad -->"*" Usuario
 Comunidad -->"*" Servicio
 
-Miembro -->"*" Comunidad
-Miembro -->"*" Servicio
-Miembro -->"*" LineaDeTransporte
+Miembro --> Comunidad
 
 Empresa --> Usuario
 Empresa -->"*" LineaDeTransporte
@@ -121,7 +145,20 @@ OrganismoDeControl --> Usuario
 OrganismoDeControl -->"*" LineaDeTransporte
 
 Usuario --> Localizacion
+Usuario -->"*" Miembro
 
 Localizacion --> TipoLocalizacion
+
+Organizacion -->"*" Sucursal
+Organizacion --|> Entidad
+
+
+Sucursal --|> Establecimiento
+
+Entidad -->"*" Usuario
+Entidad --> Localizacion
+
+Establecimiento -->"*" Servicio
+Establecimiento --> Localizacion
 
 @endum
