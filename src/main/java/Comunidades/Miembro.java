@@ -12,5 +12,5 @@ public class Miembro {
   String correo;
   List<Comunidad> comunidades;
   List<LineaDeTransporte> lineasDeInteres;
-  List<Servicio> serviciosDeInteres;
+
 }

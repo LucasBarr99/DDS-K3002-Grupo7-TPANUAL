@@ -14,11 +14,12 @@ public class Usuario {
 
   public Usuario(String nombre, String contraseña, Localizacion localizacion) {
     this.nombre = nombre;
+    ValidadorContrasenias validador = new ValidadorContrasenias();
     try{
-      ValidadorContrasenias.getInstance().validarContrasenia(contraseña);
+      validador.validarContrasenia(contraseña);
     }
     catch (ContraseñaInvalidaException s){
-        System.out.println("La Contraseña no cumple con los requisitos de seguridad");
+        // Enviar a componente que se encargue de mostarlo en pantalla;
     }
 
     this.contraseña = contraseña;

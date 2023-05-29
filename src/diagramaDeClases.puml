@@ -126,6 +126,7 @@ LineaDeTransporte --> MedioDeTransporte
 LineaDeTransporte --|> Entidad
 
 Servicio <|-- MedioElevacion
+Servicio --* Servicio
 
 MedioElevacion --> PuntoElevacion
 MedioElevacion --> PuntoElevacion

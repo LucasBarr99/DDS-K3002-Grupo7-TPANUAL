@@ -1,5 +1,6 @@
 
 import Excepciones.ContraseñaInvalidaException;
+import Validadores.ValidacionesContrasenia;
 import Validadores.ValidadorContrasenias;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,23 +10,23 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestContrasenias {
-  ValidadorContrasenias validadorContrasenias = ValidadorContrasenias.getInstance();
+  ValidadorContrasenias validadorContrasenias = new ValidadorContrasenias();
 
 
  @Test
   void contraseniaNoCumpleConMinimaCantidadDeCaracteres(){
    ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("d"));
    assertEquals("La contraseña no es valida",exception.getMessage());
-   List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("d");
-   assertTrue(mensajes.contains("La contraseña debe contener de 8 a 64 caracteres."));
+   List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("d");
+   assertTrue(mensajes.contains(ValidacionesContrasenia.NO_CUMPLE_LONGITUD));
 
  }
  @Test
  void contraseniaSeEncuentraEnElTop10000DeContraseñasComunes(){
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("dragon"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("dragon");
-  assertTrue(mensajes.contains("La contraseña no debe estar incluida en el top 10.000 de contraseñas mas frecuentes."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("dragon");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.CONTRASENIA_EN_TOP_10000));
 
  }
 
@@ -34,8 +35,8 @@ public class TestContrasenias {
  void contraseniaEstaVacia() {
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class, () -> validadorContrasenias.validarContrasenia(""));
   assertEquals( "La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("");
-  assertTrue(mensajes.contains("La contraseña no debe estar vacia."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.CONTRASENIA_VACIA));
 
  }
 
@@ -44,8 +45,8 @@ public class TestContrasenias {
  void contraseniaTieneCaracteresRepetidos(){
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("ddda"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("ddda");
-  assertTrue(mensajes.contains("La contraseña no debe tener caracteres seguidos repetidos."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("ddda");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.CARACTERES_SEGUIDOS_REPETIDOS));
 
  }
 
@@ -53,8 +54,8 @@ public class TestContrasenias {
  void contraseniaTieneCaracteresConsecutivos(){
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("abcd1267"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("abcd1267");
-  assertTrue(mensajes.contains("La contraseña no debe tener letras consecutivas."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("abcd1267");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.CARACTERES_CONSECUTIVOS));
 
  }
 
@@ -62,8 +63,8 @@ public class TestContrasenias {
  void contraseniaTieneTodosLosCaracteresEnMayuscula(){
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("DRAGON"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("DRAGON");
-  assertTrue(mensajes.contains("La contraseña debe contener al menos una letra minuscula."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("DRAGON");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.SIN_LETRA_MINUSCULA));
 
  }
 
@@ -71,8 +72,8 @@ public class TestContrasenias {
  void contraseniaTieneTodosLosCaracteresEnMinuscula(){
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class,()-> validadorContrasenias.validarContrasenia("dragonaerty"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("dragonaerty");
-  assertTrue(mensajes.contains("La contraseña debe contener al menos una letra mayuscula."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("dragonaerty");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.SIN_LETRA_MAYUSCULA));
 
  }
 
@@ -86,16 +87,16 @@ public class TestContrasenias {
  void contraseniaTieneNumerosConsecutivos() {
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class, () -> validadorContrasenias.validarContrasenia("Dragon234"));
   assertEquals("La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("Dragon234");
-  assertTrue(mensajes.contains("La contraseña no debe tener numeros consecutivos."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("Dragon234");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.NUMEROS_CONSECUTIVOS));
  }
 
  @Test
  void codcontraseniaTieneCaracteresUnicode() {
   ContraseñaInvalidaException exception = assertThrows(ContraseñaInvalidaException.class, () -> validadorContrasenias.validarContrasenia("Dragon▼£"));
   assertEquals( "La contraseña no es valida",exception.getMessage());
-  List<String> mensajes = validadorContrasenias.mostrarMsjValidadorLista("Dragon▼£");
-  assertTrue(mensajes.contains("La contraseña no debe contener caracteres unicode."));
+  List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("Dragon▼£");
+  assertTrue(mensajes.contains(ValidacionesContrasenia.TIENE_CARACTERES_UNICODE));
  }
 
 }

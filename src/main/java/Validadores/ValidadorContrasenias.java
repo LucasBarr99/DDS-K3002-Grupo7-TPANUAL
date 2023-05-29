@@ -14,65 +14,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ValidadorContrasenias {
-  private static ValidadorContrasenias instance = null;
 
-  public static ValidadorContrasenias getInstance()
-  {
-    if (instance == null)
-    {
-      instance = new ValidadorContrasenias();
-    }
-    return instance;
+  public ValidadorContrasenias() {
   }
 
-  public void mostrarMsjValidador(String contrasenia)  {
-    Boolean [] lista = listaDeValidaciones(contrasenia);
-
-    for (int i = 0; i<lista.length; i++)
-    {
-      if (!lista[i])
-      {
-        switch (i)
-        {
-          case 0:
-            System.out.println(" (X) La contraseña no debe estar vacia. \n");
-            break;
-          case 1:
-            System.out.println(" (X) La contraseña no debe contener caracteres unicode. \n");
-            break;
-          case 2:
-            System.out.println(" (X) La contraseña no debe estar incluida en el top 10.000 de contraseñas mas frecuentes. \n");
-            break;
-          case 3:
-            System.out.println(" (X) La contraseña debe contener al menos una letra minuscula. \n");
-            break;
-          case 4:
-            System.out.println(" (X) La contraseña debe contener al menos una letra mayuscula. \n");
-            break;
-          case 5:
-            System.out.println(" (X) La contraseña debe contener al menos un numero. \n");
-            break;
-          case 6:
-            System.out.println(" (X) La contraseña debe contener de 8 a 64 caracteres. \n");
-            break;
-          case 7:
-            System.out.println(" (X) La contraseña no debe tener numeros consecutivos \n");
-            break;
-          case 8:
-            System.out.println(" (X) La contraseña no debe tener caracteres seguidos repetidos \n");
-            break;
-          case 9:
-            System.out.println(" (X) La contraseña no debe tener letras consecutivas \n");
-            break;
-        }
-      }
-    }
-  }
-
-  public List<String> mostrarMsjValidadorLista(String contrasenia)
+  public List<ValidacionesContrasenia> cargarValidaciones(String contrasenia)
   {
     Boolean[] lista = listaDeValidaciones(contrasenia);
-    List<String> msj = new ArrayList<>();
+    List<ValidacionesContrasenia> validaciones = new ArrayList<>();
 
     for (int i = 0; i < Arrays.stream(lista).count(); i++)
     {
@@ -81,39 +30,39 @@ public class ValidadorContrasenias {
         switch (i)
         {
           case 0:
-            msj.add("La contraseña no debe estar vacia.");
+            validaciones.add(ValidacionesContrasenia.CONTRASENIA_VACIA);
             break;
           case 1:
-            msj.add("La contraseña no debe contener caracteres unicode.");
+            validaciones.add(ValidacionesContrasenia.TIENE_CARACTERES_UNICODE);
             break;
           case 2:
-            msj.add("La contraseña no debe estar incluida en el top 10.000 de contraseñas mas frecuentes.");
+            validaciones.add(ValidacionesContrasenia.CONTRASENIA_EN_TOP_10000);
             break;
           case 3:
-            msj.add("La contraseña debe contener al menos una letra minuscula.");
+            validaciones.add(ValidacionesContrasenia.SIN_LETRA_MINUSCULA);
             break;
           case 4:
-            msj.add("La contraseña debe contener al menos una letra mayuscula.");
+            validaciones.add(ValidacionesContrasenia.SIN_LETRA_MAYUSCULA);
             break;
           case 5:
-            msj.add("La contraseña debe contener al menos un numero.");
+            validaciones.add(ValidacionesContrasenia.SIN_NUMERO);
             break;
           case 6:
-            msj.add("La contraseña debe contener de 8 a 64 caracteres.");
+            validaciones.add(ValidacionesContrasenia.NO_CUMPLE_LONGITUD);
             break;
           case 7:
-            msj.add("La contraseña no debe tener numeros consecutivos.");
+            validaciones.add(ValidacionesContrasenia.NUMEROS_CONSECUTIVOS);
             break;
           case 8:
-            msj.add("La contraseña no debe tener caracteres seguidos repetidos." );
+            validaciones.add(ValidacionesContrasenia.CARACTERES_SEGUIDOS_REPETIDOS);
             break;
           case 9:
-            msj.add("La contraseña no debe tener letras consecutivas.");
+            validaciones.add(ValidacionesContrasenia.CARACTERES_CONSECUTIVOS);
             break;
         }
       }
     }
-    return msj;
+    return validaciones;
   }
 
   public void validarContrasenia(String contrasenia) throws ContraseñaInvalidaException
