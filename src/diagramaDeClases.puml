@@ -18,14 +18,14 @@ package "Responsables Servicios"{
 
     class Empresa{
         Usuario usuario
-        List<LineaDeTransporte> serviciosPublicos
+        List<Entidad> entidades
         Usuario usuarioDesignado
 
     }
 
     class OrganismoDeControl{
         Usuario usuario
-        List<LineaDeTransporte> servicios
+        List<Entidad> entidades
         Usuario usuarioDesignado
     }
 
@@ -141,10 +141,10 @@ Comunidad -->"*" Servicio
 Miembro --> Comunidad
 
 Empresa --> Usuario
-Empresa -->"*" LineaDeTransporte
+Empresa -->"*" Entidad
 
 OrganismoDeControl --> Usuario
-OrganismoDeControl -->"*" LineaDeTransporte
+OrganismoDeControl -->"*" Entidad
 
 Usuario --> Localizacion
 Usuario -->"*" Miembro

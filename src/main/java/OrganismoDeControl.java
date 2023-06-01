@@ -1,4 +1,5 @@
 import Comunidades.Usuario;
+import Entidades.Entidad;
 import Entidades.LineaDeTransporte;
 import Servicios.Servicio;
 
@@ -7,12 +8,12 @@ import java.util.List;
 public class OrganismoDeControl {
   String nombre;
   Usuario usuario;
-  List<LineaDeTransporte> servicios;
+  List<Entidad> entidades;
   Usuario usuarioDesignado;
 
-  public OrganismoDeControl(Usuario usuario, List<LineaDeTransporte> servicios, Usuario usuarioDesignado) {
+  public OrganismoDeControl(Usuario usuario, List<Entidad> entidades, Usuario usuarioDesignado) {
     this.usuario = usuario;
-    this.servicios = servicios;
+    this.entidades = entidades;
     this.usuarioDesignado = usuarioDesignado;
   }
 }
