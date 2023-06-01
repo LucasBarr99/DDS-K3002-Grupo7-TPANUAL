@@ -34,7 +34,7 @@ package "Entidades"{
 
 class Entidad{
     String nombre
-    Localizacion localizacion
+    List<Localizacion> localizacion
     List<Usuario> interesados
 }
 
@@ -159,7 +159,7 @@ Organizacion --|> Entidad
 Sucursal --|> Establecimiento
 
 Entidad -->"*" Usuario
-Entidad --> Localizacion
+Entidad -->"*"Localizacion
 
 Establecimiento -->"*" Servicio
 Establecimiento --> Localizacion

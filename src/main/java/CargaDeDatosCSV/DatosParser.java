@@ -1,25 +1,16 @@
 package CargaDeDatosCSV;
 
-import Comunidades.Usuario;
-import Entidades.LineaDeTransporte;
-
-import java.util.List;
-
 public class DatosParser {
   String tipo;
   String nombre;
-  String linea;
-  String estacionOrigen;
-  String estacionDestino;
-  MedioDeTransporte medioDeTransporte;
+  String entidad;
+  TipoEntidad tipoEntidad;
 
-  public DatosParser(String tipo, String nombre, String linea, String estacionOrigen, String estacionDestino, MedioDeTransporte medioDeTransporte) {
+  public DatosParser(String tipo, String nombre, String entidad, TipoEntidad tipoEntidad) {
     this.tipo = tipo;
     this.nombre = nombre;
-    this.linea = linea;
-    this.estacionOrigen = estacionOrigen;
-    this.estacionDestino = estacionDestino;
-    this.medioDeTransporte = medioDeTransporte;
+    this.entidad = entidad;
+    this.tipoEntidad = tipoEntidad;
   }
 
   public String getTipo() {
@@ -30,19 +21,11 @@ public class DatosParser {
     return nombre;
   }
 
-  public String getLinea() {
-    return linea;
+  public String getEntidad() {
+    return entidad;
   }
 
-  public String getEstacionOrigen() {
-    return estacionOrigen;
-  }
-
-  public String getEstacionDestino() {
-    return estacionDestino;
-  }
-
-  public MedioDeTransporte getMedioDeTransporte() {
-    return medioDeTransporte;
+  public TipoEntidad getTipoEntidad() {
+    return tipoEntidad;
   }
 }

@@ -1,4 +1,4 @@
-Tipo,Nombre,Linea_de_Transporte,Estacion_Origen,Estacion_Destino,Medio_de_Transporte
-Empresa,Trenes S.A,Tren Mitre,Callao,Carachapay,Ferrocarril
-Organismo de Control,Auditoria,Linea B,Cachimayo,Camarones,Subterraneo
-Empresa,SANS SRL,Linea A,Jonte,Chimborazo,Subterraneo
+TIPO,NOMBRE,ENTIDAD,TIPO_ENTIDAD
+Empresa,Trenes S.A,Tren Mitre,Linea de Transporte
+Organismo de Control,Auditoria,DDS SRL,Organizacion
+Empresa,SANS SRL,GDD S.A.,Organizacion

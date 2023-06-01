@@ -1,14 +1,10 @@
 
 import CargaDeDatosCSV.DatosParser;
-import CargaDeDatosCSV.MedioDeTransporte;
-import Excepciones.ContraseñaInvalidaException;
+import CargaDeDatosCSV.TipoEntidad;
 import Excepciones.ExcepcionParseoCSV;
 import CargaDeDatosCSV.DatoOrganismosEmpresasCSV;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,10 +36,8 @@ public class TestParser {
     DatosParser dato = datos.get(0);
     assertEquals("Empresa",dato.getTipo());
     assertEquals("Trenes S.A",dato.getNombre());
-    assertEquals("Tren Mitre",dato.getLinea());
-    assertEquals( "Callao",dato.getEstacionOrigen());
-    assertEquals( "Carachapay",dato.getEstacionDestino());
-    assertEquals( MedioDeTransporte.FERROCARRIL,dato.getMedioDeTransporte());
+    assertEquals("Tren Mitre",dato.getEntidad());
+    assertEquals(TipoEntidad.LINEA_DE_TRANSPORTE,dato.getTipoEntidad());
   }
 
 }

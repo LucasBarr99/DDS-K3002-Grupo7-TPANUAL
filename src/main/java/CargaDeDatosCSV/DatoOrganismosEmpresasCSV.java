@@ -31,19 +31,18 @@ public class DatoOrganismosEmpresasCSV {
         if (!validarHeader) {
           String tipoEmpresa = csvRecord.get(0);
           String nombreEmpresa = csvRecord.get(1);
-          String lineaDeTransporte = csvRecord.get(2);
-          String estacionOrigen = csvRecord.get(3);
-          String estacionDestino = csvRecord.get(4);
-          String medioDeTransporte = csvRecord.get(5);
+          String entidad = csvRecord.get(2);
+          String tipoEntidad = csvRecord.get(3);
 
-          Map<String, MedioDeTransporte> mapa = getMapConTransporte();
+
+          Map<String, TipoEntidad> mapa = getMapConTransporte();
           DatosParser nuevoDato = new DatosParser(tipoEmpresa,
-              nombreEmpresa, lineaDeTransporte, estacionOrigen, estacionDestino, mapa.get(medioDeTransporte));
+              nombreEmpresa, entidad, mapa.get(tipoEntidad));
           datos.add(nuevoDato);
         }
         else {
           validarHeader = false;
-          validarEstructuraArchivo(csvRecord.get(0), csvRecord.get(1), csvRecord.get(2),  csvRecord.get(3),  csvRecord.get(4),  csvRecord.get(5));
+          validarEstructuraArchivo(csvRecord.get(0), csvRecord.get(1), csvRecord.get(2),  csvRecord.get(3));
         }
       }
     } catch (Exception e) {
@@ -52,15 +51,15 @@ public class DatoOrganismosEmpresasCSV {
     return datos;
   }
 
-  public void validarEstructuraArchivo(String campo1, String campo2, String campo3, String campo4, String campo5, String campo6 ){
-    if(!campo1.equalsIgnoreCase("TIPO") || !campo2.equalsIgnoreCase("NOMBRE") || !campo3.equalsIgnoreCase("LINEA_DE_TRANSPORTE") || !campo4.equalsIgnoreCase("ESTACION_ORIGEN")|| !campo5.equalsIgnoreCase("ESTACION_DESTINO")|| !campo6.equalsIgnoreCase("MEDIO_DE_TRANSPORTE")) {
+  public void validarEstructuraArchivo(String campo1, String campo2, String campo3, String campo4){
+    if(!campo1.equalsIgnoreCase("TIPO") || !campo2.equalsIgnoreCase("NOMBRE") || !campo3.equalsIgnoreCase("ENTIDAD") || !campo4.equalsIgnoreCase("TIPO_ENTIDAD")) {
       throw new RuntimeException("Estructura de archivo invalida");
     }
   }
-  private Map<String, MedioDeTransporte> getMapConTransporte() {
-    Map<String, MedioDeTransporte> mapa = new HashMap<String, MedioDeTransporte>();
-    mapa.put("Subterraneo", MedioDeTransporte.SUBTERRANEO);
-    mapa.put("Ferrocarril", MedioDeTransporte.FERROCARRIL);
+  private Map<String, TipoEntidad> getMapConTransporte() {
+    Map<String, TipoEntidad> mapa = new HashMap<String, TipoEntidad>();
+    mapa.put("Organizacion", TipoEntidad.ORGANIZACION);
+    mapa.put("Linea de Transporte", TipoEntidad.LINEA_DE_TRANSPORTE);
     return mapa;
   }
 }

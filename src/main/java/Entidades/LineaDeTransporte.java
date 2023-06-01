@@ -3,7 +3,6 @@ package Entidades;
 import Comunidades.Usuario;
 import Establecimientos.Estacion;
 import Localizaciones.Localizacion;
-import CargaDeDatosCSV.MedioDeTransporte;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public class LineaDeTransporte extends Entidad {
    MedioDeTransporte medioTransporte;
 
 
-  public LineaDeTransporte(String nombre, Localizacion localizacion, List<Usuario> interesados) {
+  public LineaDeTransporte(String nombre, List<Localizacion> localizacion, List<Usuario> interesados) {
     super(nombre, localizacion, interesados);
   }
 }

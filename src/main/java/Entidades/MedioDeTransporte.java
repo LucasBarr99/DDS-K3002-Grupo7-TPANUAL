@@ -1,4 +1,4 @@
-package CargaDeDatosCSV;
+package Entidades;
 
 public enum MedioDeTransporte {
   SUBTERRANEO,

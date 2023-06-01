@@ -10,7 +10,7 @@ public class Organizacion extends Entidad {
 
 List<Sucursal> sucursales;
 
-  public Organizacion(String nombre, Localizacion localizacion, List<Usuario> interesados) {
+  public Organizacion(String nombre, List<Localizacion> localizacion, List<Usuario> interesados) {
     super(nombre, localizacion, interesados);
   }
 }
