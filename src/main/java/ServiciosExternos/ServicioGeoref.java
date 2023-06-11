@@ -7,7 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 
-public class ServicioGeoref {
+public class ServicioGeoref extends ServicioUbicacion {
   private static ServicioGeoref instancia = null;
   private static int maximaCantidadRegistrosDefault = 10;
   private static final String urlApi = "https://apis.datos.gob.ar/georef/api/";
@@ -34,7 +34,7 @@ public class ServicioGeoref {
     return responseProvincia.body().provincias.get(0);
   }
 
-  public Municipio municipioBuscadaPorNombre(String nombre) throws IOException {
+  public Municipio municipioBuscadoPorNombre(String nombre) throws IOException {
     GeorefService georefService = this.retrofit.create(GeorefService.class);
     Call<ListadoMunicipios> requestMunicipio = georefService.municipios(nombre);
     Response<ListadoMunicipios> responseMunicipio = requestMunicipio.execute();

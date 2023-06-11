@@ -1,11 +1,19 @@
 package ServiciosExternos.DatosAPI;
 
 public class Coordenadas {
-  int latitud;
-  int longitud;
+  float lat;
+  float lon;
 
-  public Coordenadas(int latitud, int longitud) {
-    this.latitud = latitud;
-    this.longitud = longitud;
+  public Coordenadas(float lat, float lon) {
+    this.lat = lat;
+    this.lon = lon;
+  }
+
+  public float getLatitud() {
+    return lat;
+  }
+
+  public float getLongitud() {
+    return lon;
   }
 }

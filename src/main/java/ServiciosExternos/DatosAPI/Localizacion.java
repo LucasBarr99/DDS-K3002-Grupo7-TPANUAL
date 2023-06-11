@@ -4,10 +4,15 @@ public abstract class Localizacion {
 
   public int id;
   public String nombre;
-  public Coordenadas coordenadas;
+  public Coordenadas centroide;
 
-  public Localizacion(String nombre, Coordenadas coordenadas) {
+  public Localizacion(int id,String nombre, Coordenadas coordenadas) {
+    this.id =id;
     this.nombre = nombre;
-    this.coordenadas = coordenadas;
+    this.centroide = coordenadas;
+  }
+  public Localizacion(int id,String nombre) {
+    this.id =id;
+    this.nombre = nombre;
   }
 }
