@@ -1,6 +1,6 @@
 package Establecimientos;
 
-import Localizaciones.Localizacion;
+import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 
 
@@ -9,7 +9,7 @@ import java.util.List;
 public class Sucursal extends Establecimiento {
   String nombre;
   TipoSucursal tipoSucursal;
-  Localizacion localizacion;
+  Ubicacion ubicacion;
   List<Servicio> servicios;
 
 

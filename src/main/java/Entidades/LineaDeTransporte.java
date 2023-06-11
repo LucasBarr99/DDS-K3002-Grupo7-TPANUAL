@@ -2,7 +2,7 @@ package Entidades;
 
 import Comunidades.Usuario;
 import Establecimientos.Estacion;
-import Localizaciones.Localizacion;
+import Localizaciones.Ubicacion;
 
 import java.util.List;
 
@@ -11,12 +11,12 @@ public class LineaDeTransporte extends Entidad {
   String nombre;
    Estacion origen;
    Estacion destino;
-   Localizacion localizacion;
+   Ubicacion ubicacion;
    List<Estacion> estaciones;
    MedioDeTransporte medioTransporte;
 
 
-  public LineaDeTransporte(String nombre, List<Localizacion> localizacion, List<Usuario> interesados) {
-    super(nombre, localizacion, interesados);
+  public LineaDeTransporte(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
+    super(nombre, ubicacion, interesados);
   }
 }

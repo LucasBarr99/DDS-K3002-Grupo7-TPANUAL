@@ -1,14 +1,14 @@
 package Establecimientos;
 
 import Comunidades.Usuario;
-import Localizaciones.Localizacion;
+import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 
 import java.util.List;
 
 public class Establecimiento {
   String nombre;
-  Localizacion localizacion;
+  Ubicacion ubicacion;
   List<Servicio> servicios;
   List<Usuario> interesados;
 

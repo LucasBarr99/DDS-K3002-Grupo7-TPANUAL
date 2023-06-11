@@ -1,6 +1,6 @@
 package Establecimientos;
 
-import Localizaciones.Localizacion;
+import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 
 import java.util.List;
@@ -8,6 +8,6 @@ import java.util.List;
 
 public class Estacion extends Establecimiento {
   String nombre;
-  Localizacion localizacion;
+  Ubicacion ubicacion;
   List<Servicio> servicios;
 }
