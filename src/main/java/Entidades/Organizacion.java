@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Organizacion extends Entidad {
 
-List<Sucursal> sucursales;
+  List<Sucursal> sucursales;
 
   public Organizacion(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
     super(nombre, ubicacion, interesados);

@@ -1,5 +1,7 @@
 package Establecimientos;
 
+import Entidades.LineaDeTransporte;
+import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 

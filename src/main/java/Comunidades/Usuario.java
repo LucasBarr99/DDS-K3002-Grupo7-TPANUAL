@@ -1,6 +1,7 @@
 package Comunidades;
 
 import Excepciones.ContraseñaInvalidaException;
+import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 import Validadores.ValidadorContrasenias;
 
@@ -22,5 +23,9 @@ public class Usuario {
 
     this.contraseña = contraseña;
     this.ubicacion = ubicacion;
+  }
+
+  public void notificarIncidente(Incidente incidente){
+
   }
 }

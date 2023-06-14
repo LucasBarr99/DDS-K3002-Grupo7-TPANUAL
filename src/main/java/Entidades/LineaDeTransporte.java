@@ -2,6 +2,7 @@ package Entidades;
 
 import Comunidades.Usuario;
 import Establecimientos.Estacion;
+import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 
 import java.util.List;
@@ -19,4 +20,6 @@ public class LineaDeTransporte extends Entidad {
   public LineaDeTransporte(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
     super(nombre, ubicacion, interesados);
   }
+
+
 }
