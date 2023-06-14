@@ -1,8 +1,24 @@
 @startuml
 'https://plantuml.com/class-diagram
 
-package "Ubicacion"{
-class Localizacion{
+package "Incidentes"{
+    enum EstadoIncidentes {
+        ABIERTO,
+        CERRADO
+    }
+    class Incidente {
+        LocalDate fechaApertura;
+        LocalDate fechaCierre;
+        Servicio servicioAfectado;
+        String observaciones;
+        EstadoIncidentes estado;
+        Miembro miembro;
+}
+}
+
+
+package "Localizaciones"{
+class Ubicacion{
     TipoLocalizacion tipo
     String nombre
     int latitud
@@ -34,7 +50,7 @@ package "Entidades"{
 
 class Entidad{
     String nombre
-    List<Localizacion> localizacion
+    List<Ubicacion> ubicacion
     List<Usuario> interesados
 }
 
@@ -58,12 +74,11 @@ package "Establecimientos"{
 
 class Establecimiento{
     String nombre
-    Localizacion localizacion
+    Ubicacion ubicacion
     List<Servicio> servicios
     List<Usuario> interesados
 
 }
-
 class Estacion{
     String nombre
     List<Servicio> servicios
@@ -72,6 +87,12 @@ class Sucursal{
     String nombre
     List<Servicio> servicios
 }
+
+enum TipoSucursal {
+   BANCO,
+   SUPERMERCADO,
+   CENTRO_COMUNAL
+ }
 
 }
 
@@ -112,7 +133,7 @@ package "Personas"{
 class Usuario{
      String nombre
      String contraseña
-     Localizacion localizacion
+     Ubicacion ubicacion
      List<Miembro> membresias
      List<Servicio> serviciosDeInteres
 
@@ -146,11 +167,11 @@ Empresa -->"*" Entidad
 OrganismoDeControl --> Usuario
 OrganismoDeControl -->"*" Entidad
 
-Usuario --> Localizacion
+Usuario --> Ubicacion
 Usuario -->"*" Miembro
 Usuario -->"*" Servicio
 
-Localizacion --> TipoLocalizacion
+Ubicacion --> TipoLocalizacion
 
 Organizacion -->"*" Sucursal
 Organizacion --|> Entidad
@@ -159,9 +180,14 @@ Organizacion --|> Entidad
 Sucursal --|> Establecimiento
 
 Entidad -->"*" Usuario
-Entidad -->"*"Localizacion
+Entidad -->"*"Ubicacion
 
 Establecimiento -->"*" Servicio
-Establecimiento --> Localizacion
+Establecimiento --> Ubicacion
 
+Miembro -->"*" Incidente
+
+Incidente --> EstadoIncidentes
+
+Sucursal --> TipoSucursal
 @endum
