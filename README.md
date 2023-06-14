@@ -11,6 +11,8 @@ GRUPO 7
   Tomas Boltin - 1722967
   
   Santiago Maffini - 1724794
+
+  Ailin Denoya - 2035560
   
   Enunciado: [ACA](https://suriweb.com.ar/archivos/general/DDS-TPA-2023.pdf)
 
