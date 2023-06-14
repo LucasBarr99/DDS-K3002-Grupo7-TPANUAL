@@ -9,3 +9,4 @@
 # Archivos de Intellij
 .idea/**
 *.iml
+*.xml
