@@ -3,6 +3,7 @@ package Entidades;
 import Comunidades.Usuario;
 import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
+import Servicios.Servicio;
 
 import java.util.List;
 
@@ -20,4 +21,5 @@ public class Entidad {
   public void reportarIncidente(Incidente incidente){
     interesados.forEach(interesado -> interesado.notificarIncidente(incidente));
   }
+
 }

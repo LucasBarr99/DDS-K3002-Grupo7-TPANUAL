@@ -13,12 +13,13 @@ public class Miembro {
   String correo;
   List<Comunidad> comunidades;
   List<LineaDeTransporte> lineasDeInteres;
+  TipoUsuario tipo;
 
 
 
 
-  void reportarIncidenteEn(Servicio servicio){
-    servicio.agregarIncidente(new Incidente());
+  void reportarIncidenteEn(Servicio servicio, Incidente incidente){
+      servicio.agregarIncidente(incidente);
   }
 
 }

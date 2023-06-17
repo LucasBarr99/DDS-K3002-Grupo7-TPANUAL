@@ -23,10 +23,14 @@ public class Servicio {
     this.entidad = entidad;
   }
 
+
   public void agregarIncidente(Incidente incidente){
     incidentes.add(incidente);
     entidad.reportarIncidente(incidente);
   }
 
+  public String getDescripcion() {
+    return descripcion;
+  }
 }
 

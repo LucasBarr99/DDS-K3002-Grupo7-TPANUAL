@@ -136,9 +136,19 @@ class Usuario{
      Ubicacion ubicacion
      List<Miembro> membresias
      List<Servicio> serviciosDeInteres
+     Notificacion servicioNotificacion
 
 }
 }
+
+package "Servicios Externos"{
+    class Notificacion{
+         notificar(String mensaje, String numero, String mailDestino, String asunto)
+
+    }
+
+}
+
 
 
 
@@ -170,6 +180,7 @@ OrganismoDeControl -->"*" Entidad
 Usuario --> Ubicacion
 Usuario -->"*" Miembro
 Usuario -->"*" Servicio
+Usuario --> Notificacion
 
 Ubicacion --> TipoLocalizacion
 
