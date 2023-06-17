@@ -6,6 +6,7 @@ import Entidades.Entidad;
 import Establecimientos.Establecimiento;
 import Incidentes.EstadoIncidentes;
 import Incidentes.Incidente;
+import Repositorios.RepoIncidentes;
 
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class Servicio {
 
   public void agregarIncidente(Incidente incidente){
     incidentes.add(incidente);
+    RepoIncidentes.getInstance().agregarIncidente(incidente);
     entidad.reportarIncidente(incidente);
   }
 
