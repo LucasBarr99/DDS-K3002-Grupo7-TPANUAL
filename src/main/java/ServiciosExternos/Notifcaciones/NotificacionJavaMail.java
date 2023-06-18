@@ -1,5 +1,7 @@
 package ServiciosExternos.Notifcaciones;
 
+import utils.TokenPropertiesUtil;
+
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
@@ -26,8 +28,8 @@ public class NotificacionJavaMail extends Notificacion {
     prop.put("mail.smtp.socketFactory.port", "465");
     prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
-    String username = "info.incidentes.sacmr@gmail.com"; //mail emisor
-    String password = "pgzwcbuaencfghge"; //constrasenia del mail emisor
+    String username = TokenPropertiesUtil.getString("t.mailuser"); //mail emisor
+    String password = TokenPropertiesUtil.getString("t.mailpass"); //constrasenia del mail emisor
 
     Session session = Session.getInstance(prop, new Authenticator() {
       @Override
@@ -45,7 +47,6 @@ public class NotificacionJavaMail extends Notificacion {
       throw new RuntimeException("No se pudo enviar el mail");
     }
   }
-
   private static Message prepararMessage(Session session,
                                          String myAccountEmail,
                                          String direccionMail,
