@@ -15,7 +15,7 @@ public class NotificacionTwillio extends Notificacion {
   }
 
   private void enviarMensaje(String numero, String mensaje, String asunto){
-      configuruarTwillio();
+      configurarTwillio();
       Message message = Message.creator(
               new PhoneNumber("whatsapp:"+numero),
               new PhoneNumber("whatsapp:"+TokenPropertiesUtil.getString("t.wappNumber")),
@@ -24,7 +24,7 @@ public class NotificacionTwillio extends Notificacion {
           .create();
     }
 
-  private void configuruarTwillio() {
+  private void configurarTwillio() {
     Twilio.init(
         TokenPropertiesUtil.getString("t.wappSid"),
         TokenPropertiesUtil.getString("t.wappAuth")

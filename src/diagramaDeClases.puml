@@ -72,7 +72,7 @@ class Organizacion{
 
 package "Establecimientos"{
 
-class Establecimiento{
+abstract class Establecimiento{
     String nombre
     Ubicacion ubicacion
     List<Servicio> servicios
@@ -139,16 +139,27 @@ class Usuario{
      Notificacion servicioNotificacion
 
 }
+class TipoUsuario{
+    DE_SERVICIO
+    OBSERVADOR
 }
 
-package "Servicios Externos"{
+}
+
+package "Notificaciones"{
     class Notificacion{
          notificar(String mensaje, String numero, String mailDestino, String asunto)
 
     }
-
 }
-
+package "Servicios de Notificacion"{
+    class NotificacionTwillio{
+    notificar(String mensaje, String numero, String mailDestino, String asunto)
+       }
+    class NotificacionMail{
+    notificar(String mensaje, String numero, String mailDestino, String asunto)
+       }
+}
 
 
 
@@ -181,6 +192,7 @@ Usuario --> Ubicacion
 Usuario -->"*" Miembro
 Usuario -->"*" Servicio
 Usuario --> Notificacion
+Usuario --> TipoUsuario
 
 Ubicacion --> TipoLocalizacion
 
@@ -199,7 +211,10 @@ Establecimiento --> Ubicacion
 Miembro -->"*" Incidente
 
 Incidente --> EstadoIncidentes
-Incidente --> EstadoIncidentes
 
 Sucursal --> TipoSucursal
+
+NotificacionTwillio --|>  Notificacion
+NotificacionMail --|> Notificacion
+
 @endum
