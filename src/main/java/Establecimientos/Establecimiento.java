@@ -1,7 +1,7 @@
 package Establecimientos;
 
-import Comunidades.Usuario;
-import Incidentes.Incidente;
+import Personas.Interesado;
+import Personas.Usuario;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 
@@ -11,7 +11,7 @@ public abstract class Establecimiento {
   String nombre;
   Ubicacion ubicacion;
   List<Servicio> servicios;
-  List<Usuario> interesados;
+  List<Interesado> interesados;
 
 
 

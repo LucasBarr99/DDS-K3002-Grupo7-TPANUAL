@@ -1,18 +1,18 @@
 package Entidades;
 
-import Comunidades.Usuario;
+import Personas.Interesado;
+import Personas.Usuario;
 import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
-import Servicios.Servicio;
 
 import java.util.List;
 
 public class Entidad {
   String nombre;
   List<Ubicacion> ubicacion;
-  List<Usuario> interesados;
+  List<Interesado> interesados;
 
-  public Entidad(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
+  public Entidad(String nombre, List<Ubicacion> ubicacion, List<Interesado> interesados) {
     this.nombre = nombre;
     this.ubicacion = ubicacion;
     this.interesados = interesados;

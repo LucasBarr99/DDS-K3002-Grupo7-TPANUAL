@@ -1,4 +1,4 @@
-package Comunidades;
+package Personas;
 
 import Excepciones.ContraseñaInvalidaException;
 import Incidentes.Incidente;
@@ -9,7 +9,7 @@ import Validadores.ValidadorContrasenias;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Usuario {
+public class Usuario implements Interesado{
   public String nombre;
   public String contraseña;
 

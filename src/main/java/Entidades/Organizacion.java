@@ -1,6 +1,7 @@
 package Entidades;
 
-import Comunidades.Usuario;
+import Personas.Interesado;
+import Personas.Usuario;
 import Establecimientos.Sucursal;
 import Localizaciones.Ubicacion;
 
@@ -10,7 +11,7 @@ public class Organizacion extends Entidad {
 
   List<Sucursal> sucursales;
 
-  public Organizacion(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
+  public Organizacion(String nombre, List<Ubicacion> ubicacion, List<Interesado> interesados) {
     super(nombre, ubicacion, interesados);
   }
 }

@@ -1,6 +1,5 @@
-import Comunidades.Usuario;
+import Personas.Usuario;
 import Entidades.Entidad;
-import Entidades.LineaDeTransporte;
 
 import java.util.List;
 

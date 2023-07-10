@@ -1,6 +1,7 @@
 package Comunidades;
 
 import Incidentes.Incidente;
+import Personas.Usuario;
 import Servicios.Servicio;
 
 import java.util.List;

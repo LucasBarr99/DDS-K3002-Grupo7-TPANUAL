@@ -1,8 +1,7 @@
 package Entidades;
 
-import Comunidades.Usuario;
+import Personas.Usuario;
 import Establecimientos.Estacion;
-import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 
 import java.util.List;
