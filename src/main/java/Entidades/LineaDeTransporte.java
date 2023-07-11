@@ -1,5 +1,6 @@
 package Entidades;
 
+import Personas.Interesado;
 import Personas.Usuario;
 import Establecimientos.Estacion;
 import Localizaciones.Ubicacion;
@@ -16,7 +17,7 @@ public class LineaDeTransporte extends Entidad {
    MedioDeTransporte medioTransporte;
 
 
-  public LineaDeTransporte(String nombre, List<Ubicacion> ubicacion, List<Usuario> interesados) {
+  public LineaDeTransporte(String nombre, List<Ubicacion> ubicacion, List<Interesado> interesados) {
     super(nombre, ubicacion, interesados);
   }
 
