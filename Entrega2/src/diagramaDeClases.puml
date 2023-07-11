@@ -1,0 +1,167 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "Ubicacion"{
+class Localizacion{
+    TipoLocalizacion tipo
+    String nombre
+    int latitud
+    int longitud
+}
+enum TipoLocalizacion{
+    PROVINCIA
+    MUNICIPIO
+    DEPARTAMENTO
+}
+}
+package "Responsables Servicios"{
+
+    class Empresa{
+        Usuario usuario
+        List<Entidad> entidades
+        Usuario usuarioDesignado
+
+    }
+
+    class OrganismoDeControl{
+        Usuario usuario
+        List<Entidad> entidades
+        Usuario usuarioDesignado
+    }
+
+}
+package "Entidades"{
+
+class Entidad{
+    String nombre
+    List<Localizacion> localizacion
+    List<Usuario> interesados
+}
+
+class LineaDeTransporte{
+    Estacion origen
+    Estacion destino
+    List<Estacion> estaciones
+    MedioDeTransporte medioTransporte
+}
+Enum MedioDeTransporte{
+    SUBTERRANEO
+    FERROCARRIL
+}
+
+class Organizacion{
+    List<Sucursal> sucursales
+}
+}
+
+package "Establecimientos"{
+
+class Establecimiento{
+    String nombre
+    Localizacion localizacion
+    List<Servicio> servicios
+    List<Usuario> interesados
+
+}
+
+class Estacion{
+    String nombre
+    List<Servicio> servicios
+}
+class Sucursal{
+    String nombre
+    List<Servicio> servicios
+}
+
+}
+
+package "Servicios"{
+class Servicio{
+    String descripcion
+    List<Servicio> subServicios
+}
+
+class MedioElevacion{
+    PuntoElevacion origen
+    PuntoElevacion destino
+}
+
+Enum PuntoElevacion {
+    CALLE
+    ANDEN
+    BARRERA
+}
+}
+
+package "Comunidades"{
+class Comunidad{
+    List <Miembro> miembros
+    List <Usuario> administradores
+    List <Servicio> serviciosDeInteres
+}
+class Miembro{
+    String nombre
+    String apellido
+    String correo
+    Comunidad comunidad
+}
+
+
+}
+package "Personas"{
+class Usuario{
+     String nombre
+     String contraseña
+     Localizacion localizacion
+     List<Miembro> membresias
+     List<Servicio> serviciosDeInteres
+
+}
+}
+
+
+
+LineaDeTransporte -->"*" Estacion
+LineaDeTransporte --> MedioDeTransporte
+LineaDeTransporte --|> Entidad
+
+Servicio <|-- MedioElevacion
+Servicio --* Servicio
+
+MedioElevacion --> PuntoElevacion
+MedioElevacion --> PuntoElevacion
+
+
+Estacion --|> Establecimiento
+
+Comunidad -->"*" Miembro
+Comunidad -->"*" Usuario
+Comunidad -->"*" Servicio
+
+Miembro --> Comunidad
+
+Empresa --> Usuario
+Empresa -->"*" Entidad
+
+OrganismoDeControl --> Usuario
+OrganismoDeControl -->"*" Entidad
+
+Usuario --> Localizacion
+Usuario -->"*" Miembro
+Usuario -->"*" Servicio
+
+Localizacion --> TipoLocalizacion
+
+Organizacion -->"*" Sucursal
+Organizacion --|> Entidad
+
+
+Sucursal --|> Establecimiento
+
+Entidad -->"*" Usuario
+Entidad -->"*"Localizacion
+
+Establecimiento -->"*" Servicio
+Establecimiento --> Localizacion
+
+@endum
