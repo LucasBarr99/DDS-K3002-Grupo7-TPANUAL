@@ -1,0 +1,83 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class Ubicacion{
+    int latitud
+    int longitud
+}
+
+package "Servicios Publicos"{
+class LineaDeTransporte{
+    String nombre;
+    Estacion origen
+    Estacion destino
+    List<Estacion> estaciones
+    MedioDeTransporte medioTransporte
+}
+Enum MedioDeTransporte{
+    SUBTERRANEO
+    FERROCARRIL
+}
+
+
+
+class Estacion{
+    String nombre
+    Ubicacion ubicacion
+    List<Servicio> servicios
+}
+}
+
+package "Servicios"{
+class Servicio{
+    String descripcion
+    List<Servicio> subServicios
+}
+
+class MedioElevacion{
+    PuntoElevacion origen
+    PuntoElevacion destino
+}
+
+Enum PuntoElevacion {
+    CALLE
+    ANDEN
+    BARRERA
+}
+}
+
+package "Comunidades"{
+class Comunidad{
+    List <Miembro> miembros
+    List <Usuario> administradores
+    List <Servicio> serviciosDeInteres
+}
+class Miembro{
+    String nombre
+    String apellido
+    String correo
+    List<Comunidad> comunidades
+}
+
+class Usuario{
+     String nombre
+     String contraseña    
+
+}
+}
+
+LineaDeTransporte -->"*" Estacion
+LineaDeTransporte --> MedioDeTransporte
+Servicio <|-- MedioElevacion
+MedioElevacion --> PuntoElevacion
+MedioElevacion --> PuntoElevacion
+Estacion --> Ubicacion
+Estacion -->"*" Servicio
+Comunidad -->"*" Miembro
+Comunidad -->"*" Usuario
+Comunidad -->"*" Servicio
+Miembro -->"*" Comunidad
+
+
+@endum
