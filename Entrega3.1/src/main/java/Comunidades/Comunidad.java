@@ -1,0 +1,15 @@
+package Comunidades;
+
+import Incidentes.Incidente;
+import Personas.Usuario;
+import Servicios.Servicio;
+
+import java.util.List;
+
+public class Comunidad {
+  List<Miembro> miembros;
+  List<Servicio> serviciosDeInteres;
+  List <Usuario> administradores;
+  List <Incidente> incidentes;
+
+}
