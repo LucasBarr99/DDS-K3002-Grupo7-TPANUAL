@@ -1,10 +1,12 @@
 package Incidentes;
 
+import Comunidades.Comunidad;
 import Comunidades.Miembro;
 import Entidades.Entidad;
 import Servicios.Servicio;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Incidente {
     public String nombre;
@@ -48,5 +50,11 @@ public class Incidente {
     public Servicio getServicio(){
         return servicioAfectado;
     }
+
+    public List<Comunidad> comunidadesInvolucradasEnIncidente(){
+        return miembro.getComunidades();
+    }
+
+
 }
 
