@@ -1,5 +1,6 @@
 package Entidades;
 
+import Incidentes.NotificacionIncidente;
 import Personas.Interesado;
 import Personas.Usuario;
 import Incidentes.Incidente;
@@ -19,7 +20,10 @@ public class Entidad {
   }
 
   public void reportarIncidente(Incidente incidente){
-    interesados.forEach(interesado -> interesado.notificarIncidente(incidente));
+    interesados.forEach(interesado -> interesado.agregarNotificacionIncidente(new NotificacionIncidente(incidente, incidente.nombre, incidente.descripcion)));
   }
 
+  public void notificarInteresados(){
+    interesados.forEach(interesado -> interesado.notificar());
+  }
 }

@@ -23,6 +23,7 @@ public class Sucursal extends Establecimiento {
     this.tipoSucursal = tipoSucursal;
     this.ubicacion = ubicacion;
     this.organizacion = organizacion;
+
   }
 
 

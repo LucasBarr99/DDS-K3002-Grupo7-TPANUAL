@@ -8,12 +8,12 @@ import Servicios.Servicio;
 import java.util.List;
 
 public abstract class Establecimiento {
-  String nombre;
-  Ubicacion ubicacion;
-  List<Servicio> servicios;
-  List<Interesado> interesados;
+  public String nombre;
+  public Ubicacion ubicacion;
+  public List<Servicio> servicios;
+  public List<Interesado> interesados;
 
-
-
-
+  public void notificarInteresados(){
+    interesados.forEach(interesado -> interesado.notificar());
+  }
 }

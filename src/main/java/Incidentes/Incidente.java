@@ -31,6 +31,10 @@ public class Incidente {
         this.estado = EstadoIncidentes.CERRADO;
     }
 
+    public boolean estaCerrado(){
+        return estado.equals(EstadoIncidentes.CERRADO);
+    }
+
     public String getNombre() {
         return nombre;
     }

@@ -1,8 +1,10 @@
 package Personas;
 
 import Incidentes.Incidente;
+import Incidentes.NotificacionIncidente;
 
 public interface Interesado {
 
-  void notificarIncidente(Incidente incidente);
+  void notificar();
+  void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente);
 }

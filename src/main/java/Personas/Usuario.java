@@ -2,51 +2,63 @@ package Personas;
 
 import Excepciones.ContraseñaInvalidaException;
 import Incidentes.Incidente;
+import Incidentes.NotificacionIncidente;
+import Incidentes.RangoHorarioNotificacion;
 import Localizaciones.Ubicacion;
 import ServiciosExternos.Notifcaciones.Notificacion;
 import Validadores.ValidadorContrasenias;
+import com.twilio.rest.api.v2010.account.incomingphonenumber.Local;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.*;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Usuario implements Interesado{
+public class Usuario implements Interesado {
   public String nombre;
   public String contraseña;
 
   public Ubicacion ubicacion;
   public String correo;
   public String numero;
-
-  public LocalDateTime horarioNotificacion;
-
   public Notificacion servicioNotificacion;
 
-  public Usuario(String nombre, String contraseña, Ubicacion ubicacion, String correo, String numero) {
+  public List<NotificacionIncidente> notificacionesPendientes;
+
+  public List<RangoHorarioNotificacion> rangosDeNotificacion;
+
+  public Usuario(String nombre, String contrasenia, Ubicacion ubicacion, String correo, String numero, List<RangoHorarioNotificacion> rangosDeNotificacion) {
     this.nombre = nombre;
     ValidadorContrasenias validador = new ValidadorContrasenias();
-    try{
-      validador.validarContrasenia(contraseña);
-    }
-    catch (ContraseñaInvalidaException s){
-        // Enviar a componente que se encargue de mostarlo en pantalla;
+    try {
+      validador.validarContrasenia(contrasenia);
+    } catch (ContraseñaInvalidaException s) {
+      // Enviar a componente que se encargue de mostarlo en pantalla;
     }
 
-    this.contraseña = contraseña;
+    this.contrasenia = contrasenia;
     this.ubicacion = ubicacion;
     this.correo = correo;
     this.numero = numero;
   }
 
-  public void setHorarioNotificacion(LocalDateTime horarioNotificacion) {
-    this.horarioNotificacion = horarioNotificacion;
+  public boolean correspondeNotificar(){
+    return !notificacionesPendientes.isEmpty() && rangosDeNotificacion.stream().anyMatch(rango -> rango.estaDentroDeRango(LocalTime.now()));
   }
 
-  public void notificarIncidente(Incidente incidente) {
-    if (horarioNotificacion != null) {
-      if (LocalDateTime.now().equals(horarioNotificacion)) { // VERIFICAR
-        servicioNotificacion.notificar(incidente.getDescripcion(), numero, correo, incidente.nombre + " ha ocurrido en " + incidente.getServicio().getDescripcion());
-      }
+  public void notificar() {
+    if(this.correspondeNotificar()){
+        for (int i = 0; i < notificacionesPendientes.size(); i++) {
+          if (!notificacionesPendientes.get(i).getIncidente().estaCerrado()) {
+            notificacionesPendientes.forEach(notificacion -> servicioNotificacion.notificar(notificacion.getDescripcion(),
+                numero, correo, notificacion.getAsunto() + " ha ocurrido en " + notificacion.getDescripcion()));
+          }
+        }
+      notificacionesPendientes.clear();
     }
-    // TODO: VER QUE HACER ACA
+  }
+
+  @Override
+  public void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente) {
+    notificacionesPendientes.add(notificacionIncidente);
   }
 }
