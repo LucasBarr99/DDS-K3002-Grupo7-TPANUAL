@@ -15,7 +15,7 @@ import java.util.List;
 
 public class Usuario implements Interesado {
   public String nombre;
-  public String contraseña;
+  public String contrasenia;
 
   public Ubicacion ubicacion;
   public String correo;
@@ -39,6 +39,8 @@ public class Usuario implements Interesado {
     this.ubicacion = ubicacion;
     this.correo = correo;
     this.numero = numero;
+    this.notificacionesPendientes = new ArrayList();
+    this.rangosDeNotificacion = rangosDeNotificacion;
   }
 
   public boolean correspondeNotificar(){
@@ -62,3 +64,4 @@ public class Usuario implements Interesado {
     notificacionesPendientes.add(notificacionIncidente);
   }
 }
+
