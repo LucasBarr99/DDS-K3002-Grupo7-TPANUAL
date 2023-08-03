@@ -14,4 +14,5 @@ public class Empresa {
     this.entidades = entidades;
     this.usuarioDesginado = usuarioDesginado;
   }
+
 }
