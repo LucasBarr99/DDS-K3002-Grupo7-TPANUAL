@@ -1,0 +1,220 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package "Incidentes"{
+    enum EstadoIncidentes {
+        ABIERTO,
+        CERRADO
+    }
+    class Incidente {
+        LocalDate fechaApertura;
+        LocalDate fechaCierre;
+        Servicio servicioAfectado;
+        String observaciones;
+        EstadoIncidentes estado;
+        Miembro miembro;
+}
+}
+
+
+package "Localizaciones"{
+class Ubicacion{
+    TipoLocalizacion tipo
+    String nombre
+    int latitud
+    int longitud
+}
+enum TipoLocalizacion{
+    PROVINCIA
+    MUNICIPIO
+    DEPARTAMENTO
+}
+}
+package "Responsables Servicios"{
+
+    class Empresa{
+        Usuario usuario
+        List<Entidad> entidades
+        Usuario usuarioDesignado
+
+    }
+
+    class OrganismoDeControl{
+        Usuario usuario
+        List<Entidad> entidades
+        Usuario usuarioDesignado
+    }
+
+}
+package "Entidades"{
+
+class Entidad{
+    String nombre
+    List<Ubicacion> ubicacion
+    List<Usuario> interesados
+}
+
+class LineaDeTransporte{
+    Estacion origen
+    Estacion destino
+    List<Estacion> estaciones
+    MedioDeTransporte medioTransporte
+}
+Enum MedioDeTransporte{
+    SUBTERRANEO
+    FERROCARRIL
+}
+
+class Organizacion{
+    List<Sucursal> sucursales
+}
+}
+
+package "Establecimientos"{
+
+abstract class Establecimiento{
+    String nombre
+    Ubicacion ubicacion
+    List<Servicio> servicios
+    List<Usuario> interesados
+
+}
+class Estacion{
+    String nombre
+    List<Servicio> servicios
+}
+class Sucursal{
+    String nombre
+    List<Servicio> servicios
+}
+
+enum TipoSucursal {
+   BANCO,
+   SUPERMERCADO,
+   CENTRO_COMUNAL
+ }
+
+}
+
+package "Servicios"{
+class Servicio{
+    String descripcion
+    List<Servicio> subServicios
+}
+
+class MedioElevacion{
+    PuntoElevacion origen
+    PuntoElevacion destino
+}
+
+Enum PuntoElevacion {
+    CALLE
+    ANDEN
+    BARRERA
+}
+}
+
+package "Comunidades"{
+class Comunidad{
+    List <Miembro> miembros
+    List <Usuario> administradores
+    List <Servicio> serviciosDeInteres
+}
+class Miembro{
+    String nombre
+    String apellido
+    String correo
+    Comunidad comunidad
+}
+
+
+}
+package "Personas"{
+class Usuario{
+     String nombre
+     String contraseña
+     Ubicacion ubicacion
+     List<Miembro> membresias
+     List<Servicio> serviciosDeInteres
+     Notificacion servicioNotificacion
+
+}
+class TipoUsuario{
+    DE_SERVICIO
+    OBSERVADOR
+}
+
+}
+
+package "Notificaciones"{
+    class Notificacion{
+         notificar(String mensaje, String numero, String mailDestino, String asunto)
+
+    }
+}
+package "Servicios de Notificacion"{
+    class NotificacionTwillio{
+    notificar(String mensaje, String numero, String mailDestino, String asunto)
+       }
+    class NotificacionMail{
+    notificar(String mensaje, String numero, String mailDestino, String asunto)
+       }
+}
+
+
+
+LineaDeTransporte -->"*" Estacion
+LineaDeTransporte --> MedioDeTransporte
+LineaDeTransporte --|> Entidad
+
+Servicio <|-- MedioElevacion
+Servicio --* Servicio
+
+MedioElevacion --> PuntoElevacion
+MedioElevacion --> PuntoElevacion
+
+
+Estacion --|> Establecimiento
+
+Comunidad -->"*" Miembro
+Comunidad -->"*" Usuario
+Comunidad -->"*" Servicio
+
+Miembro --> Comunidad
+
+Empresa --> Usuario
+Empresa -->"*" Entidad
+
+OrganismoDeControl --> Usuario
+OrganismoDeControl -->"*" Entidad
+
+Usuario --> Ubicacion
+Usuario -->"*" Miembro
+Usuario -->"*" Servicio
+Usuario --> Notificacion
+Usuario --> TipoUsuario
+
+Ubicacion --> TipoLocalizacion
+
+Organizacion -->"*" Sucursal
+Organizacion --|> Entidad
+
+
+Sucursal --|> Establecimiento
+
+Entidad -->"*" Usuario
+Entidad -->"*"Ubicacion
+
+Establecimiento -->"*" Servicio
+Establecimiento --> Ubicacion
+
+Miembro -->"*" Incidente
+
+Incidente --> EstadoIncidentes
+
+Sucursal --> TipoSucursal
+
+NotificacionTwillio --|>  Notificacion
+NotificacionMail --|> Notificacion
+
+@endum

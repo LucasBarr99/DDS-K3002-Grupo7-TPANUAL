@@ -1,0 +1,40 @@
+package TareasProgramables;
+
+import Repositorios.RepoEntidades;
+import Repositorios.RepoEstablecimientos;
+import ServiciosExternos.Notifcaciones.NotificacionJavaMail;
+import org.quartz.*;
+import org.quartz.impl.StdSchedulerFactory;
+
+import static org.quartz.JobBuilder.newJob;
+import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
+import static org.quartz.TriggerBuilder.newTrigger;
+
+public class NotificacionPendiente {
+
+  public static void main(String[] args) throws SchedulerException {
+
+    Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+
+    scheduler.start();
+
+    JobDetail job = newJob(NotificacionDeIncidente.class)
+        .withIdentity("notificacion-incidente")
+        .build();
+      SimpleTrigger trigger =  newTrigger().withIdentity("trigger-notificacion")
+        .startNow()
+        .withSchedule(simpleSchedule().withIntervalInMinutes(15).repeatForever())
+        .build();
+
+    scheduler.scheduleJob(job, trigger);
+  }
+
+
+  public static class NotificacionDeIncidente implements Job {
+    @Override
+    public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+      RepoEstablecimientos.getInstance().getEstablecimientos().forEach(establecimiento -> establecimiento.notificarInteresados());
+      RepoEntidades.getInstance().getEntidades().forEach(entidad -> entidad.notificarInteresados());
+    }
+  }
+}
