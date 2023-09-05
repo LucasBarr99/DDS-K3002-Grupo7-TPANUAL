@@ -13,7 +13,12 @@ import static org.quartz.TriggerBuilder.newTrigger;
 public class NotificacionPendiente {
 
   public static void main(String[] args) throws SchedulerException {
+    NotificacionPendiente proceso = new NotificacionPendiente();
+    proceso.comenzar();
 
+  }
+
+  public void comenzar() throws SchedulerException{
     Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
     scheduler.start();
@@ -21,14 +26,13 @@ public class NotificacionPendiente {
     JobDetail job = newJob(NotificacionDeIncidente.class)
         .withIdentity("notificacion-incidente")
         .build();
-      SimpleTrigger trigger =  newTrigger().withIdentity("trigger-notificacion")
+    SimpleTrigger trigger =  newTrigger().withIdentity("trigger-notificacion")
         .startNow()
         .withSchedule(simpleSchedule().withIntervalInMinutes(15).repeatForever())
         .build();
 
     scheduler.scheduleJob(job, trigger);
   }
-
 
   public static class NotificacionDeIncidente implements Job {
     @Override
