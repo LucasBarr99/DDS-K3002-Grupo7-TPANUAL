@@ -47,8 +47,8 @@ public class Repositorio<E> implements WithGlobalEntityManager {
   public E buscar(int id) {
 
     List lista = entityManager()
-        .createQuery("from " + nombreTabla + " where id = :id_buscado")
-        .setParameter("id_buscado", id)
+        .createQuery("from " + nombreTabla + " where id =: idBuscado")
+        .setParameter("idBuscado", id)
         .getResultList();
 
     if(lista.isEmpty()){

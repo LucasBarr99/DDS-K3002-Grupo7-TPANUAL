@@ -10,15 +10,8 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "Estaciones")
-public class Estacion extends EntidadPersistente {
-
-  @Column
-  private String nombre;
-  @Transient
-  private Ubicacion ubicacion;
-  @Transient
-  private List<Servicio> servicios;
+@DiscriminatorValue("Estacion")
+public class Estacion extends Establecimiento {
   @Transient
   private LineaDeTransporte lineaDeTransporte;
 

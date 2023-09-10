@@ -5,6 +5,7 @@ import Personas.Interesado;
 import Personas.Usuario;
 import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
+import Servicios.Servicio;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
 TIPO,NOMBRE,ENTIDAD,TIPO_ENTIDAD
-Empresa,Trenes S.A,Tren Mitre,Linea de Transporte
+PrestadoresDeServicios.Empresa,Trenes S.A,Tren Mitre,Linea de Transporte
 Organismo de Control,Auditoria,DDS SRL,Organizacion
-Empresa,SANS SRL,GDD S.A.,Organizacion
+PrestadoresDeServicios.Empresa,SANS SRL,GDD S.A.,Organizacion

@@ -24,6 +24,15 @@
         <class>Incidentes.EstadoIncidentes</class>
         <class>Comunidades.Comunidad</class>
         <class>Servicios.Servicio</class>
+        <class>Servicios.MedioElevacion</class>
+        <class>Entidades.Entidad</class>
+        <class>Entidades.LineaDeTransporte</class>
+        <class>Entidades.Organizacion</class>
+        <class>Establecimientos.Establecimiento</class>
+        <class>Establecimientos.Estacion</class>
+        <class>Establecimientos.Sucursal</class>
+        <class>PrestadoresDeServicios.Empresa</class>
+        <class>PrestadoresDeServicios.OrganismoDeControl</class>
 
 
 

@@ -34,7 +34,7 @@ public class TestParser {
     List<DatosParser> datos = new ArrayList<>();
     datos = parser.parsearCSV("src/main/java/CargaDeDatosCSV/datos.csv");
     DatosParser dato = datos.get(0);
-    assertEquals("Empresa",dato.getTipo());
+    assertEquals("PrestadoresDeServicios.Empresa",dato.getTipo());
     assertEquals("Trenes S.A",dato.getNombre());
     assertEquals("Tren Mitre",dato.getEntidad());
     assertEquals(TipoEntidad.LINEA_DE_TRANSPORTE,dato.getTipoEntidad());

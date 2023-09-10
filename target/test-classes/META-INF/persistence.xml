@@ -12,7 +12,6 @@
         <class>Comunidades.Miembro</class>
         <class>Personas.Invitado</class>
         <class>Personas.Interesado</class>
-        <class>Establecimientos.Estacion</class>
         <class>ServiciosExternos.Notifcaciones.Notificacion</class>
         <class>ServiciosExternos.Notifcaciones.NotificacionJavaMail</class>
         <class>ServiciosExternos.Notifcaciones.NotificacionTwillio</class>
@@ -20,10 +19,18 @@
         <class>Incidentes.NotificacionIncidente</class>
         <class>Incidentes.Incidente</class>
         <class>Localizaciones.Ubicacion</class>
-        <class>Localizaciones.Ubicacion</class>
         <class>Incidentes.EstadoIncidentes</class>
         <class>Comunidades.Comunidad</class>
         <class>Servicios.Servicio</class>
+        <class>Servicios.MedioElevacion</class>
+        <class>Entidades.Entidad</class>
+        <class>Entidades.LineaDeTransporte</class>
+        <class>Entidades.Organizacion</class>
+        <class>Establecimientos.Establecimiento</class>
+        <class>Establecimientos.Estacion</class>
+        <class>Establecimientos.Sucursal</class>
+        <class>PrestadoresDeServicios.Empresa</class>
+        <class>PrestadoresDeServicios.OrganismoDeControl</class>
 
 
 
@@ -50,6 +57,7 @@
             <property name="hibernate.format_sql" value="true"/>
             <property name="use_sql_comments" value="true"/>
             <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+
         </properties>
 
     </persistence-unit>

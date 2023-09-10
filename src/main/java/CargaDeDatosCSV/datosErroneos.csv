@@ -1,4 +1,4 @@
 Tip,Nomb,Linea Transporte,Estacion_Origen,Estacion_Destino,Medio_de_Transporte
-Empresa,Trenes S.A,Tren Mitre,Callao,Carachapay,Ferrocarril
+PrestadoresDeServicios.Empresa,Trenes S.A,Tren Mitre,Callao,Carachapay,Ferrocarril
 Organismo de Control,Auditoria,Linea B,Cachimayo,Camarones,Subterraneo
-Empresa,SANS SRL,Linea A,Jonte,Chimborazo,Subterraneo
+PrestadoresDeServicios.Empresa,SANS SRL,Linea A,Jonte,Chimborazo,Subterraneo

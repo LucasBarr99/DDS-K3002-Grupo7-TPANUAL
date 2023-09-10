@@ -5,9 +5,11 @@ import Personas.Usuario;
 import Establecimientos.Estacion;
 import Localizaciones.Ubicacion;
 
+import javax.persistence.*;
 import java.util.List;
 
-
+@Entity
+@DiscriminatorValue("LineaDeTransporte")
 public class LineaDeTransporte extends Entidad {
   String nombre;
    Estacion origen;

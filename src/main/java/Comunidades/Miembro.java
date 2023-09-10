@@ -33,9 +33,9 @@ public class Miembro extends EntidadPersistente {
   */
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
-      name = "Servicio_Notificacion_Por_Miembro",
-      joinColumns = { @JoinColumn(name = "id_miembro") },
-      inverseJoinColumns = { @JoinColumn(name = "id_servicio") }
+      name = "ServicioNotificacionPorMiembro",
+      joinColumns = { @JoinColumn(name = "idMiembro") },
+      inverseJoinColumns = { @JoinColumn(name = "idServicio") }
   )
   List<Notificacion> serviciosDeNotificacion;
 
