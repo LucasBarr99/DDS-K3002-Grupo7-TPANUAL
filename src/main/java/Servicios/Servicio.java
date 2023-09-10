@@ -8,19 +8,23 @@ import Incidentes.Incidente;
 import Persistencia.EntidadPersistente;
 import Repositorios.RepoIncidentes;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import java.util.List;
 import java.util.stream.Collectors;
 @Entity
 @Table(name = "Servicios")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
 public class Servicio extends EntidadPersistente {
+
   String descripcion;
-  @Transient
+  @OneToMany
+  @JoinColumn(name = "idServicio")
   List<Servicio> subServicios;
+
   @Transient
   Entidad entidad;
+
   @Transient
   List<Incidente> incidentes;
 

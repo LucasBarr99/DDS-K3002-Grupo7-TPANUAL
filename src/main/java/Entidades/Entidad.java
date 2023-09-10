@@ -1,6 +1,7 @@
 package Entidades;
 
 import Incidentes.NotificacionIncidente;
+import Persistencia.EntidadPersistente;
 import Personas.Interesado;
 import Personas.Usuario;
 import Incidentes.Incidente;
@@ -23,6 +24,13 @@ public class Entidad extends EntidadPersistente {
 
   @ElementCollection
   List<Ubicacion> ubicacion;
+
+  @ManyToMany(cascade = { CascadeType.ALL })
+  @JoinTable(
+          name = "EntidadPorInteresado",
+          joinColumns = { @JoinColumn(name = "idEntidad") },
+          inverseJoinColumns = { @JoinColumn(name = "idInteresado") }
+  )
   List<Interesado> interesados;
 
   public Entidad(String nombre, List<Ubicacion> ubicacion, List<Interesado> interesados) {
@@ -31,6 +39,7 @@ public class Entidad extends EntidadPersistente {
     this.interesados = interesados;
   }
 
+  public Entidad(){}
   public void reportarIncidente(Incidente incidente){
     interesados.forEach(interesado -> interesado.agregarNotificacionIncidente(new NotificacionIncidente(incidente, incidente.nombre, incidente.descripcion)));
   }
