@@ -7,10 +7,21 @@ import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;
 
+import javax.persistence.*;
 import java.util.List;
-
-public class Entidad {
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="tipoEntidad")
+@Table(name = "Entidad")
+public class Entidad extends EntidadPersistente {
+  @Column(name = "NombreEntidad")
   String nombre;
+
+  @OneToMany(cascade = { CascadeType.ALL })
+  @JoinColumn(name = "idEstablecimiento")
+  List<Servicio> servicios;
+
+  @ElementCollection
   List<Ubicacion> ubicacion;
   List<Interesado> interesados;
 

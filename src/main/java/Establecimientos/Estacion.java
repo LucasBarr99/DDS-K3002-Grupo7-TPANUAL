@@ -21,9 +21,4 @@ public class Estacion extends Establecimiento {
     this.ubicacion = ubicacion;
     this.lineaDeTransporte = lineaDeTransporte;
   }
-
-
-  public String getNombre() {
-    return nombre;
-  }
 }

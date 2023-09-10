@@ -48,6 +48,9 @@ public class Servicio extends EntidadPersistente {
     entidad.reportarIncidente(incidente);
   }
 
+  public void setDescripcion(String descripcionN){
+    descripcion = descripcionN;
+  }
   public String getDescripcion() {
     return descripcion;
   }

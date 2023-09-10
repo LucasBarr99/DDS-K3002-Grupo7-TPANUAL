@@ -28,6 +28,7 @@ public class Sucursal extends Establecimiento{
 
   }
 
+  public Sucursal() {
 
-
+  }
 }

@@ -19,18 +19,18 @@ public abstract class Interesado extends EntidadPersistente {
 
 
   @OneToMany(cascade = {CascadeType.ALL})
-  @JoinColumn(name = "id_interesado")
+  @JoinColumn(name = "idinteresado")
   private List<Miembro> membresias;
 
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
-      name = "Servicio_Por_Interesado",
-      joinColumns = { @JoinColumn(name = "id_interesado") },
-      inverseJoinColumns = { @JoinColumn(name = "id_servicio") }
+      name = "ServicioPorInteresado",
+      joinColumns = { @JoinColumn(name = "idinteresado") },
+      inverseJoinColumns = { @JoinColumn(name = "idservicio") }
   )
   public List<Servicio> serviciosDeInteres;
   @OneToMany(cascade = {CascadeType.ALL})
-  @JoinColumn(name = "id_interesado")
+  @JoinColumn(name = "idinteresado")
   public List<NotificacionIncidente> notificacionesPendientes;
   public void notificar(){}
   public void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente){}

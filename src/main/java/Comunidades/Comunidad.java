@@ -12,17 +12,17 @@ import java.util.List;
 public class Comunidad extends EntidadPersistente {
 
   @OneToMany(cascade = { CascadeType.ALL })
-  @JoinColumn(name = "id_comunidad")
+  @JoinColumn(name = "idcomunidad")
   private List<Miembro> miembros;
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
-      name = "Servicio_Por_Comunidad",
-      joinColumns = { @JoinColumn(name = "id_comunidad") },
-      inverseJoinColumns = { @JoinColumn(name = "id_servicio") }
+      name = "ServicioPorComunidad",
+      joinColumns = { @JoinColumn(name = "idcomunidad") },
+      inverseJoinColumns = { @JoinColumn(name = "idservicio") }
   )
   private List<Servicio> serviciosDeInteres;
   @OneToMany(cascade = {CascadeType.ALL})
-  @JoinColumn(name = "id_comunidad_admin")
+  @JoinColumn(name = "idcomunidadadmin")
   private List <Usuario> administradores;
 
 

@@ -27,9 +27,9 @@ public class Usuario extends Interesado {
   public String numero;
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
-      name = "Servicio_Notificacion_Por_Usuario",
-      joinColumns = { @JoinColumn(name = "id_usuario") },
-      inverseJoinColumns = { @JoinColumn(name = "id_servicio") }
+      name = "ServicioNotificacionPorUsuario",
+      joinColumns = { @JoinColumn(name = "idusuario") },
+      inverseJoinColumns = { @JoinColumn(name = "idservicio") }
   )
   public List<Notificacion> serviciosDeNotificacion;
 
