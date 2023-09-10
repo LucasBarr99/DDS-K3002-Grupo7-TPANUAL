@@ -1,9 +1,11 @@
 package Comunidades;
 
 import Incidentes.Incidente;
+import Persistencia.EntidadPersistente;
 import Personas.Usuario;
 import Servicios.Servicio;
 
+import javax.persistence.*;
 import java.util.List;
 @Entity
 @Table(name = "Comunidades")
