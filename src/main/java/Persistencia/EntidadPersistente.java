@@ -3,6 +3,7 @@ package Persistencia;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.math.BigInteger;
 
 @MappedSuperclass
 public class EntidadPersistente {

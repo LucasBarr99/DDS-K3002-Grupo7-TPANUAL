@@ -1,6 +1,14 @@
 package ServiciosExternos.Notifcaciones;
 
-public abstract class Notificacion {
+import Persistencia.EntidadPersistente;
+
+import javax.persistence.*;
+
+@Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo")
+@Table(name= "Servicio Notificacion")
+public abstract class Notificacion extends EntidadPersistente {
   public void notificar(String mensaje, String numero, String mailDestino, String asunto){
   }
 }

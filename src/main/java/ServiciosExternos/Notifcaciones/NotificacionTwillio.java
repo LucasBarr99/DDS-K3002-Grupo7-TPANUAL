@@ -5,9 +5,13 @@ import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
 import utils.TokenPropertiesUtil;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 import java.net.URI;
 import java.math.BigDecimal;
-
+@Entity
+@DiscriminatorValue("Whatsapp")
 public class NotificacionTwillio extends Notificacion {
   @Override
   public void notificar(String mensaje, String numero, String mailDestino, String asunto) {

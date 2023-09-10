@@ -1,8 +1,16 @@
 package Incidentes;
 
+import Persistencia.EntidadPersistente;
 import Servicios.Servicio;
 
-public class NotificacionIncidente {
+import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToOne;
+
+@Entity
+public class NotificacionIncidente extends EntidadPersistente {
+
+  @OneToOne
   public Incidente incidente;
   public String asunto;
   public String descripcion;
@@ -11,6 +19,10 @@ public class NotificacionIncidente {
     this.incidente = incidente;
     this.asunto = asunto;
     this.descripcion = descripcion;
+  }
+
+  public NotificacionIncidente() {
+
   }
 
   public Incidente getIncidente() {

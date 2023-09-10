@@ -8,6 +8,28 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>Establecimientos.Estacion</class>
+        <class>Personas.Usuario</class>
+        <class>Comunidades.Miembro</class>
+        <class>Personas.Invitado</class>
+        <class>Personas.Interesado</class>
+        <class>Establecimientos.Estacion</class>
+        <class>ServiciosExternos.Notifcaciones.Notificacion</class>
+        <class>ServiciosExternos.Notifcaciones.NotificacionJavaMail</class>
+        <class>ServiciosExternos.Notifcaciones.NotificacionTwillio</class>
+        <class>Incidentes.RangoHorarioNotificacion</class>
+        <class>Incidentes.NotificacionIncidente</class>
+        <class>Incidentes.Incidente</class>
+        <class>Localizaciones.Ubicacion</class>
+        <class>Localizaciones.Ubicacion</class>
+        <class>Incidentes.EstadoIncidentes</class>
+        <class>Comunidades.Comunidad</class>
+        <class>Servicios.Servicio</class>
+
+
+
+
+
+
 
 
         <properties>
@@ -27,7 +49,7 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="use_sql_comments" value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
         </properties>
 
     </persistence-unit>

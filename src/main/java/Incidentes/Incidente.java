@@ -3,18 +3,27 @@ package Incidentes;
 import Comunidades.Comunidad;
 import Comunidades.Miembro;
 import Entidades.Entidad;
+import Persistencia.EntidadPersistente;
 import Servicios.Servicio;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
+@Entity
+public class Incidente extends EntidadPersistente {
 
-public class Incidente {
     public String nombre;
+
     public LocalDate fechaApertura;
+
     public LocalDate fechaCierre;
+    @ManyToOne
     public Servicio servicioAfectado;
+
     public String descripcion;
+    @Enumerated
     public EstadoIncidentes estado;
+    @OneToOne
     public Miembro miembro;
 
     public Incidente(String nombre, LocalDate fechaApertura, LocalDate fechaCierre, Servicio servicioAfectado, String descripcion, EstadoIncidentes estado, Miembro miembro) {
@@ -25,6 +34,10 @@ public class Incidente {
         this.descripcion = descripcion;
         this.estado = estado;
         this.miembro = miembro;
+    }
+
+    public Incidente() {
+
     }
 
     void cerrar(){
@@ -55,8 +68,8 @@ public class Incidente {
         return servicioAfectado;
     }
 
-    public List<Comunidad> comunidadesInvolucradasEnIncidente(){
-        return miembro.getComunidades();
+    public Comunidad comunidadInvolucradaEnIncidente(){
+        return miembro.getComunidad();
     }
 
 

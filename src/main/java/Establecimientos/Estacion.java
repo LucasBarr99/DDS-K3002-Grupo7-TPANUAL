@@ -13,7 +13,6 @@ import java.util.List;
 @Table(name = "Estaciones")
 public class Estacion extends EntidadPersistente {
 
-
   @Column
   private String nombre;
   @Transient

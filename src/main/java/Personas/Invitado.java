@@ -6,18 +6,22 @@ import Incidentes.NotificacionIncidente;
 import Servicios.Servicio;
 import ServiciosExternos.Notifcaciones.NotificacionJavaMail;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
+@Entity
+@Table(name = "Invitados")
+public class Invitado extends Interesado {
 
-public class Invitado implements Interesado {
-  String nombre;
-  String apellido;
-  String correo;
-  List<Servicio> servicios;
-  List<Miembro> membresias;
-  List<NotificacionIncidente> notificacionesPendientes;
-  NotificacionJavaMail servicioNotificacion;
 
+
+
+  @OneToOne //Cambiar a OneTone cuando se sepa porque rompe
+  private NotificacionJavaMail servicioNotificacion;
+
+  public Invitado() {
+
+  }
 
   public boolean correspondeNotificar(){
     return !notificacionesPendientes.isEmpty();

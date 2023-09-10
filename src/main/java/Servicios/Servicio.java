@@ -5,17 +5,28 @@ import Comunidades.Miembro;
 import Entidades.Entidad;
 import Incidentes.EstadoIncidentes;
 import Incidentes.Incidente;
+import Persistencia.EntidadPersistente;
 import Repositorios.RepoIncidentes;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.List;
 import java.util.stream.Collectors;
-
-public class Servicio {
+@Entity
+@Table(name = "Servicios")
+public class Servicio extends EntidadPersistente {
   String descripcion;
+  @Transient
   List<Servicio> subServicios;
+  @Transient
   Entidad entidad;
+  @Transient
   List<Incidente> incidentes;
 
+  public Servicio() {
+
+  }
 
 
   public void sugerirRevision(Miembro miembroANotificar){
@@ -50,7 +61,7 @@ public class Servicio {
   }
 
   public List<Incidente> incidentesQueInteresanA(Miembro miembro){
-    return incidentesAbiertos().stream().filter(incidente -> miembro.estaEnAlgunaComunidadDe(incidente.comunidadesInvolucradasEnIncidente())).collect(Collectors.toList());
+    return incidentesAbiertos().stream().filter(incidente -> miembro.estaEnComunidad(incidente.comunidadInvolucradaEnIncidente())).collect(Collectors.toList());
   }
   public boolean correspondeSugerenciaA(Miembro miembroASugerir){
     return incidentesQueInteresanA(miembroASugerir).size() > 0;

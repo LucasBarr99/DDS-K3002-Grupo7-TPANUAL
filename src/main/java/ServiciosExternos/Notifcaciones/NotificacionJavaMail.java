@@ -5,10 +5,14 @@ import utils.TokenPropertiesUtil;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 import java.util.Properties;
 
-
+@Entity
+@DiscriminatorValue("Mail")
 public class NotificacionJavaMail extends Notificacion {
 
   public NotificacionJavaMail() {

@@ -3,37 +3,70 @@ package Comunidades;
 import Comunidades.Comunidad;
 import Entidades.LineaDeTransporte;
 import Incidentes.Incidente;
+import Persistencia.EntidadPersistente;
+import Personas.Interesado;
 import Servicios.Servicio;
 import ServiciosExternos.Notifcaciones.Notificacion;
 
+import javax.persistence.*;
 import java.util.List;
+@Entity
+@Table(name = "Miembros")
+public class Miembro extends EntidadPersistente {
+  private String nombre;
+  private String apellido;
+  private String correo;
 
-public class Miembro {
-  String nombre;
-  String apellido;
-  String correo;
-  List<Comunidad> comunidades;
-  List<LineaDeTransporte> lineasDeInteres;
+  @Transient
+  private Comunidad comunidad;
+
+  // Al final decidimos sacarlo ya que los servicios en los que va a estar interesado el miembro estan dados por
+  // la comunidad a la que pertenece, entonces cada vez que ocurra un incidente en un servicio, la comunidad
+  // va a notificar a sus miembros.
+  //List<LineaDeTransporte> lineasDeInteres;
+
+  @Enumerated
   TipoUsuario tipo;
-  Notificacion servicioNotificacion;
+  /*
+  @OneToMany
+  @JoinColumn(name = "id_miembro")
+  */
+  @ManyToMany(cascade = { CascadeType.ALL })
+  @JoinTable(
+      name = "Servicio_Notificacion_Por_Miembro",
+      joinColumns = { @JoinColumn(name = "id_miembro") },
+      inverseJoinColumns = { @JoinColumn(name = "id_servicio") }
+  )
+  List<Notificacion> serviciosDeNotificacion;
 
 
+  public Miembro() {
 
+  }
+
+  public Miembro(String nombre, String apellido, String correo, Comunidad comunidades, TipoUsuario tipo, List<Notificacion> serviciosDeNotificacion) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.correo = correo;
+    this.comunidad = comunidad;
+    this.tipo = tipo;
+    this.serviciosDeNotificacion = serviciosDeNotificacion;
+  }
 
   void reportarIncidenteEn(Servicio servicio, Incidente incidente){
       servicio.agregarIncidente(incidente);
   }
 
-  public List<Comunidad> getComunidades() {
-    return comunidades;
+  public Comunidad getComunidad() {
+    return comunidad;
   }
 
-  public boolean estaEnAlgunaComunidadDe(List<Comunidad> listaComunidades){
-    return comunidades.stream().anyMatch(comunidad -> listaComunidades.stream().anyMatch(comunidad1 -> comunidad.equals(comunidad1)));
+  public boolean estaEnComunidad(Comunidad comunidadInvolucradaEnIncidente){
+    return comunidadInvolucradaEnIncidente.sameId(getComunidad().getId());
   }
 
   public void notificarRevisionDeInicidente(Incidente incidente){
-    servicioNotificacion.notificar(incidente.getDescripcion(),"",correo, "Se sugiere revisar el servicio " + incidente.nombre);
+     serviciosDeNotificacion.forEach( servicio -> servicio.notificar(incidente.getDescripcion(),"",correo, "Se sugiere revisar el servicio " + incidente.nombre));
   }
 
 }
