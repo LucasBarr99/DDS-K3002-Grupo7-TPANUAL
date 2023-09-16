@@ -37,8 +37,8 @@ public class NotificacionPendiente {
   public static class NotificacionDeIncidente implements Job {
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-      RepoEstablecimientos.getInstance().getEstablecimientos().forEach(establecimiento -> establecimiento.notificarInteresados());
-      RepoEntidades.getInstance().getEntidades().forEach(entidad -> entidad.notificarInteresados());
+      RepoEstablecimientos.instance().todos().forEach(establecimiento -> establecimiento.notificarInteresados());
+      RepoEntidades.instance().todos().forEach(entidad -> entidad.notificarInteresados());
     }
   }
 }

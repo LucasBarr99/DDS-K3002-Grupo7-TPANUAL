@@ -1,32 +1,37 @@
 package Repositorios;
 
 import Entidades.Entidad;
+import Establecimientos.Estacion;
 import Incidentes.Incidente;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepoEntidades {
-  private static RepoEntidades _repoEntidades = null;
-  private List<Entidad> entidades = new ArrayList<Entidad>();
+public class RepoEntidades extends Repositorio<Entidad> {
+  private static final RepoEntidades INSTANCE = new RepoEntidades();
+  private List<Entidad> entidades = new ArrayList<>();
 
-  private RepoEntidades() {}
-
-  public static RepoEntidades getInstance() {
-    if (_repoEntidades == null) {
-      _repoEntidades = new RepoEntidades();
-      return _repoEntidades;
-    }
-    else
-      return _repoEntidades;
-
+  public static RepoEntidades instance() {
+    return INSTANCE;
   }
 
-  public List<Entidad> getEntidades(){
-    return entidades;
+  private RepoEntidades() {
+    super("Entidad");
   }
 
-  public void agregarIncidente(Entidad entidad){
-    this.entidades.add(entidad);
+  public void agregarEntidad(Entidad entidad) {
+    entityManager().persist(entidad);
+  }
+
+  public List<Entidad> obtenerEntidad(String nombre) {
+
+    String query = String.format("from Entidad where nombre='%s'", nombre);
+    return entityManager().createQuery(query).getResultList();
+  }
+
+  public Entidad obtenerEntidad(int id) {
+
+    String query = String.format("from Entidad where id='%s'", id);
+    return (Entidad) entityManager().createQuery(query).getResultList().get(0);
   }
 }

@@ -31,8 +31,9 @@ public class Invitado extends Interesado {
     if(correspondeNotificar()){
       for (int i = 0; i < notificacionesPendientes.size(); i++) {
         if (!notificacionesPendientes.get(i).getIncidente().estaCerrado()) {
-          notificacionesPendientes.forEach(notificacion -> servicioNotificacion.notificar(notificacion.getDescripcion(),
-              "", correo, notificacion.getAsunto() + " ha ocurrido en " + notificacion.getDescripcion()));
+          NotificacionIncidente notificacion = notificacionesPendientes.get(i);
+          servicioNotificacion.notificar(notificacion.getDescripcion(),
+              "0", correo, notificacion.getAsunto() + " ha ocurrido en " + notificacion.getDescripcion());
         }
       }
       notificacionesPendientes.clear();

@@ -48,7 +48,7 @@ public class Servicio extends EntidadPersistente {
 
   public void agregarIncidente(Incidente incidente){
     incidentes.add(incidente);
-    RepoIncidentes.getInstance().agregarIncidente(incidente);
+    RepoIncidentes.instance().agregarIncidente(incidente);
     entidad.reportarIncidente(incidente);
   }
 

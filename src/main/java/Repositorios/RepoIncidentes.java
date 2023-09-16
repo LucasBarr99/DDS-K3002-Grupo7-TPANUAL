@@ -1,34 +1,54 @@
 package Repositorios;
 
+import Establecimientos.Estacion;
 import Incidentes.EstadoIncidentes;
 import Incidentes.Incidente;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RepoIncidentes {
+public class RepoIncidentes extends Repositorio<Incidente> {
 
-  private static RepoIncidentes _repoIncidentes = null;
-  private List<Incidente> incidentes = new ArrayList<Incidente>();
+  private static final RepoIncidentes INSTANCE = new RepoIncidentes();
+  private List<Incidente> incidentes = new ArrayList<>();
 
-  private RepoIncidentes() {}
-
-  public static RepoIncidentes getInstance() {
-    if (_repoIncidentes == null) {
-      _repoIncidentes = new RepoIncidentes();
-      return _repoIncidentes;
-    }
-    else
-      return _repoIncidentes;
-
+  public static RepoIncidentes instance() {
+    return INSTANCE;
   }
 
-  public void agregarIncidente(Incidente incidente){
-    this.incidentes.add(incidente);
+  private RepoIncidentes() {
+    super("Incidente");
   }
 
-  public  List<Incidente> consultaIncidentesPorEstado(EstadoIncidentes estado){
-    return this.incidentes.stream().filter(incidente -> incidente.getEstado() == estado).collect(Collectors.toList());
+  public void agregarIncidente(Incidente incidente) {
+    entityManager().persist(incidente);
   }
+
+  public List<Incidente> obtenerIncidente(String nombre) {
+
+    String query = String.format("from Incidente where nombre='%s'", nombre);
+    return entityManager().createQuery(query).getResultList();
+  }
+
+  public Incidente obtenerIncidente(int id) {
+
+    String query = String.format("from Incidente where id='%s'", id);
+    return (Incidente) entityManager().createQuery(query).getResultList().get(0);
+  }
+
+  public Incidente obtenerIncidenteDeMiembro(int idMiembro) {
+
+    String query = String.format("from Incidente where miembro_id='%s'", idMiembro);
+    return (Incidente) entityManager().createQuery(query).getResultList().get(0);
+  }
+
+  public Incidente obtenerIncidenteDeServicio(int idServicio) {
+
+    String query = String.format("from Incidente where servicioAfectado_id='%s'", idServicio);
+    return (Incidente) entityManager().createQuery(query).getResultList().get(0);
+  }
+
 }
+

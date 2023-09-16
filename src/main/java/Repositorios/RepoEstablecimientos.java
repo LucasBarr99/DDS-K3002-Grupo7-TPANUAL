@@ -8,27 +8,31 @@ import Incidentes.Incidente;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RepoEstablecimientos {
-  private static RepoEstablecimientos _repoEstablecimientos = null;
-  private List<Establecimiento> establecimientos = new ArrayList<Establecimiento>();
+public class RepoEstablecimientos extends Repositorio<Establecimiento> {
+  private static final RepoEstablecimientos INSTANCE = new RepoEstablecimientos();
+  private List<Establecimiento> entidades = new ArrayList<>();
 
-  private RepoEstablecimientos() {}
-
-  public static RepoEstablecimientos getInstance() {
-    if (_repoEstablecimientos == null) {
-      _repoEstablecimientos = new RepoEstablecimientos();
-      return _repoEstablecimientos;
-    }
-    else
-      return _repoEstablecimientos;
-
+  public static RepoEstablecimientos instance() {
+    return INSTANCE;
   }
 
-  public List<Establecimiento> getEstablecimientos(){
-    return establecimientos;
+  private RepoEstablecimientos() {
+    super("Establecimiento");
   }
 
-  public void agregarIncidente(Establecimiento establecimiento){
-    this.establecimientos.add(establecimiento);
+  public void agregarEstablecimiento(Establecimiento establecimiento) {
+    entityManager().persist(establecimiento);
+  }
+
+  public List<Establecimiento> obtenerEstablecimiento(String nombre) {
+
+    String query = String.format("from Establecimiento where nombre='%s'", nombre);
+    return entityManager().createQuery(query).getResultList();
+  }
+
+  public Establecimiento obtenerEstablecimiento(int id) {
+
+    String query = String.format("from Establicimiento where id='%s'", id);
+    return (Establecimiento) entityManager().createQuery(query).getResultList().get(0);
   }
 }
