@@ -22,7 +22,8 @@ public class Servicio extends EntidadPersistente {
   @JoinColumn(name = "idServicio")
   List<Servicio> subServicios;
 
-  @Transient
+  @ManyToOne
+  @JoinColumn(name = "idEntidad")
   Entidad entidad;
 
   @Transient
@@ -40,6 +41,11 @@ public class Servicio extends EntidadPersistente {
 
   }
   public Servicio(String descripcion, List<Servicio> subServicios, Entidad entidad) {
+    this.descripcion = descripcion;
+    this.subServicios = subServicios;
+    this.entidad = entidad;
+  }
+  public Servicio(String descripcion, List<Servicio> subServicios) {
     this.descripcion = descripcion;
     this.subServicios = subServicios;
     this.entidad = entidad;

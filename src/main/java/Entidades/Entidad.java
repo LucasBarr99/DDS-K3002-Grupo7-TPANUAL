@@ -17,9 +17,11 @@ import java.util.List;
 public class Entidad extends EntidadPersistente {
   @Column(name = "NombreEntidad")
   String nombre;
-
+/*
   @OneToMany(cascade = { CascadeType.ALL })
   @JoinColumn(name = "idEstablecimiento")
+  */
+  @Transient
   List<Servicio> servicios;
 
   @ElementCollection
@@ -38,7 +40,12 @@ public class Entidad extends EntidadPersistente {
     this.ubicacion = ubicacion;
     this.interesados = interesados;
   }
-
+  public Entidad(String nombre, List<Ubicacion> ubicacion, List<Interesado> interesados, List<Servicio> servicios) {
+    this.nombre = nombre;
+    this.ubicacion = ubicacion;
+    this.interesados = interesados;
+    this.servicios = servicios;
+  }
   public Entidad(){}
   public void reportarIncidente(Incidente incidente){
     interesados.forEach(interesado -> interesado.agregarNotificacionIncidente(new NotificacionIncidente(incidente, incidente.nombre, incidente.descripcion)));
@@ -46,5 +53,9 @@ public class Entidad extends EntidadPersistente {
 
   public void notificarInteresados(){
     interesados.forEach(interesado -> interesado.notificar());
+  }
+
+  public void setServicios(List<Servicio> servicios) {
+    this.servicios = servicios;
   }
 }
