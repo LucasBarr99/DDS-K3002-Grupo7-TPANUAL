@@ -62,6 +62,15 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(incidente3);
       persist(incidente4);
       persist(incidente5);
+      persist(incidente6);
+      persist(incidente7);
+      persist(incidente8);
+      persist(incidente9);
+      persist(incidente10);
+      persist(incidente11);
+      persist(incidente12);
+      persist(incidente13);
+      persist(incidente14);
 
 
     });
