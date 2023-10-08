@@ -1,8 +1,7 @@
 package Comunidades;
 
-import Incidentes.Incidente;
 import Persistencia.EntidadPersistente;
-import Personas.Usuario;
+import Personas.Persona;
 import Servicios.Servicio;
 
 import javax.persistence.*;
@@ -23,10 +22,10 @@ public class Comunidad extends EntidadPersistente {
   private List<Servicio> serviciosDeInteres;
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idcomunidadadmin")
-  private List <Usuario> administradores;
+  private List <Persona> administradores;
 
 
-  public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Usuario> administradores) {
+  public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Persona> administradores) {
     this.miembros = miembros;
     this.serviciosDeInteres = serviciosDeInteres;
     this.administradores = administradores;

@@ -20,7 +20,14 @@ public class Informe extends EntidadPersistente {
       joinColumns = { @JoinColumn(name = "idinforme") },
       inverseJoinColumns = { @JoinColumn(name = "identidad") }
   )
+  @OrderColumn(name = "posicion")
   private List<Entidad> entidades;
+
+  @ManyToOne
+  @JoinColumn(name = "idCriterio")
+  private GeneradorInforme criterio;
+
+  private double valor;
 
 
   public Informe(String nombre, String descripcion, LocalDateTime fechaGeneracion, List<Entidad> entidades) {

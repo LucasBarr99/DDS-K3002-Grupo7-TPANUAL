@@ -2,10 +2,8 @@ package Establecimientos;
 
 import Persistencia.EntidadPersistente;
 import Personas.Interesado;
-import Personas.Usuario;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;
-import org.springframework.beans.factory.annotation.Value;
 
 import javax.persistence.*;
 import java.util.List;

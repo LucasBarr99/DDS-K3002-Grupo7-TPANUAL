@@ -1,7 +1,6 @@
 package Entidades;
 
 import Personas.Interesado;
-import Personas.Usuario;
 import Establecimientos.Estacion;
 import Localizaciones.Ubicacion;
 

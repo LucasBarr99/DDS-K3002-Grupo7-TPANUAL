@@ -1,7 +1,6 @@
 package Entidades;
 
 import Personas.Interesado;
-import Personas.Usuario;
 import Establecimientos.Sucursal;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;
@@ -10,7 +9,6 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import java.io.Serial;
 import java.util.List;
 
 @Entity

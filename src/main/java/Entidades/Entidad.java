@@ -3,7 +3,6 @@ package Entidades;
 import Incidentes.NotificacionIncidente;
 import Persistencia.EntidadPersistente;
 import Personas.Interesado;
-import Personas.Usuario;
 import Incidentes.Incidente;
 import Localizaciones.Ubicacion;
 import Servicios.Servicio;

@@ -2,7 +2,7 @@ package PrestadoresDeServicios;
 
 import Entidades.Entidad;
 import Persistencia.EntidadPersistente;
-import Personas.Usuario;
+import Personas.Persona;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,21 +15,21 @@ public class PrestadorDeServicio extends EntidadPersistente {
 
     @OneToOne
     @JoinColumn(name= "idPrestadorServicio")
-    Usuario usuario;
+    Persona persona;
     @OneToMany(cascade = { CascadeType.ALL })
     @JoinColumn(name = "idPrestadorServicio")
     List<Entidad> entidades;
     @OneToOne
     @JoinColumn(name= "idPrestadorServicioDesignado")
-    Usuario usuarioDesignado;
+    Persona personaDesignado;
 
 
     public PrestadorDeServicio(){}
 
-    public PrestadorDeServicio(String nombre, Usuario usuario, List<Entidad> entidades, Usuario usuarioDesignado) {
+    public PrestadorDeServicio(String nombre, Persona persona, List<Entidad> entidades, Persona personaDesignado) {
         this.nombre = nombre;
-        this.usuario = usuario;
+        this.persona = persona;
         this.entidades = entidades;
-        this.usuarioDesignado = usuarioDesignado;
+        this.personaDesignado = personaDesignado;
     }
 }

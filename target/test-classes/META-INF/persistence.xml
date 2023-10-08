@@ -8,9 +8,10 @@
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>Establecimientos.Estacion</class>
-        <class>Personas.Usuario</class>
+        <class>Personas.Persona</class>
         <class>Comunidades.Miembro</class>
         <class>Personas.Invitado</class>
+        <class>Personas.Usuario</class>
         <class>Personas.Interesado</class>
         <class>ServiciosExternos.Notifcaciones.Notificacion</class>
         <class>ServiciosExternos.Notifcaciones.NotificacionJavaMail</class>
@@ -32,6 +33,12 @@
         <class>PrestadoresDeServicios.Empresa</class>
         <class>PrestadoresDeServicios.OrganismoDeControl</class>
         <class>InformeRanking.Informe</class>
+        <class>InformeRanking.GeneradorInforme</class>
+        <class>InformeRanking.MayorCantidadDeIncidentesReportadosSemana</class>
+        <class>InformeRanking.MayorGradoImpactoProblematicas</class>
+        <class>InformeRanking.MayorTiempoPromedioDeCierreIncidentes</class>
+
+
 
 
 
