@@ -1,14 +1,15 @@
-package Login;
+package controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HomeController {
+public class LoginController {
 
   @GetMapping("/")
     public String home(){
-      return "Bienvenido, aun no se encuentra logueado";
+
+    return "Bienvenido, aun no se encuentra logueado";
     }
 
   @GetMapping("/secured")

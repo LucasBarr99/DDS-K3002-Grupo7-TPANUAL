@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Kool Form Pack | 404 Not Found Page</title>
+        <title>SACMR - Formulario De Contacto</title>
 
         <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,18 +16,14 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+        <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
 <!--
 
-Tooplate 2136 Kool Form Pack
 
-https://www.tooplate.com/view/2136-kool-form-pack
-
-Bootstrap 5 Form Pack Template
 
 -->
     </head>
@@ -45,7 +41,8 @@ Bootstrap 5 Form Pack Template
                                 <i class="bi-train-front"></i>
 
                                 <span>
-                                SACMR&nbsp; </span>
+                                SACMR
+                            </span>
                             </a>
 
                             <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
@@ -87,25 +84,35 @@ Bootstrap 5 Form Pack Template
                 <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
                     <nav>
                         <ul>
-                            <li>
-                                <a href="login.html">Login Form</a>
-                            </li>
+                            			<li>
+					<a href="login.html">Inicia sesión</a>
+					</li>
+						
+					<li>
+					<a href="Comunidades.html">Comunidades</a>
+					</li>
+						
+					<li>
+					<a href="">Carga masiva de entidades</a>
+					</li>
 
-                            <li>
-                                <a href="register.html">Create an account</a>
-                            </li>
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					Incidentes
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+					<li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+					<li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+					</ul>
+					</li>
 
-                            <li>
-                                <a href="password-reset.html">Password Reset</a>
-                            </li>
-
-                            <li>
-                                <a class="active" href="404.html">404 Page</a>
-                            </li>
-
-                            <li>
-                                <a href="contact.html">Contact Form</a>
-                            </li>
+					<li>
+					<a href="Rankings.html">Rankings</a>
+					</li>
+						
+					<li>
+					<a href="">Administrar Usuarios</a>
+					</li>
                         </ul>
                     </nav>
                 </div>
@@ -139,29 +146,65 @@ Bootstrap 5 Form Pack Template
             </div>
 
 
-            <section class="hero-section hero-bg d-flex justify-content-center align-items-center">
+            <section class="hero-section d-flex justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-8 col-12 text-center mx-auto">
-                            <h2 class="page-404-title">404</h2>
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <form class="custom-form contact-form" role="form" method="post">
+                                <h2 class="hero-title text-center mb-4 pb-2">Contact Form</h2>
 
-                            <h3>Page Not Found</h3>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+                                            
+                                            <label for="floatingInput">Full Name</label>
+                                        </div>
+                                    </div>
 
-                            <p>The page you are looking for doesn't exist or has been moved.</p>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating mb-4 p-0">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
 
-                            <a class="custom-btn btn mt-4" href="index.html">Back to Home</a>
+                                            <label for="email">Email address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating">
+                                            <textarea class="form-control" id="message" name="message" placeholder="Message"></textarea>
+                                            
+                                            <label for="floatingTextarea">Message</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-6 col-10 mx-auto">
+                                        <button type="submit" class="form-control">Send Message</button>
+                                    </div>
+                                </div>
+
+                            </form>
+                            
                         </div>
                     </div>
+                </div>
+
+                <div class="video-wrap">
+                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                        <source src="../videos/video3.mp4" type="video/mp4">
+
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
             </section>
         </main>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/countdown.js"></script>
-        <script src="js/init.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/countdown.js"></script>
+        <script src="../js/init.js"></script>
 
     </body>
 </html>

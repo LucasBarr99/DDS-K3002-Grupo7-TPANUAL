@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SACMR - Login</title>
+        <title>SACMR - Registro</title>
 
         <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,13 +16,12 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+        <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
 <!--
-
 
 
 -->
@@ -61,7 +60,7 @@
                                 </li>
                             </ul>
 
-                         
+                      
 
                             <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
 
@@ -79,18 +78,17 @@
                 
                 <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
                     <nav>
-                        <ul>
-                            <li>
-                                <a class="active" href="login.html">Inicia sesión</a>
-                            </li>
-
-                            		
+					<ul>
+					<li>
+					<a href="login.html">Inicia sesión</a>
+					</li>
+						
 					<li>
 					<a href="Comunidades.html">Comunidades</a>
 					</li>
 						
 					<li>
-					<a href="CargaMasiva.html">Carga masiva de entidades</a>
+					<a href="">Carga masiva de entidades</a>
 					</li>
 
 					<li class="nav-item dropdown">
@@ -108,9 +106,10 @@
 					</li>
 						
 					<li>
-					<a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
+					<a href="">Administrar Usuarios</a>
 					</li>
-                        </ul>
+              </ul>
+                       
                     </nav>
                 </div>
             </div>
@@ -121,51 +120,62 @@
                 <div class="container">
                     <div class="row">
 
-                        <div class="col-lg-5 col-12 mx-auto">
-                            <form class="custom-form login-form" role="form" method="post">
-                                <h2 class="hero-title text-center mb-4 pb-2">Login</h2>
+                        <div class="col-lg-6 col-12 mx-auto">
+                            <form class="custom-form" role="form" method="post">
+                                <h2 class="hero-title text-center mb-4 pb-2">Create an account</h2>
 
-                                <div class="form-floating mb-4 p-0">
-                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
-
-                                    <label for="email">Usuario</label>
-                                </div>
-
-                                <div class="form-floating p-0">
-                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
-
-                                    <label for="password">Password</label>
-                                </div>
-
-                                <div class="form-check mb-4">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                  
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                        Recordarme
-                                    </label>
-                                </div>
-
-                                <div class="row justify-content-center align-items-center">
-                                    <div class="col-lg-5 col-12">
-                                        <button type="submit" class="form-control">Login</button>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating">
+                                            <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
+                                            
+                                            <label for="floatingInput">Full Name</label>
+                                        </div>
                                     </div>
 
-                                    <div class="col-lg-5 col-12">
-                                        <a href="register.html" class="btn custom-btn custom-border-btn">Register</a>
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="form-floating mb-4 p-0">
+                                            <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+
+                                            <label for="email">Email address</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-12 col-12">
+                                        <div class="form-floating p-0">
+                                            <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
+
+                                            <label for="password">Password</label>
+                                        </div>
+
+                                        <div class="form-check mb-4">
+                                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          
+                                            <label class="form-check-label" for="flexCheckDefault">
+                                                I agree to the Terms of Service and Privacy Policy.
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row justify-content-center align-items-center">
+                                        <div class="col-lg-5 col-md-5 col-5 ms-auto">
+                                            <button type="submit" class="form-control">Submit</button>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-7">
+                                            <p class="mb-0">Already have an account? <a href="login.html" class="ms-2">Login</a></p>
+                                        </div>
                                     </div>
                                 </div>
-
                             </form>
                             
-							
-						
-                      </div>
+                        </div>
                     </div>
                 </div>
-                </div>
-			<div class="video-wrap">
+
+                <div class="video-wrap">
                     <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                        <source src="videos/video2.mp4" type="video/mp4">
+                        <source src="../videos/video1.mp4" type="video/mp4">
 
                         Your browser does not support the video tag.
                     </video>
@@ -174,10 +184,10 @@
         </main>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/countdown.js"></script>
-        <script src="js/init.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/countdown.js"></script>
+        <script src="../js/init.js"></script>
 
     </body>
 </html>

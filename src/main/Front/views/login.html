@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>SACMR - Resetear Password</title>
+        <title>SACMR - Login</title>
 
         <!-- CSS FILES -->                
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,12 +16,14 @@
 
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
         
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
 
-        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
-        <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+        <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
 <!--
+
+
 
 -->
     </head>
@@ -44,7 +46,7 @@
                             </a>
 
                             <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
-                                <span class="text-white me-4 d-none d-lg-block">Mantenete conextado&nbsp;</span>
+                                <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
 
                                 <li class="social-icon-item">
                                     <a href="#" class="social-icon-link bi-instagram"></a>
@@ -59,7 +61,7 @@
                                 </li>
                             </ul>
 
-             
+                         
 
                             <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
 
@@ -78,16 +80,17 @@
                 <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
                     <nav>
                         <ul>
-										<li>
-					<a href="login.html">Inicia sesión</a>
-					</li>
-						
+                            <li>
+                                <a class="active" href="login.html">Inicia sesión</a>
+                            </li>
+
+                            		
 					<li>
 					<a href="Comunidades.html">Comunidades</a>
 					</li>
 						
 					<li>
-					<a href="">Carga masiva de entidades</a>
+					<a href="CargaMasiva.html">Carga masiva de entidades</a>
 					</li>
 
 					<li class="nav-item dropdown">
@@ -105,52 +108,78 @@
 					</li>
 						
 					<li>
-					<a href="">Administrar Usuarios</a>
+					<a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
 					</li>
-							
                         </ul>
                     </nav>
                 </div>
             </div>
 
 
- 
 
             <section class="hero-section d-flex justify-content-center align-items-center">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-lg-5 col-12 mx-auto">
-                            <form class="custom-form" role="form" method="post">
-                                <h2 class="hero-title text-center mb-4 pb-2">Reset Password</h2>
+                            <form class="custom-form login-form" role="form" method="post">
+                                <h2 class="hero-title text-center mb-4 pb-2">Login</h2>
 
-                                <div class="form-floating mt-4">
-                                    <input type="password" name="password" id="password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
+                                <div class="form-floating mb-4 p-0">
+                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
 
-                                    <label for="password">New Password</label>
+                                    <label for="email">Usuario</label>
                                 </div>
 
-                                <div class="form-floating">
-                                    <input type="password" name="confirm_password" id="confirm_password" pattern="[0-9a-zA-Z]{4,10}" class="form-control" placeholder="Password" required="">
+                                <div class="form-floating p-0">
+                                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
 
-                                    <label for="confirm_password">Confirm Password</label>
+                                    <label for="password">Password</label>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-lg-5 col-12 mx-auto">
-                                        <button type="submit" class="form-control">Submit</button>
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                  
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Recordarme
+                                    </label>
+                                </div>
+
+                                <div class="row justify-content-center align-items-center">
+                                    <div class="col-lg-5 col-12">
+                                        <button type="submit" class="form-control">Login</button>
+                                    </div>
+
+                                    <div class="col-lg-5 col-12">
+                                        <a href="register.html" class="btn custom-btn custom-border-btn">Register</a>
                                     </div>
                                 </div>
 
                             </form>
-                            
-                        </div>
+                            <form>
+                                <br>
+                                <div class="d-grid mb-2">
+                                    <button class="btn btn-github btn-login text-uppercase fw-bold" type="submit">
+                                        <i class="fab fa-github me-2"></i> Sign in with Github
+                                        <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" width="40" />
+                                    </button>
+                                </div>
+                                <div class="d-grid">
+                                    <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
+                                        <i class="fab fa-google-f me-2"></i> Sign in with Google (Proximamente)
+                                        <img src="https://www.edigitalagency.com.au/wp-content/uploads/google-logo-icon-PNG-Transparent-Background-letter-G-multiple-colors.png" width="40" />
+                                    </button>
+                                </div>
+                            </form>
+							
+						
+                      </div>
                     </div>
                 </div>
-
-                <div class="video-wrap">
+                </div>
+			<div class="video-wrap">
                     <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                        <source src="videos/video2.mp4" type="video/mp4">
+                        <source src="../videos/video2.mp4" type="video/mp4">
 
                         Your browser does not support the video tag.
                     </video>
@@ -159,10 +188,10 @@
         </main>
 
         <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
-        <script src="js/countdown.js"></script>
-        <script src="js/init.js"></script>
+        <script src="../js/jquery.min.js"></script>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script src="../js/countdown.js"></script>
+        <script src="../js/init.js"></script>
 
     </body>
 </html>

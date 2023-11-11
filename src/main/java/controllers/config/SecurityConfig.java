@@ -1,4 +1,4 @@
-package Login.config;
+package controllers.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
