@@ -1,13 +1,13 @@
 package Persistencia;
 
-import Comunidades.Miembro;
-import Entidades.Entidad;
-import Entidades.Organizacion;
-import Incidentes.EstadoIncidentes;
-import Incidentes.Incidente;
-import Localizaciones.TipoLocalizacion;
-import Localizaciones.Ubicacion;
-import Servicios.Servicio;
+import Modelo.Comunidades.Miembro;
+import Modelo.Entidades.Entidad;
+import Modelo.Entidades.Organizacion;
+import Modelo.Incidentes.EstadoIncidentes;
+import Modelo.Incidentes.Incidente;
+import Modelo.Localizaciones.TipoLocalizacion;
+import Modelo.Localizaciones.Ubicacion;
+import Modelo.Servicios.Servicio;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
@@ -16,7 +16,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Predicate;
 
 public class PruebaPersistencia implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps {
 

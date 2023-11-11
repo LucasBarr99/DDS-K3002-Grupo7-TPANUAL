@@ -1,8 +1,8 @@
 
-import CargaDeDatosCSV.DatosParser;
-import CargaDeDatosCSV.TipoEntidad;
-import Excepciones.ExcepcionParseoCSV;
-import CargaDeDatosCSV.DatoOrganismosEmpresasCSV;
+import Modelo.CargaDeDatosCSV.DatosParser;
+import Modelo.CargaDeDatosCSV.TipoEntidad;
+import Modelo.Excepciones.ExcepcionParseoCSV;
+import Modelo.CargaDeDatosCSV.DatoOrganismosEmpresasCSV;
 
 import org.junit.jupiter.api.Test;
 

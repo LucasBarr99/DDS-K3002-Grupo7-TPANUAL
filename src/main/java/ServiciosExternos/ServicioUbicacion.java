@@ -1,8 +1,6 @@
 package ServiciosExternos;
 
-import ServiciosExternos.DatosAPI.*;
-import retrofit2.Call;
-import retrofit2.Response;
+import ServiciosExternos.DatosGeoRef.*;
 
 import java.io.IOException;
 

@@ -1,7 +1,7 @@
 
-import Excepciones.ContraseñaInvalidaException;
-import Validadores.ValidacionesContrasenia;
-import Validadores.ValidadorContrasenias;
+import Modelo.Excepciones.ContraseñaInvalidaException;
+import Modelo.Validadores.ValidacionesContrasenia;
+import Modelo.Validadores.ValidadorContrasenias;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

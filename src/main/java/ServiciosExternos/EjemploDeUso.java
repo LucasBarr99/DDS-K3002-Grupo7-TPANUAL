@@ -1,8 +1,8 @@
 package ServiciosExternos;
 
-import ServiciosExternos.DatosAPI.Departamento;
-import ServiciosExternos.DatosAPI.Municipio;
-import ServiciosExternos.DatosAPI.Provincia;
+import ServiciosExternos.DatosGeoRef.Departamento;
+import ServiciosExternos.DatosGeoRef.Municipio;
+import ServiciosExternos.DatosGeoRef.Provincia;
 
 import java.io.IOException;
 

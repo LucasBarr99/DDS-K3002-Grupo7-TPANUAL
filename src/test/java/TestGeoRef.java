@@ -1,19 +1,14 @@
 
-import Excepciones.ContraseñaInvalidaException;
-import ServiciosExternos.DatosAPI.Coordenadas;
-import ServiciosExternos.DatosAPI.Departamento;
-import ServiciosExternos.DatosAPI.Municipio;
-import ServiciosExternos.DatosAPI.Provincia;
+import ServiciosExternos.DatosGeoRef.Coordenadas;
+import ServiciosExternos.DatosGeoRef.Departamento;
+import ServiciosExternos.DatosGeoRef.Municipio;
+import ServiciosExternos.DatosGeoRef.Provincia;
 import ServiciosExternos.ServicioGeoref;
-import Validadores.ValidacionesContrasenia;
-import Validadores.ValidadorContrasenias;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 public class TestGeoRef {

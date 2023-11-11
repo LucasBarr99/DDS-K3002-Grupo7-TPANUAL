@@ -1,8 +1,8 @@
 package ServiciosExternos;
 
-import ServiciosExternos.DatosAPI.ListadoDepartamentos;
-import ServiciosExternos.DatosAPI.ListadoMunicipios;
-import ServiciosExternos.DatosAPI.ListadoProvincias;
+import ServiciosExternos.DatosGeoRef.ListadoDepartamentos;
+import ServiciosExternos.DatosGeoRef.ListadoMunicipios;
+import ServiciosExternos.DatosGeoRef.ListadoProvincias;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
