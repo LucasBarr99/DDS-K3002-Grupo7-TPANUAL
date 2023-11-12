@@ -7,6 +7,7 @@ import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 import Modelo.Localizaciones.TipoLocalizacion;
 import Modelo.Localizaciones.Ubicacion;
+import Modelo.Personas.Usuario;
 import Modelo.Servicios.Servicio;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
@@ -25,7 +26,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
   void run(){
     withTransaction(() -> {
-      List<Ubicacion> ubicaciones = new ArrayList<>();
+      /*List<Ubicacion> ubicaciones = new ArrayList<>();
 
       Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
@@ -77,9 +78,9 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(org);
       persist(org2);
       persist(org3);
-      serviciosOrg1.forEach(servicio -> persist(servicio));
-      serviciosOrg2.forEach(servicio -> persist(servicio));
-      serviciosOrg3.forEach(servicio -> persist(servicio));
+      serviciosOrg1.forEach(this::persist);
+      serviciosOrg2.forEach(this::persist);
+      serviciosOrg3.forEach(this::persist);
       persist(miembro1);
       persist(incidente1);
       persist(incidente2);
@@ -94,8 +95,10 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(incidente11);
       persist(incidente12);
       persist(incidente13);
-      persist(incidente14);
+      persist(incidente14);*/
 
+      Usuario usuario1 = new Usuario("Lucas","TpAnual_028");
+      persist(usuario1);
 
     });
   }

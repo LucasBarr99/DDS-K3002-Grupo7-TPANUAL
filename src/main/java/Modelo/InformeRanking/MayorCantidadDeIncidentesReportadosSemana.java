@@ -10,4 +10,8 @@ public class MayorCantidadDeIncidentesReportadosSemana extends GeneradorInforme{
   public Informe generarInforme() {
     return null;
   }
+
+  public MayorCantidadDeIncidentesReportadosSemana(){
+
+  }
 }
