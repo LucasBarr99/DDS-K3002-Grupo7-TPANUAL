@@ -2,14 +2,12 @@ package main.ApiClientePesado;
 import jakarta.servlet.http.HttpServletResponse;
 import main.ApiClientePesado.Servicios.servicioLogin;
 import main.ApiClientePesado.dto.LoginRequest;
-import main.ApiClientePesado.dto.LoginResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-public class LoginController2 {
+public class LoginController {
 
   @Autowired
   servicioLogin servicioLogin;
