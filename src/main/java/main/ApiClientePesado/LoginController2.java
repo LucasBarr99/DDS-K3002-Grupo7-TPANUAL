@@ -25,4 +25,10 @@ public class LoginController2 {
     return servicioLogin.handleLogin(newLoginRequest);
   }
 
+  @PostMapping(value="/apiPesada/validarSesionId",produces = "application/json")
+  public String validarSesionId(@RequestBody String sesionId, HttpServletResponse response){
+    System.out.println("[POST] /apiPesada/validarSesionId Request: "+sesionId);
+    return servicioLogin.validar(sesionId);
+  }
+
 }

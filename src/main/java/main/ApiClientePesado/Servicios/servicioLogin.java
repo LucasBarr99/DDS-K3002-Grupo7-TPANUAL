@@ -9,6 +9,7 @@ import main.ApiClientePesado.dto.LoginResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
 import java.util.Objects;
 
 @Service
@@ -36,6 +37,15 @@ public class servicioLogin {
         System.out.println("Id de Sesion: "+idSesion);
         //sesionManager.agregarAtributo(idSesion,"rol", obtener de algun lado);
         String json = "{\"sesionId\":\""+idSesion+"\"}";
+        return json;
+    }
+
+    public String validar(String sesionId) {
+        SesionManager sesionManager = SesionManager.get();
+        String json = "{\"esValido\":"+false+"}";
+        if(sesionManager.esValido(sesionId)){
+            json = "{\"esValido\":"+true+"}";
+        }
         return json;
     }
 }

@@ -56,4 +56,8 @@ public class SesionManager {
         return this.sesiones.remove(id);
     }
 
+    public Boolean esValido(String id){
+        return this.sesiones.containsKey(id);
+    }
+
 }

@@ -21,6 +21,7 @@ var app = new Vue({
                 .then(response => { response.json().then(r => {
                         this.sesionId = r.sesionId;
                         console.log(r.sesionId);
+                        localStorage.username = this.username;
                         localStorage.sesionId = this.sesionId;
                         if (this.sesionId === ""){
                             alert("Datos incorrectos");

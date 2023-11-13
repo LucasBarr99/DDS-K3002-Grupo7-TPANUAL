@@ -21,6 +21,8 @@
         <link href="../css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         
 <!--
 
@@ -61,6 +63,12 @@
                                 </li>
                             </ul>
 
+                            <div  id="vueValidadorSesion">
+                                <div class="fw-bold text-white" id="textoBienvenida">
+                                    No estas logeado
+                                </div>
+                            </div>
+
                             <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
 
                         </div>
@@ -79,7 +87,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="login.html">Inicia sesión</a>
+                                <a href="/login">Inicia sesión</a>
                             </li>
                             <li>
                                 <a href="Comunidades.html">Comunidades</a>
@@ -240,6 +248,7 @@
         <script src="../js/bootstrap.bundle.min.js"></script>
         <script src="../js/countdown.js"></script>
         <script src="../js/init.js"></script>
+        <script src="../js/vueValidadorSesion.js"></script>
 
     </body>
 </html>
