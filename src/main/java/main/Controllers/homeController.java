@@ -11,5 +11,10 @@ public class homeController {
 
         return "index";
     }
+    @GetMapping("/cargaMasiva")
+    public String cargaMasiva(){
+
+        return "cargamasiva";
+    }
 
 }

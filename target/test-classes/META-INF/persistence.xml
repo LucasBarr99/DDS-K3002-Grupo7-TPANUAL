@@ -7,36 +7,36 @@
 
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>Establecimientos.Estacion</class>
-        <class>Personas.Persona</class>
-        <class>Comunidades.Miembro</class>
-        <class>Personas.Invitado</class>
-        <class>Personas.Usuario</class>
-        <class>Personas.Interesado</class>
+        <class>Modelo.Establecimientos.Estacion</class>
+        <class>Modelo.Personas.Persona</class>
+        <class>Modelo.Comunidades.Miembro</class>
+        <class>Modelo.Personas.Invitado</class>
+        <class>Modelo.Personas.Usuario</class>
+        <class>Modelo.Personas.Interesado</class>
         <class>ServiciosExternos.Notifcaciones.Notificacion</class>
         <class>ServiciosExternos.Notifcaciones.NotificacionJavaMail</class>
         <class>ServiciosExternos.Notifcaciones.NotificacionTwillio</class>
-        <class>Incidentes.RangoHorarioNotificacion</class>
-        <class>Incidentes.NotificacionIncidente</class>
-        <class>Incidentes.Incidente</class>
-        <class>Localizaciones.Ubicacion</class>
-        <class>Incidentes.EstadoIncidentes</class>
-        <class>Comunidades.Comunidad</class>
-        <class>Servicios.Servicio</class>
-        <class>Servicios.MedioElevacion</class>
-        <class>Entidades.Entidad</class>
-        <class>Entidades.LineaDeTransporte</class>
-        <class>Entidades.Organizacion</class>
-        <class>Establecimientos.Establecimiento</class>
-        <class>Establecimientos.Estacion</class>
-        <class>Establecimientos.Sucursal</class>
-        <class>PrestadoresDeServicios.Empresa</class>
-        <class>PrestadoresDeServicios.OrganismoDeControl</class>
-        <class>InformeRanking.Informe</class>
-        <class>InformeRanking.GeneradorInforme</class>
-        <class>InformeRanking.MayorCantidadDeIncidentesReportadosSemana</class>
-        <class>InformeRanking.MayorGradoImpactoProblematicas</class>
-        <class>InformeRanking.MayorTiempoPromedioDeCierreIncidentes</class>
+        <class>Modelo.Incidentes.RangoHorarioNotificacion</class>
+        <class>Modelo.Incidentes.NotificacionIncidente</class>
+        <class>Modelo.Incidentes.Incidente</class>
+        <class>Modelo.Localizaciones.Ubicacion</class>
+        <class>Modelo.Incidentes.EstadoIncidentes</class>
+        <class>Modelo.Comunidades.Comunidad</class>
+        <class>Modelo.Servicios.Servicio</class>
+        <class>Modelo.Servicios.MedioElevacion</class>
+        <class>Modelo.Entidades.Entidad</class>
+        <class>Modelo.Entidades.LineaDeTransporte</class>
+        <class>Modelo.Entidades.Organizacion</class>
+        <class>Modelo.Establecimientos.Establecimiento</class>
+        <class>Modelo.Establecimientos.Estacion</class>
+        <class>Modelo.Establecimientos.Sucursal</class>
+        <class>Modelo.PrestadoresDeServicios.Empresa</class>
+        <class>Modelo.PrestadoresDeServicios.OrganismoDeControl</class>
+        <class>Modelo.InformeRanking.Informe</class>
+        <class>Modelo.InformeRanking.GeneradorInforme</class>
+        <class>Modelo.InformeRanking.MayorCantidadDeIncidentesReportadosSemana</class>
+        <class>Modelo.InformeRanking.MayorGradoImpactoProblematicas</class>
+        <class>Modelo.InformeRanking.MayorTiempoPromedioDeCierreIncidentes</class>
 
 
 

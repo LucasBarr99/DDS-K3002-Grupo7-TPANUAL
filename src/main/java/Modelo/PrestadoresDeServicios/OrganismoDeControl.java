@@ -10,4 +10,7 @@ public class OrganismoDeControl extends PrestadorDeServicio {
   public OrganismoDeControl() {
 
   }
+  public OrganismoDeControl(String nombre) {
+    super(nombre);
+  }
 }

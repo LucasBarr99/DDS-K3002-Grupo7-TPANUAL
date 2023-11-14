@@ -26,6 +26,10 @@ public class PrestadorDeServicio extends EntidadPersistente {
 
     public PrestadorDeServicio(){}
 
+    public PrestadorDeServicio(String nombre){
+        this.nombre = nombre;
+    }
+
     public PrestadorDeServicio(String nombre, Persona persona, List<Entidad> entidades, Persona personaDesignado) {
         this.nombre = nombre;
         this.persona = persona;
