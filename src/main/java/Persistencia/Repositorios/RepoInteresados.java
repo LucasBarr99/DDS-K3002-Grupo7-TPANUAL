@@ -1,3 +1,4 @@
+
 package Persistencia.Repositorios;
 
 import Modelo.Personas.Interesado;
@@ -30,6 +31,11 @@ public class RepoInteresados extends Repositorio<Interesado> {
   public Interesado obtenerInteresado(int id) {
 
     String query = String.format("from Interesado where id='%s'", id);
+    return (Interesado) entityManager().createQuery(query).getResultList().get(0);
+  }
+  public Interesado obtenerInteresadoPorUsuario(int id) {
+
+    String query = String.format("from Personas where usuario_id='%s'", id);
     return (Interesado) entityManager().createQuery(query).getResultList().get(0);
   }
   @Override

@@ -1,254 +1,214 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="description" content="">
-        <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-        <title> SACMR </title>
+    <title> SACMR </title>
 
-        <!-- CSS FILES -->                
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
-        
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
 
-        <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        
-<!--
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <!--
 
 
 
--->
-    </head>
-    
-    <body>
+    -->
+</head>
 
-        <main>
+<body>
 
-            <header class="site-header">
-                <div class="container">
-                    <div class="row justify-content-between">
+<main>
 
-                        <div class="col-lg-12 col-12 d-flex align-items-center">
-                            <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
-                                <i class="bi-train-front"></i>
+    <header class="site-header">
+        <div class="container">
+            <div class="row justify-content-between">
 
-                                <span>
+                <div class="col-lg-12 col-12 d-flex align-items-center">
+                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                        <i class="bi-train-front"></i>
+
+                        <span>
                                 SACMR                            </span>
-                            </a>
+                    </a>
 
-                            <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
-                                <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
+                    <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
+                        <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-instagram"></a>
-                                </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                </li>
-                            </ul>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
 
-                            <div  id="vueValidadorSesion">
-                                <div class="fw-bold text-white" id="textoBienvenida">
-                                    No estas logeado
-                                </div>
-                            </div>
-
-                            <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
-
+                    <div  id="vueValidadorSesion">
+                        <div class="fw-bold text-white" id="textoBienvenida">
+                            No estas logeado
                         </div>
-
                     </div>
+
+                    <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
                 </div>
-            </header>
+
+            </div>
+        </div>
+    </header>
 
 
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">                
-                <div class="offcanvas-header">                    
-                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                
-                <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
-                    <nav>
-                        <ul>
-                            <li>
-                                <a href="/login">Inicia sesión</a>
-                            </li>
-                            <li>
-                                <a href="Comunidades.html">Comunidades</a>
-                            </li>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
 
-                            <li>
-                                <a href="cargamasiva.html">Carga masiva de entidades</a>
-                            </li>
+        <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="/login">Inicia sesión</a>
+                    </li>
+                    <li>
+                        <a href="/comunidades">Comunidades</a>
+                    </li>
 
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Incidentes
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-dark">
-                                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
-                                </ul>
-                            </li>
+                    <li>
+                        <a href="/cargaMasiva">Carga masiva de entidades</a>
+                    </li>
 
-                            <li>
-                                <a href="Rankings.html">Rankings</a>
-                            </li>
-
-                            <li>
-                                <a href="">Administrar Usuarios</a>
-                            </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Incidentes
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+                            <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
                         </ul>
-                    </nav>
+                    </li>
+
+                    <li>
+                        <a href="Rankings.html">Rankings</a>
+                    </li>
+
+                    <li>
+                        <a href="">Administrar Usuarios</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
+                        <h2 class="modal-title" id="subscribeModalLabel">Mantenete informado</h2>
+
+                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="tu@email.com" required="">
+
+                        <button type="submit" class="form-control">Notificarme</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <p>Obtené todas las novedades por email</p>
                 </div>
             </div>
+        </div>
+    </div>
 
 
-            <!-- Modal -->
-            <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
 
-                        <div class="modal-body">
-                            <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
-                                <h2 class="modal-title" id="subscribeModalLabel">Mantenete informado</h2>
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="tu@email.com" required="">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
 
-                                <button type="submit" class="form-control">Notificarme</button>
-                            </form>
-                        </div>
+                <div class="modal-body">
+                    <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
+                        <h2 class="modal-title" id="subscribeModalLabel">Stay up to date</h2>
 
-                        <div class="modal-footer justify-content-center">
-                            <p>Obtené todas las novedades por email</p>
-                        </div>
-                    </div>
+                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="your@email.com" required="">
+
+                        <button type="submit" class="form-control">Notify</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer justify-content-center">
+                    <p>By signing up, you agree to our Privacy Notice</p>
                 </div>
             </div>
-            <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">                
-                <div class="offcanvas-header">                    
-                    <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                
-                <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
-                    <nav>
-                        <ul>
-                            			<li>
-					<a href="login.html">Inicia sesión</a>
-					</li>
-						
-					<li>
-					<a href="Comunidades.html">Comunidades</a>
-					</li>
-						
-					<li>
-					<a href="">Carga masiva de entidades</a>
-					</li>
+        </div>
+    </div>
 
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					Incidentes
-					</a>
-					<ul class="dropdown-menu dropdown-menu-dark">
-					<li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-					<li><a class="dropdown-item"  href="AperturaIncidentes.html">Abrir incidente</a></li>
-					</ul>
-					</li>
 
-					<li>
-					<a href="Rankings.html">Rankings</a>
-					</li>
-						
-					<li>
-					<a href="">Administrar Usuarios</a>
-					</li>
-                        </ul>
-                    </nav>
+    <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6 col-12 mx-auto">
+                    <small>Ya probaste SACMR?  . </small>
+                    <!-- please set the date time in the init.js file -->
+
+                    <h1 class="text-white mt-2 mb-4 pb-2">
+                        Juntos en los rieles&nbsp; </h1>
+
+                    <span class="text-white me-4 d-none d-lg-block">Conectando experiencias, solucionando problemas</span>
+
+
                 </div>
             </div>
+        </div>
 
+        <div class="video-wrap">
+            <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                <source src="/videos/video.mp4" type="video/mp4">
 
-            <!-- Modal -->
-            <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+</main>
 
-                        <div class="modal-body">
-                            <form action="#" method="get" class="custom-form mt-lg-4 mt-2" role="form">
-                                <h2 class="modal-title" id="subscribeModalLabel">Stay up to date</h2>
+<!-- JAVASCRIPT FILES -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/countdown.js"></script>
+<script src="/js/init.js"></script>
+<script src="/js/vueValidadorSesion.js"></script>
 
-                                <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="your@email.com" required="">
-
-                                <button type="submit" class="form-control">Notify</button>
-                            </form>
-                        </div>
-
-                        <div class="modal-footer justify-content-center">
-                            <p>By signing up, you agree to our Privacy Notice</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-12 mx-auto">
-                            <small>Ya probaste SACMR?  . </small>
-                            <!-- please set the date time in the init.js file -->
-                            
-                          <h1 class="text-white mt-2 mb-4 pb-2">
-                          Juntos en los rieles&nbsp; </h1>
-					
-							      <span class="text-white me-4 d-none d-lg-block">Conectando experiencias, solucionando problemas</span>
-                            
-                         
-                        </div>
-                    </div>
-                </div>
-
-                <div class="video-wrap">
-                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                        <source src="../videos/video.mp4" type="video/mp4">
-
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-            </section>
-        </main>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="../js/jquery.min.js"></script>
-        <script src="../js/bootstrap.bundle.min.js"></script>
-        <script src="../js/countdown.js"></script>
-        <script src="../js/init.js"></script>
-        <script src="../js/vueValidadorSesion.js"></script>
-
-    </body>
+</body>
 </html>

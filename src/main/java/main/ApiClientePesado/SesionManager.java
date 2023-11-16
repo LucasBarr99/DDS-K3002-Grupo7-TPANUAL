@@ -60,4 +60,8 @@ public class SesionManager {
         return this.sesiones.containsKey(id);
     }
 
+    public String obtenerNombreUsuario(String id){
+        return "Lucas"; //TODO: Modificar
+    }
+
 }

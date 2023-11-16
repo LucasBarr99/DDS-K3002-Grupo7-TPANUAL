@@ -18,8 +18,7 @@ var app = new Vue({
                 .then(response => { response.json().then(r => {
                     console.log(r.esValido);
                     if(r.esValido){
-                        const texto = document.getElementById("textoBienvenida");
-                        texto.innerHTML = "Bienvenido, "+localStorage.username+" !";
+                        document.getElementById("textoBienvenida").textContent ="Bienvenido, "+localStorage.username+" !";
                     }
                     else{
                         window.location.href = '/login';

@@ -10,7 +10,10 @@ import Modelo.PrestadoresDeServicios.PrestadorDeServicio;
 import Persistencia.Repositorios.RepoPrestadoresDeServicio;
 import org.apache.commons.csv.CSVParser;
 import org.springframework.stereotype.Service;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,18 +21,22 @@ import java.util.List;
 public class ServicioSubidaArchivos {
 
   public void validarArchivo(List<DatosParser> datos){
-    RepoPrestadoresDeServicio repo = RepoPrestadoresDeServicio.instance();
-
-    for(int i = 0; i < datos.size() - 1; i++){
-      DatosParser dato = datos.get(i);
-      System.out.println(dato.getNombre());
-      System.out.println(dato.getTipo());
+    EntityManager em = PerThreadEntityManagers.getEntityManager();
+    EntityTransaction transaction = em.getTransaction();
+    transaction.begin();
+    for(int i = 0; i < datos.size(); i++){
+      DatosParser dato = datos.get(i);;
       if(dato.getTipo().equals("Empresa")){
-        repo.agregarPrestadorDeServicio(new Empresa(dato.getNombre()));
+        em.persist(new Empresa(dato.getNombre()));
       } else
-        repo.agregarPrestadorDeServicio(new OrganismoDeControl(dato.getNombre()));
+        em.persist(new OrganismoDeControl(dato.getNombre()));
     }
-
+    transaction.commit();
 
   }
+
+
+
+
+
 }

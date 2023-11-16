@@ -78,5 +78,10 @@ public class Servicio extends EntidadPersistente {
   public boolean correspondeSugerenciaA(Miembro miembroASugerir){
     return incidentesQueInteresanA(miembroASugerir).size() > 0;
   }
+
+  public Entidad getEntidad(){
+    return entidad;
+  }
+
 }
 

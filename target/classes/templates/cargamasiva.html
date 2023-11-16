@@ -13,6 +13,7 @@
     <link href="../css/bootstrap-icons.css" rel="stylesheet">
     <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
     <link href="../css/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	
 </head>
 <body>
@@ -28,9 +29,11 @@
                   <span>SACMR</span>
                 </a>
 
-                <div class="fw-bold text-white">
-                  Bienvenido, #NombreDeUsuario !
-                </div>
+                  <div  id="vueValidadorSesion">
+                      <div class="fw-bold text-white" id="textoBienvenida">
+                          No estas logeado
+                      </div>
+                  </div>
 
                 <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
 
@@ -123,6 +126,7 @@
       <script src="../js/countdown.js"></script>
       <script src="../js/init.js"></script>
       <script src="../js/subidaArchivo.js"></script>
+      <script src="/js/vueValidadorSesion.js"></script>
 
 
     </body>

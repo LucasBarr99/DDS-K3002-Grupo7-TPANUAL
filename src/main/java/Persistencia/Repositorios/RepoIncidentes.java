@@ -46,5 +46,11 @@ public class RepoIncidentes extends Repositorio<Incidente> {
     return (Incidente) entityManager().createQuery(query).getResultList().get(0);
   }
 
+  public List<Incidente> obtenerIncidentesAbiertos() {
+
+    String query = String.format("from Incidente where estado=0");
+    return entityManager().createQuery(query).getResultList();
+  }
+
 }
 

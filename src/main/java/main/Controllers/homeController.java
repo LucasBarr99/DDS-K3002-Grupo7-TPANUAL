@@ -17,4 +17,20 @@ public class homeController {
         return "cargamasiva";
     }
 
+    @GetMapping("/sugerenciaIncidente")
+    public String sugerenciaIncidente(){
+
+        return "DatosIncidente";
+    }
+
+    @GetMapping("/comunidades")
+    public String comunidades(){
+        return "Comunidades";
+    }
+
+    @GetMapping("/comunidades/{id}/usuarios")
+    public String administrarUsuarios(){
+        return "AdministracionDeRolesDeUsuario";
+    }
+
 }

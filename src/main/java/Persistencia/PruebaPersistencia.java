@@ -26,7 +26,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
   void run(){
     withTransaction(() -> {
-      /*List<Ubicacion> ubicaciones = new ArrayList<>();
+      List<Ubicacion> ubicaciones = new ArrayList<>();
 
       Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
@@ -64,6 +64,8 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Incidente incidente4 = new Incidente("Incidente4", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Hay uno durmiendo en el inodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente5 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente6 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "El lavamanos gotea", EstadoIncidentes.ABIERTO, miembro1);
+      Incidente incidente15 = new Incidente("Incidente7", Date.valueOf(LocalDate.of(2023,9,22)),null, servicio1, "Detonaron el baño", EstadoIncidentes.ABIERTO, miembro1);
+      Incidente incidente16 = new Incidente("Incidente16", Date.valueOf(LocalDate.of(2023,9,24)),null, servicio1, "Reventaron el espejo del baño", EstadoIncidentes.ABIERTO, miembro1);
 
       Incidente incidente7 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio2, "Hay uno durmiendo en el inonodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente8 = new Incidente("Incidente7", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio2, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
@@ -75,6 +77,9 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Incidente incidente13 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente14 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "El lavamanos gotea", EstadoIncidentes.CERRADO, miembro1);
 
+      Usuario usuario1 = new Usuario("Lucas","TpAnual_028");
+
+      persist(usuario1);
       persist(org);
       persist(org2);
       persist(org3);
@@ -95,10 +100,11 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(incidente11);
       persist(incidente12);
       persist(incidente13);
-      persist(incidente14);*/
+      persist(incidente14);
+      persist(incidente15);
+      persist(incidente16);
 
-      Usuario usuario1 = new Usuario("Lucas","TpAnual_028");
-      persist(usuario1);
+
 
     });
   }

@@ -57,4 +57,8 @@ public class Entidad extends EntidadPersistente {
   public void setServicios(List<Servicio> servicios) {
     this.servicios = servicios;
   }
+
+  public String getNombre() {
+    return nombre;
+  }
 }

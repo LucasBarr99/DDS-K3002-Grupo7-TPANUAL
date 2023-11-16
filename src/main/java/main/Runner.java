@@ -19,7 +19,6 @@ public class Runner {
     Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
     Estacion estacion = new Estacion("Cochabamba", ubicacion1,null);
-    PrestadorDeServicio prestador = new Empresa("UTN");
 
     EntityManager em = PerThreadEntityManagers.getEntityManager();
     EntityTransaction transaction = em.getTransaction();
@@ -30,7 +29,7 @@ public class Runner {
 
     RepoPrestadoresDeServicio repo = RepoPrestadoresDeServicio.instance();
 
-    repo.agregarPrestadorDeServicio(prestador);
+    repo.agregarPrestadorDeServicio(new Empresa("FRBA"));
 
     List<Estacion> estaciones = RepoEstaciones.instance().obtenerEstacion("Cochabamba");
 

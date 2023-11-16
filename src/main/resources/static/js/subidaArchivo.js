@@ -21,6 +21,7 @@ form.addEventListener("submit", ev => {
                 alert("Datos incorrectos");
             }
             else{
+                alert("Archivo cargado con exito!");
         }
     })
     })
