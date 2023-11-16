@@ -12,11 +12,6 @@ public class LoginController {
   @Autowired
   servicioLogin servicioLogin;
 
-  @GetMapping("/Hola2")
-    public String home(){
-      return ResponseEntity.ok("HOLA").getBody();
-    }
-
   @PostMapping(value="/apiPesada/login",produces = "application/json")
   public String postLogin(@RequestBody LoginRequest newLoginRequest, HttpServletResponse response){
     System.out.println("[POST] /apiPesada/login Request: "+newLoginRequest);

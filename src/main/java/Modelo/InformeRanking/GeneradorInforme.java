@@ -9,6 +9,8 @@ import javax.persistence.*;
 @DiscriminatorColumn(name = "tipo")
 @Table(name = "CriterioInforme")
 public abstract class GeneradorInforme extends EntidadPersistente {
+
+  public String nombre;
   public abstract Informe generarInforme();
 
   public GeneradorInforme() {

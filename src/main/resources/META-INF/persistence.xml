@@ -7,7 +7,36 @@
 
     <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>Modelo.Establecimientos.Estacion</class>
+        <class>Modelo.Personas.Persona</class>
+        <class>Modelo.Comunidades.Miembro</class>
+        <class>Modelo.Personas.Invitado</class>
+        <class>Modelo.Personas.Usuario</class>
+        <class>Modelo.Personas.Interesado</class>
+        <class>ServiciosExternos.Notifcaciones.Notificacion</class>
+        <class>ServiciosExternos.Notifcaciones.NotificacionJavaMail</class>
+        <class>ServiciosExternos.Notifcaciones.NotificacionTwillio</class>
+        <class>Modelo.Incidentes.RangoHorarioNotificacion</class>
+        <class>Modelo.Incidentes.NotificacionIncidente</class>
+        <class>Modelo.Incidentes.Incidente</class>
+        <class>Modelo.Localizaciones.Ubicacion</class>
+        <class>Modelo.Incidentes.EstadoIncidentes</class>
+        <class>Modelo.Comunidades.Comunidad</class>
+        <class>Modelo.Servicios.Servicio</class>
+        <class>Modelo.Servicios.MedioElevacion</class>
+        <class>Modelo.Entidades.Entidad</class>
+        <class>Modelo.Entidades.LineaDeTransporte</class>
+        <class>Modelo.Entidades.Organizacion</class>
+        <class>Modelo.Establecimientos.Establecimiento</class>
+        <class>Modelo.Establecimientos.Estacion</class>
+        <class>Modelo.Establecimientos.Sucursal</class>
+        <class>Modelo.PrestadoresDeServicios.Empresa</class>
+        <class>Modelo.PrestadoresDeServicios.OrganismoDeControl</class>
+        <class>Modelo.InformeRanking.Informe</class>
+        <class>Modelo.InformeRanking.GeneradorInforme</class>
         <class>Modelo.InformeRanking.MayorCantidadDeIncidentesReportadosSemana</class>
+        <class>Modelo.InformeRanking.MayorGradoImpactoProblematicas</class>
+        <class>Modelo.InformeRanking.MayorTiempoPromedioDeCierreIncidentes</class>
 
 
         <properties>

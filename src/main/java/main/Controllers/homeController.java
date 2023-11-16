@@ -33,4 +33,9 @@ public class homeController {
         return "AdministracionDeRolesDeUsuario";
     }
 
+    @GetMapping("/rankings")
+    public String rankings(){
+        return "Rankings";
+    }
+
 }

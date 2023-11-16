@@ -5,14 +5,15 @@
 <title>SACMR - Rankings semanales</title>
 	
 	 <!-- CSS FILES -->
-    <link href="../css/EstilosIncidentes.css" rel="stylesheet">
+    <link href="/css/EstilosIncidentes.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
-    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	
 </head>
 <body>
@@ -116,14 +117,12 @@
 				<div class="text-white fs-6">
                  <form name="idForm" id="vueMostrarRanking">
                   <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
-                  <select name="criterio" id="criterio_ranking">
-                    <option value="criterio1">Entidades con mayor tiempo promedio de tiempo de cierre de incidentes</option>
-                    <option value="criterio2">Entidades con mayor cantidad de incidentes reportados en la semana</option>
-                    <option value="criterio3">Mayor grado de impacto de las problemáticas</option>
-                  </select>
+                     <select name="criterio" id="criterio_ranking" v-model="criterioSeleccionado" >
+                         <option v-for="criterio in criterios" :value="criterio.id">{{criterio.nombre}}</option>
+                     </select>
                  </form>
 				</div>
-				  
+
 				<br> 
 				
                 <div class="d-flex flex-column">
@@ -169,7 +168,7 @@
           <!-- FONDO -->
           <div class="video-wrap">
             <video autoplay="" loop="" muted="" class="custom-video" poster="">
-              <source src="../videos/video.mp4" type="video/mp4">
+              <source src="/videos/video.mp4" type="video/mp4">
 
               Your browser does not support the video tag.
             </video>
@@ -179,10 +178,11 @@
       </main>
 
       <!-- JAVASCRIPT FILES -->
-      <script src="../js/jquery.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
-      <script src="../js/countdown.js"></script>
-      <script src="../js/init.js"></script>
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/countdown.js"></script>
+      <script src="/js/init.js"></script>
+    <script src="/js/vueMostrarRanking.js"></script>
 
     </body>
 </html>

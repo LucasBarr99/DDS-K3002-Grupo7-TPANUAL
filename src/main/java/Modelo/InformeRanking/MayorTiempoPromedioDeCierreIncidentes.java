@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("MayorTiempoPromedioCierreIncidentes")
+@DiscriminatorValue("TiempoPromedio")
 public class MayorTiempoPromedioDeCierreIncidentes extends GeneradorInforme {
 
   @Override
