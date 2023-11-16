@@ -4,7 +4,7 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("MayorIncidentesReportadosSemana")
+@DiscriminatorValue("Cantidad")
 public class MayorCantidadDeIncidentesReportadosSemana extends GeneradorInforme{
   @Override
   public Informe generarInforme() {
@@ -13,5 +13,9 @@ public class MayorCantidadDeIncidentesReportadosSemana extends GeneradorInforme{
 
   public MayorCantidadDeIncidentesReportadosSemana(){
 
+  }
+
+  public MayorCantidadDeIncidentesReportadosSemana(String nombre){
+    super(nombre);
   }
 }

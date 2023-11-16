@@ -11,4 +11,13 @@ public class MayorTiempoPromedioDeCierreIncidentes extends GeneradorInforme {
   public Informe generarInforme() {
     return null;
   }
+
+
+  public MayorTiempoPromedioDeCierreIncidentes(){
+
+  }
+
+  public MayorTiempoPromedioDeCierreIncidentes(String nombre){
+    super(nombre);
+  }
 }

@@ -5,6 +5,7 @@ import Modelo.Entidades.Entidad;
 import Modelo.Entidades.Organizacion;
 import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
+import Modelo.InformeRanking.*;
 import Modelo.Localizaciones.TipoLocalizacion;
 import Modelo.Localizaciones.Ubicacion;
 import Modelo.Personas.Usuario;
@@ -79,6 +80,33 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       Usuario usuario1 = new Usuario("Lucas","TpAnual_028");
 
+      GeneradorInforme criterio1 =  new MayorTiempoPromedioDeCierreIncidentes("Tiempo promedio de cierre de Incidentes");
+      GeneradorInforme criterio2 =  new MayorCantidadDeIncidentesReportadosSemana("Mayor cantidad de Incidentes reportados");
+      GeneradorInforme criterio3 =  new MayorGradoImpactoProblematicas("Grado de impacto");
+
+
+
+      List<Entidad> posicionesInforme1 = new ArrayList<>();
+      posicionesInforme1.add(org);
+      posicionesInforme1.add(org2);
+      posicionesInforme1.add(org3);
+      Informe informe1 = new Informe("Informe1", "Informe1 generado el 16/11/23",Date.valueOf(LocalDate.now()), posicionesInforme1, criterio1);
+
+      List<Entidad> posicionesInforme2 = new ArrayList<>();
+      posicionesInforme2.add(org3);
+      posicionesInforme2.add(org2);
+      posicionesInforme2.add(org);
+      Informe informe2 = new Informe("Informe2", "Informe2 generado el 16/11/23",Date.valueOf(LocalDate.now()), posicionesInforme2, criterio2);
+
+
+      List<Entidad> posicionesInforme3 = new ArrayList<>();
+      posicionesInforme3.add(org3);
+      posicionesInforme3.add(org);
+      posicionesInforme3.add(org2);
+      Informe informe3 = new Informe("Informe3", "Informe3 generado el 16/11/23",Date.valueOf(LocalDate.now()), posicionesInforme3, criterio3);
+
+
+
       persist(usuario1);
       persist(org);
       persist(org2);
@@ -103,6 +131,12 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(incidente14);
       persist(incidente15);
       persist(incidente16);
+      persist(criterio1);
+      persist(criterio2);
+      persist(criterio3);
+      persist(informe1);
+      persist(informe2);
+      persist(informe3);
 
 
 

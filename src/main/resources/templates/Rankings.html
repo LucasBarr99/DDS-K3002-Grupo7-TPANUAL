@@ -113,8 +113,8 @@
                 <p class="text-white fs-6" align="center">Consulta los rankings semanales publicados</p>
 				  
                 <!-- SELECCION DEL CRITERIO DEL RANKING-->
-				<div class="text-white fs-6">  
-                 <form action="generar_listado.java" method="post">
+				<div class="text-white fs-6">
+                 <form name="idForm" id="vueMostrarRanking">
                   <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
                   <select name="criterio" id="criterio_ranking">
                     <option value="criterio1">Entidades con mayor tiempo promedio de tiempo de cierre de incidentes</option>
@@ -130,7 +130,6 @@
                   <ul class="overflow-auto p-0" style="height: 400px">
                    
 					<!-- POSICION DEL RANKING 1-->
-                
 					<li class="card m-2 p-2">
                       <div class="row">
                         <div class="col">
@@ -144,60 +143,6 @@
                         </div>
                       </div>
                     </li>
-                    <li class="card m-2 p-2">
-                      <div class="row">
-                        <div class="col">
-                          <h4 style="margin: 1;font-size: 30px; color: #928D8D">
-                            Posicion 2
-                          </h4>
-                          <div>
-                            Entidad: numero 2
-                          </div>
-						  <div>Comentarios: </div>
-                        </div>
-                      </div>
-                    </li>
-					<li class="card m-2 p-2">
-                      <div class="row">
-                        <div class="col">
-                          <h4 style="margin: 1;font-size: 30px; color: #D47E2A">
-                            Posicion 3
-                          </h4>
-                          <div>
-                            Entidad: numero 2
-                          </div>
-						  <div>Comentarios: </div>
-                        </div>
-                      </div>
-					 </li>
-					  <li class="card m-2 p-2">
-                      <div class="row">
-                        <div class="col">
-                          <h4 style="margin: 1;font-size: 30px; color: #000000">
-                            Posicion 4
-                          </h4>
-                          <div>
-                            Entidad: numero 2
-                          </div>
-						  <div>Comentarios: </div>
-                        </div>
-                      </div>
-					 </li>
-				      <li class="card m-2 p-2">
-                      <div class="row">
-                        <div class="col">
-                          <h4 style="margin: 1;font-size: 30px; color: #000000">
-                            Posicion 5
-                          </h4>
-                          <div>
-                            Entidad: numero 2
-                          </div>
-						  <div>Comentarios: </div>
-                        </div>
-                      </div>
-					 </li>
-					
-					
                   </ul>
                 </div>
 
