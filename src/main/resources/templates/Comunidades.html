@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,172 +17,175 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
 
-  </head>
-    <body>
-      <main>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
-        <header class="site-header">
-          <div class="container">
+</head>
+<body>
+<main>
+
+    <header class="site-header">
+        <div class="container">
             <div class="row justify-content-between">
 
-              <div class="col-lg-12 col-12 d-flex align-items-center">
-                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
-                  <i class="bi-train-front"></i>
-                  <span>SACMR</span>
-                </a>
-				  <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
-                                <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
+                <div class="col-lg-12 col-12 d-flex align-items-center">
+                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                        <i class="bi-train-front"></i>
+                        <span>SACMR</span>
+                    </a>
+                    <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
+                        <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-instagram"></a>
-                                </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-instagram"></a>
+                        </li>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-twitter"></a>
+                        </li>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                </li>
-                            </ul>
+                        <li class="social-icon-item">
+                            <a href="#" class="social-icon-link bi-whatsapp"></a>
+                        </li>
+                    </ul>
 
-                <div class="fw-bold text-white">
-                  Bienvenido, #NombreDeUsuario !
+                    <div class="fw-bold text-white">
+                        Bienvenido, #NombreDeUsuario !
+                    </div>
+
+                    <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
                 </div>
 
-                <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
-
-              </div>
-
             </div>
-          </div>
-        </header>
+        </div>
+    </header>
 
-        <!-- Menu lateral -->
-        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-          <div class="offcanvas-header">
+    <!-- Menu lateral -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
             <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
+        </div>
 
-          <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+        <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
             <nav>
                 <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
                     <nav>
-					<ul>
-                        <li>
-                            <a href="login.html">Inicia sesión</a>
-                        </li>
+                        <ul>
+                            <li>
+                                <a href="login.html">Inicia sesión</a>
+                            </li>
 
-                        <li>
-                            <a class="active" href="Comunidades.html">Comunidades</a>
-                        </li>
+                            <li>
+                                <a class="active" href="Comunidades.html">Comunidades</a>
+                            </li>
 
-                        <li>
-                            <a href="cargamasiva.html">Carga masiva de entidades</a>
-                        </li>
+                            <li>
+                                <a href="cargamasiva.html">Carga masiva de entidades</a>
+                            </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Incidentes
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                            <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
-                            </ul>
-                        </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Incidentes
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark">
+                                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+                                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                                </ul>
+                            </li>
 
-                        <li>
-                            <a href="Rankings.html">Rankings</a>
-                        </li>
+                            <li>
+                                <a href="Rankings.html">Rankings</a>
+                            </li>
 
-                        <li>
-                            <a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
-                        </li>
-                    </ul>
+                            <li>
+                                <a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
+                            </li>
+                        </ul>
                     </nav>
                 </div>
             </nav>
-          </div>
         </div>
+    </div>
 
-          <!-- FONDO-->
-          <div class="video-wrap">
-              <video autoplay="" loop="" muted="" class="custom-video" poster="">
-                  <source src="../videos/video.mp4" type="video/mp4">
+    <!-- FONDO-->
+    <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="../videos/video.mp4" type="video/mp4">
 
-                  Your browser does not support the video tag.
-              </video>
-          </div>
+            Your browser does not support the video tag.
+        </video>
+    </div>
 
-        <!-- BODY DE LA VISTA-->
-        <section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
-          <div class="container">
+    <!-- BODY DE LA VISTA-->
+    <section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
+        <div class="container">
             <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
-              <div class="card-header">Comunidades</div>
-              <div class="card-body">
-                <section id="gallery">
-                  <div class="container">
-                    <div class="row">
+                <div class="card-header">Comunidades</div>
+                <div class="card-body">
+                    <section id="gallery">
+                        <div class="container">
+                            <div class="row">
 
-                      <div class="col-md-offset-2 col-md-8 col-sm-12 wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                        <div class="section-title">
-        
-                            <div class="wrapper">
-                                <div class="media">
-                                    <div class="layer d-flex flex-column">
-                                        <p>+ Comunidad 1</p>
-                                        <a href="AdministracionDeRolesDeUsuario.html"> Administrar usuarios</a>
+                                <div class="col-md-offset-2 col-md-8 col-sm-12 wow fadeInUp animated" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                                    <div class="section-title">
+
+                                        <div class="wrapper">
+                                            <div class="media">
+                                                <div class="layer d-flex flex-column">
+                                                    <p>+ Comunidad 1</p>
+                                                    <a href="/comunidades/1/usuarios"> Administrar usuarios</a>
+                                                </div>
+                                                <img src="/images/gallery-img1.jpg" alt="" />
+                                            </div>
+                                            <div class="media">
+                                                <div class="layer d-flex flex-column">
+                                                    <p>+ Comunidad 2</p>
+                                                    <a href="/comunidades/2/usuarios"> Administrar usuarios</a>
+                                                </div>
+                                                <img src="/images/gallery-img2.jpg" alt="" />
+                                            </div>
+                                            <div class="media">
+                                                <div class="layer d-flex flex-column">
+                                                    <p>+ Comunidad 3</p>
+                                                    <a href="/comunidades/3/usuarios"> Administrar usuarios</a>
+                                                </div>
+                                                <img src="/images/gallery-img3.jpg" alt="" />
+                                            </div>
+                                            <div class="media">
+                                                <div class="layer d-flex flex-column">
+                                                    <p>+ Comunidad 4</p>
+                                                    <a href="/comunidades/4/usuarios"> Administrar usuarios</a>
+                                                </div>
+                                                <img src="/images/gallery-img4.jpg" alt="" />
+                                            </div>
+                                        </div>
+
                                     </div>
-                                    <img src="../images/gallery-img1.jpg" alt="" />
                                 </div>
-                                <div class="media">
-                                    <div class="layer d-flex flex-column">
-                                        <p>+ Comunidad 2</p>
-                                        <a href="AdministracionDeRolesDeUsuario.html"> Administrar usuarios</a>
-                                    </div>
-                                    <img src="../images/gallery-img2.jpg" alt="" />
-                                </div>
-                               <div class="media">
-                                    <div class="layer d-flex flex-column">
-                                        <p>+ Comunidad 3</p>
-                                        <a href="AdministracionDeRolesDeUsuario.html"> Administrar usuarios</a>
-                                    </div>
-                                    <img src="../images/gallery-img3.jpg" alt="" />
-                                </div>
-                                <div class="media">
-                                    <div class="layer d-flex flex-column">
-                                        <p>+ Comunidad 4</p>
-                                        <a href="AdministracionDeRolesDeUsuario.html"> Administrar usuarios</a>
-                                    </div>
-                                    <img src="../images/gallery-img4.jpg" alt="" />
-                                </div>
+
                             </div>
-
                         </div>
-                      </div>
-
-                    </div>
-                  </div>
-                </section>
-              </div>
+                    </section>
+                </div>
             </div>
-          </div>
-        </section>
+        </div>
+    </section>
 
 
-      </main>
+</main>
 
-      <!-- JAVASCRIPT FILES -->
-      <script src="../js/jquery.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
-      <script src="../js/countdown.js"></script>
-      <script src="../js/init.js"></script>
+<!-- JAVASCRIPT FILES -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/countdown.js"></script>
+<script src="/js/init.js"></script>
+<script src="/js/vueValidadorSesion.js"></script>
 
-    </body>
+</body>
 </html>
