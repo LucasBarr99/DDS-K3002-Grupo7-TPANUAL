@@ -117,7 +117,7 @@
 				<div class="text-white fs-6">
                  <form name="idForm" id="vueMostrarRanking">
                   <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
-                     <select name="criterio" id="criterio_ranking" v-model="criterioSeleccionado" >
+                     <select name="criterio" id="criterio_ranking" v-model="criterioSeleccionado" onchange="changeListener()">
                          <option v-for="criterio in criterios" :value="criterio.id">{{criterio.nombre}}</option>
                      </select>
                  </form>
@@ -128,22 +128,22 @@
                 <div class="d-flex flex-column">
                   <ul class="overflow-auto p-0" style="height: 400px">
                    
-					<!-- POSICION DEL RANKING 1-->
-					<li class="card m-2 p-2">
+					<!-- POSICIONES RANKING-->
+					<li v-for="entidad in entidades" class="card m-2 p-2">
                       <div class="row">
                         <div class="col">
                           <h4 style="margin: 1;font-size: 30px; color: #ECB91C">
                             Posicion 1
                           </h4>
-                          <div>
-                            Entidad: numero 1
+                          <ul>
+                            {{entidad.nombre}}
+                          </ul>
                           </div>
-						  <div>Comentarios: </div>
                         </div>
                       </div>
                     </li>
                   </ul>
-                </div>
+                 </div>
 
 				  
 				  
@@ -182,7 +182,8 @@
       <script src="/js/bootstrap.bundle.min.js"></script>
       <script src="/js/countdown.js"></script>
       <script src="/js/init.js"></script>
-    <script src="/js/vueMostrarRanking.js"></script>
+    <script src="/js/vueMostrarCriterios.js"></script>
+    <script src="/js/mostrarRanking.js"></script>
 
     </body>
 </html>
