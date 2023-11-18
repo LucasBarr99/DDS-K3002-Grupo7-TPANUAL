@@ -29,7 +29,7 @@ public class Comunidad extends EntidadPersistente {
   public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Persona> administradores) {
     this.miembros = miembros;
     this.serviciosDeInteres = serviciosDeInteres;
-    this.administradores = administradores;
+    this.administradores = ListaAdministradores;
   }
 
   public Comunidad(){}
