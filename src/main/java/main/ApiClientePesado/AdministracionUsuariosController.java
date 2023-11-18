@@ -17,6 +17,7 @@ public class AdministracionUsuariosController {
 
     @GetMapping("/apiPesada/comunidades/{idComunidad}/usuarios")
     public ResponseEntity<MiembrosResponse> revisarIncidente(@PathVariable int idComunidad){
+        System.out.println("[GET] /apiPesada/comunidades/"+idComunidad+"/usuarios");
         MiembrosResponse resp = servicioAdministracion.obtenerMiembrosDeComunidad(idComunidad);
         return ResponseEntity.ok(resp);
     }

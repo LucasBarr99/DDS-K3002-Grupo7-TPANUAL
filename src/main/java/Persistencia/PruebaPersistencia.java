@@ -46,15 +46,16 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Usuario usuario1 = new Usuario("Lucas","TpAnual_028", TipoUsuario.ADMINCOMUNIDAD);
       Usuario usuario2 = new Usuario("Tomas","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
       Usuario usuario3 = new Usuario("Franco","TpAnual_030", TipoUsuario.BASICO);
+      Usuario usuario4 = new Usuario("Santiago","TpAnual_031", TipoUsuario.BASICO);
 
-      Interesado persona1 = new Persona("Lucas",ubicacion1,"Lucas@gmail.com","12345678", new ArrayList<Notificacion>(),new ArrayList<RangoHorarioNotificacion>());
+      Interesado persona1 = new Persona("Lucas",ubicacion1,"Lucas@gmail.com","12345678", new ArrayList<>(), new ArrayList<>());
       persona1.agregarUsuario(usuario1);
 
       List<Usuario> adminsComunidad1 = new ArrayList<>();
 
       adminsComunidad1.add(usuario1);
 
-      Comunidad comunidad1 = new Comunidad(new ArrayList<Miembro>(),new ArrayList<Servicio>(),adminsComunidad1);
+      Comunidad comunidad1 = new Comunidad(new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
 
       Miembro miembro1 = new Miembro("Cacho", "Antune", "cachoAntune@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, new ArrayList<>());
       usuario2.agregarMembresia(miembro1);
@@ -139,8 +140,10 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(usuario1);
       persist(usuario2);
       persist(usuario3);
+      persist(usuario4);
 
       persist(miembro1);
+      persist(miembro2);
       persist(comunidad1);
       persist(persona1);
 
@@ -150,7 +153,6 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       serviciosOrg1.forEach(this::persist);
       serviciosOrg2.forEach(this::persist);
       serviciosOrg3.forEach(this::persist);
-      persist(miembro1);
       persist(incidente1);
       persist(incidente2);
       persist(incidente3);
