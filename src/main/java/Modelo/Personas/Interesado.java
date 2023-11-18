@@ -32,6 +32,12 @@ public abstract class Interesado extends EntidadPersistente {
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idinteresado")
   public List<NotificacionIncidente> notificacionesPendientes;
+
+  @OneToMany()
+  @JoinColumn(name="idUsuario")
+  public List<Usuario> usuarios = new ArrayList<Usuario>();
+
+
   public void notificar(){}
   public void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente){}
 

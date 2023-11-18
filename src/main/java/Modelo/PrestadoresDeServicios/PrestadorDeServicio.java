@@ -15,14 +15,14 @@ public class PrestadorDeServicio extends EntidadPersistente {
     String nombre;
 
     @OneToOne
-    @JoinColumn(name= "idPrestadorServicio")
-    Persona persona;
+    @JoinColumn(name= "idUsuarioAdmin")
+    Usuario usuarioAdmin;
     @OneToMany(cascade = { CascadeType.ALL })
     @JoinColumn(name = "idPrestadorServicio")
     List<Entidad> entidades;
     @OneToOne
-    @JoinColumn(name= "idPrestadorServicioDesignado")
-    Persona personaDesignado;
+    @JoinColumn(name= "idUsuarioDesignado")
+    Usuario usuarioDesignado;
 
 
     public PrestadorDeServicio(){}
@@ -31,10 +31,10 @@ public class PrestadorDeServicio extends EntidadPersistente {
         this.nombre = nombre;
     }
 
-    public PrestadorDeServicio(String nombre, Persona persona, List<Entidad> entidades, Persona personaDesignado) {
+    public PrestadorDeServicio(String nombre, Usuario usuarioadmin, List<Entidad> entidades, Usuario usuarioDesignado) {
         this.nombre = nombre;
-        this.persona = persona;
+        this.usuarioAdmin = usuarioadmin;
         this.entidades = entidades;
-        this.personaDesignado = personaDesignado;
+        this.usuarioDesignado = usuarioDesignado;
     }
 }

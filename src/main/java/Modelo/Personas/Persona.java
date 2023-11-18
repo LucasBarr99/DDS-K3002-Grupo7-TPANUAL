@@ -28,9 +28,6 @@ public class Persona extends Interesado {
   @ElementCollection
   public List<RangoHorarioNotificacion> rangosDeNotificacion;
 
-  @OneToOne
-  private Usuario usuario;
-
 
   public Persona(String nombre, Ubicacion ubicacion, String correo, String numero, List<Notificacion> serviciosDeNotificacion, List<RangoHorarioNotificacion> rangosDeNotificacion) {
     this.nombre = nombre;

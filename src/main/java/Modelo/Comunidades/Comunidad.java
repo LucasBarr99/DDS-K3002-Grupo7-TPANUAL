@@ -23,10 +23,11 @@ public class Comunidad extends EntidadPersistente {
   private List<Servicio> serviciosDeInteres;
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idcomunidadadmin")
-  private List <Persona> administradores;
+  private List <Usuario> administradores;
 
 
-  public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Persona> administradores) {
+
+  public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Usuario> ListaAdministradores) {
     this.miembros = miembros;
     this.serviciosDeInteres = serviciosDeInteres;
     this.administradores = ListaAdministradores;
