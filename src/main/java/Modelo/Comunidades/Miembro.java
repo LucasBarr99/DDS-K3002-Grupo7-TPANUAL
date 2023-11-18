@@ -23,7 +23,7 @@ public class Miembro extends EntidadPersistente {
   //List<LineaDeTransporte> lineasDeInteres;
 
   @Enumerated
-  TipoUsuario tipo;
+  TipoMiembro tipo;
   /*
   @OneToMany
   @JoinColumn(name = "id_miembro")
@@ -41,7 +41,7 @@ public class Miembro extends EntidadPersistente {
 
   }
 
-  public Miembro(String nombre, String apellido, String correo, Comunidad comunidades, TipoUsuario tipo, List<Notificacion> serviciosDeNotificacion) {
+  public Miembro(String nombre, String apellido, String correo, Comunidad comunidad, TipoMiembro tipo, List<Notificacion> serviciosDeNotificacion) {
     this.nombre = nombre;
     this.apellido = apellido;
     this.correo = correo;

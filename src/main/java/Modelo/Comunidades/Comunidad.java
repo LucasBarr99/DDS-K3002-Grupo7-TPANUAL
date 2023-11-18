@@ -1,6 +1,7 @@
 package Modelo.Comunidades;
 
 import Modelo.Personas.Persona;
+import Modelo.Personas.Usuario;
 import Persistencia.EntidadPersistente;
 import Modelo.Servicios.Servicio;
 

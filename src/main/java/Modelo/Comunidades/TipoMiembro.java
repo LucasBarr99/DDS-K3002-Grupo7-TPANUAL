@@ -1,6 +1,6 @@
 package Modelo.Comunidades;
 
-public enum TipoUsuario {
+public enum TipoMiembro {
 
   DE_SERVICIO,
   OBSERVADOR

@@ -51,13 +51,12 @@ public class Persona extends Interesado {
 
   public void notificar() {
     if(this.correspondeNotificar()){
-        for (int i = 0; i < notificacionesPendientes.size(); i++) {
-          if (!notificacionesPendientes.get(i).getIncidente().estaCerrado()) {
-            NotificacionIncidente notificacion = notificacionesPendientes.get(i);
-            serviciosDeNotificacion.forEach(servicio -> servicio.notificar(notificacion.getDescripcion(),
-                numero, correo, notificacion.getAsunto() + " ha ocurrido en " + notificacion.getDescripcion()));
-          }
+      for (NotificacionIncidente notificacionesPendiente : notificacionesPendientes) {
+        if (!notificacionesPendiente.getIncidente().estaCerrado()) {
+          serviciosDeNotificacion.forEach(servicio -> servicio.notificar(notificacionesPendiente.getDescripcion(),
+                  numero, correo, notificacionesPendiente.getAsunto() + " ha ocurrido en " + notificacionesPendiente.getDescripcion()));
         }
+      }
       notificacionesPendientes.clear();
     }
   }

@@ -1,15 +1,22 @@
 package Persistencia;
 
+import Modelo.Comunidades.Comunidad;
 import Modelo.Comunidades.Miembro;
+import Modelo.Comunidades.TipoMiembro;
 import Modelo.Entidades.Entidad;
 import Modelo.Entidades.Organizacion;
 import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
+import Modelo.Incidentes.RangoHorarioNotificacion;
 import Modelo.InformeRanking.*;
 import Modelo.Localizaciones.TipoLocalizacion;
 import Modelo.Localizaciones.Ubicacion;
+import Modelo.Personas.Interesado;
+import Modelo.Personas.Persona;
+import Modelo.Personas.TipoUsuario;
 import Modelo.Personas.Usuario;
 import Modelo.Servicios.Servicio;
+import ServiciosExternos.Notifcaciones.Notificacion;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
@@ -17,6 +24,7 @@ import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class PruebaPersistencia implements WithGlobalEntityManager, EntityManagerOps, TransactionalOps {
@@ -27,11 +35,34 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
   void run(){
     withTransaction(() -> {
-      List<Ubicacion> ubicaciones = new ArrayList<>();
 
+      List<Ubicacion> ubicaciones = new ArrayList<>();
       Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
       ubicaciones.add(ubicacion1);
+
+
+
+      Usuario usuario1 = new Usuario("Lucas","TpAnual_028", TipoUsuario.ADMINCOMUNIDAD);
+      Usuario usuario2 = new Usuario("Tomas","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
+      Usuario usuario3 = new Usuario("Franco","TpAnual_030", TipoUsuario.BASICO);
+
+      Interesado persona1 = new Persona("Lucas",ubicacion1,"Lucas@gmail.com","12345678", new ArrayList<Notificacion>(),new ArrayList<RangoHorarioNotificacion>());
+      persona1.agregarUsuario(usuario1);
+
+      List<Usuario> adminsComunidad1 = new ArrayList<>();
+
+      adminsComunidad1.add(usuario1);
+
+      Comunidad comunidad1 = new Comunidad(new ArrayList<Miembro>(),new ArrayList<Servicio>(),adminsComunidad1);
+
+      Miembro miembro1 = new Miembro("Cacho", "Antune", "cachoAntune@gmail.com",comunidad1, TipoMiembro.DE_SERVICIO, new ArrayList<Notificacion>());
+      usuario1.agregarMembresia(miembro1);
+
+
+
+
+
 
 
       Entidad org = new Organizacion("Cacho S.A", ubicaciones,null, null );
@@ -57,8 +88,6 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       org2.setServicios(serviciosOrg2);
 
-      Miembro miembro1 = new Miembro();
-
       Incidente incidente1 = new Incidente("Incidente1", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Se revento un banitory", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente2 = new Incidente("Incidente2", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Detonaron un inodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente3 = new Incidente("Incidente3", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Exploto un bidet", EstadoIncidentes.CERRADO, miembro1);
@@ -77,8 +106,6 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Incidente incidente12 = new Incidente("Incidente4", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Hay uno durmiendo en el inodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente13 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente14 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "El lavamanos gotea", EstadoIncidentes.CERRADO, miembro1);
-
-      Usuario usuario1 = new Usuario("Lucas","TpAnual_028");
 
       GeneradorInforme criterio1 =  new MayorTiempoPromedioDeCierreIncidentes("Tiempo promedio de cierre de Incidentes");
       GeneradorInforme criterio2 =  new MayorCantidadDeIncidentesReportadosSemana("Mayor cantidad de Incidentes reportados");
@@ -107,7 +134,15 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
 
 
+
       persist(usuario1);
+      persist(usuario2);
+      persist(usuario3);
+
+      persist(miembro1);
+      persist(comunidad1);
+      persist(persona1);
+
       persist(org);
       persist(org2);
       persist(org3);

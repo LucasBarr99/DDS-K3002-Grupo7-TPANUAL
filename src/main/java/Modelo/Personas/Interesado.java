@@ -6,6 +6,7 @@ import Persistencia.EntidadPersistente;
 import Modelo.Servicios.Servicio;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,10 +17,10 @@ public abstract class Interesado extends EntidadPersistente {
 
   public String correo;
 
-
+/*
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idinteresado")
-  private List<Miembro> membresias;
+  private List<Miembro> membresias;*/
 
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
@@ -33,4 +34,8 @@ public abstract class Interesado extends EntidadPersistente {
   public List<NotificacionIncidente> notificacionesPendientes;
   public void notificar(){}
   public void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente){}
+
+  public void agregarUsuario(Usuario user){
+    this.usuarios.add(user);
+  }
 }

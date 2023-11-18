@@ -2,6 +2,7 @@ package Modelo.PrestadoresDeServicios;
 
 import Modelo.Entidades.Entidad;
 import Modelo.Personas.Persona;
+import Modelo.Personas.Usuario;
 import Persistencia.EntidadPersistente;
 
 import javax.persistence.*;

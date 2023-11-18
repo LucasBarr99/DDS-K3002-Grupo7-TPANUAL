@@ -1,11 +1,16 @@
 package Modelo.Personas;
 
+import Modelo.Comunidades.Miembro;
 import Modelo.Excepciones.ContraseñaInvalidaException;
 import Persistencia.EntidadPersistente;
 import Modelo.Validadores.ValidadorContrasenias;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Usuarios")
@@ -14,9 +19,18 @@ public class Usuario extends EntidadPersistente {
   private String nombre;
   private String contrasenia;
 
+  @OneToMany
+  @JoinColumn(name="idUsuario")
+  private List<Miembro> membresias = new ArrayList<Miembro>();
 
-  public Usuario(String nombre, String contrasenia) {
+
+
+  private  TipoUsuario tipo;
+
+
+  public Usuario(String nombre, String contrasenia,TipoUsuario tipo) {
     this.nombre = nombre;
+    this.tipo = tipo;
     ValidadorContrasenias validador = new ValidadorContrasenias();
     try {
       validador.validarContrasenia(contrasenia);
@@ -47,5 +61,17 @@ public class Usuario extends EntidadPersistente {
 
   public void setContrasenia(String contrasenia) {
     this.contrasenia = contrasenia;
+  }
+
+  public TipoUsuario getTipo() {
+    return tipo;
+  }
+
+  public void setTipo(TipoUsuario tipo) {
+    this.tipo = tipo;
+  }
+
+  public void agregarMembresia(Miembro miembro1) {
+    this.membresias.add(miembro1);
   }
 }

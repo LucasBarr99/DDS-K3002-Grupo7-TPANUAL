@@ -1,16 +1,15 @@
 package main.ApiClientePesado;
 import jakarta.servlet.http.HttpServletResponse;
-import main.ApiClientePesado.Servicios.servicioLogin;
+import main.ApiClientePesado.Servicios.ServicioLogin;
 import main.ApiClientePesado.dto.LoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class LoginController {
 
   @Autowired
-  servicioLogin servicioLogin;
+  ServicioLogin servicioLogin;
 
   @PostMapping(value="/apiPesada/login",produces = "application/json")
   public String postLogin(@RequestBody LoginRequest newLoginRequest, HttpServletResponse response){
