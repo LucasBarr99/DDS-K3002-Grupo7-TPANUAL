@@ -142,86 +142,18 @@
                           <div>
                             cachoAntune@gmail.com
                           </div>
-							<div>
-                            Capital Federal
-                          </div>
                         </div>
                       </div>
                       <div class="row">
                         <div class="col d-flex flex-column justify-content-center align-items-center">
                           <div class="m-3">
                             Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
+                              <label><input type="radio" :id="`rol1${miembro.id}`" name="option" value="0">De servicio</label>
+                              <label><input type="radio" :id="`rol2${miembro.id}`" name="option" value="1">Observador</label>
+                          </div>
+                        </div>
                       </div>
                     </li>
-
-                    <!-- ELEMENTO 2-->
-                    <li class="card m-2 p-2">
-                      <div class="row">
-                        <!--Columna servicio / entidad / fecha -->
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <h4 style="margin: 0;font-size: 25px;">
-                            Tito
-                          </h4>
-                          <div>
-                            tito@gmail.com
-                          </div>
-							<div>
-                            Paternal
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <div class="m-3">
-                            Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
-                      </div>
-                    </li>
-				    <!-- ELEMENTO 3-->		  
-					<li class="card m-2 p-2">
-                      <div class="row">
-                        <!--Columna servicio / entidad / fecha -->
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <h4 style="margin: 0;font-size: 25px;">
-                            Pepe
-                          </h4>
-                          <div>
-                            pepe@gmail.com
-                          </div>
-							<div>
-                            Almirante Brown
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <div class="m-3">
-                            Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
-                      </div>
-                    </li>	  
                   </ul>
                 </div>
 
@@ -247,6 +179,8 @@
       <script src="/js/countdown.js"></script>
       <script src="/js/init.js"></script>
       <script src="/js/CierreIncidente.js"></script>
+      <script src="/js/vueAdministrarRoles.js"></script>
+
 
     </body>
 </html>

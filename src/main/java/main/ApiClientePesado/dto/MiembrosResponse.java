@@ -12,11 +12,14 @@ public class MiembrosResponse {
         this.miembros = miembros;
     }
 
-    public List<Miembro> getUsuarios() {
+    public MiembrosResponse(){
+
+    }
+    public List<Miembro> getMiembros() {
         return miembros;
     }
 
-    public void setUsuarios(List<Miembro> miembros) {
+    public void setMiembros(List<Miembro> miembros) {
         this.miembros= miembros;
     }
 }

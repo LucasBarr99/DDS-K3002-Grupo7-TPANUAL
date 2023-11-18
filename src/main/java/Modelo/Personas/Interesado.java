@@ -17,11 +17,6 @@ public abstract class Interesado extends EntidadPersistente {
 
   public String correo;
 
-/*
-  @OneToMany(cascade = {CascadeType.ALL})
-  @JoinColumn(name = "idinteresado")
-  private List<Miembro> membresias;*/
-
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
       name = "ServicioPorInteresado",
@@ -34,7 +29,7 @@ public abstract class Interesado extends EntidadPersistente {
   public List<NotificacionIncidente> notificacionesPendientes;
 
   @OneToMany()
-  @JoinColumn(name="idUsuario")
+  @JoinColumn(name="idInteresado")
   public List<Usuario> usuarios = new ArrayList<Usuario>();
 
 

@@ -50,12 +50,49 @@ public class Miembro extends EntidadPersistente {
     this.serviciosDeNotificacion = serviciosDeNotificacion;
   }
 
+
   void reportarIncidenteEn(Servicio servicio, Incidente incidente){
       servicio.agregarIncidente(incidente);
   }
 
+  public TipoMiembro getTipo() {
+    return tipo;
+  }
+
+  public void setTipo(TipoMiembro tipo) {
+    this.tipo = tipo;
+  }
+
   public Comunidad getComunidad() {
     return comunidad;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  public String getApellido() {
+    return apellido;
+  }
+
+  public void setApellido(String apellido) {
+    this.apellido = apellido;
+  }
+
+  public String getCorreo() {
+    return correo;
+  }
+
+  public void setCorreo(String correo) {
+    this.correo = correo;
+  }
+
+  public void setComunidad(Comunidad comunidad) {
+    this.comunidad = comunidad;
   }
 
   public boolean estaEnComunidad(Comunidad comunidadInvolucradaEnIncidente){

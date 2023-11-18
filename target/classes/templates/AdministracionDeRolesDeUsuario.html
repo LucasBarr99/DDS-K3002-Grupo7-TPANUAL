@@ -18,6 +18,7 @@
     <link href="/css/bootstrap-icons.css" rel="stylesheet">
     <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
   </head>
     <body>
@@ -112,7 +113,7 @@
         </div>
 
         <!-- BODY DE LA VISTA-->
-        <section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
+        <section class="hero-section d-flex justify-content-center align-items-top" id="vueAdministrarRoles" style="padding-top: 130px">
           <div class="container">
             <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
               <div class="card-header">LISTADO DE USUARIOS</div>
@@ -132,18 +133,14 @@
                 <div class="d-flex flex-column">
                   <ul class="overflow-auto p-0" style="height: 400px">
                     <!-- ELEMENTO 1-->
-                    <li class="card m-2 p-2">
+                    <li v-for="miembro in miembros" class="card m-2 p-2">
                       <div class="row">
-                        <!--Columna servicio / entidad / fecha -->
                         <div class="col d-flex flex-column justify-content-center align-items-center">
                           <h4 style="margin: 0;font-size: 25px;">
-                            Cacho Antune
+                              {{miembro.nombre +' '+miembro.apellido}}
                           </h4>
                           <div>
-                            cachoAntune@gmail.com
-                          </div>
-							<div>
-                            Capital Federal
+                            {{miembro.correo}}
                           </div>
                         </div>
                       </div>
@@ -151,77 +148,12 @@
                         <div class="col d-flex flex-column justify-content-center align-items-center">
                           <div class="m-3">
                             Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
+                              <label><input type="radio" :id="`rol1${miembro.id}`" name="option" value="0">De servicio</label>
+                              <label><input type="radio" :id="`rol2${miembro.id}`" name="option" value="1">Observador</label>
+                          </div>
+                        </div>
                       </div>
                     </li>
-
-                    <!-- ELEMENTO 2-->
-                    <li class="card m-2 p-2">
-                      <div class="row">
-                        <!--Columna servicio / entidad / fecha -->
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <h4 style="margin: 0;font-size: 25px;">
-                            Tito
-                          </h4>
-                          <div>
-                            tito@gmail.com
-                          </div>
-							<div>
-                            Paternal
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <div class="m-3">
-                            Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2" checked>
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
-                      </div>
-                    </li>
-				    <!-- ELEMENTO 3-->		  
-					<li class="card m-2 p-2">
-                      <div class="row">
-                        <!--Columna servicio / entidad / fecha -->
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <h4 style="margin: 0;font-size: 25px;">
-                            Pepe
-                          </h4>
-                          <div>
-                            pepe@gmail.com
-                          </div>
-							<div>
-                            Almirante Brown
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col d-flex flex-column justify-content-center align-items-center">
-                          <div class="m-3">
-                            Rol:
-                          <div class="form-check form-check-inline m-3" >
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked>
- 							<label class="form-check-label" for="inlineCheckbox1">Observador</label>
-							</div>
-						  <div class="form-check form-check-inline m-3">
-  							<input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-  							<label class="form-check-label" for="inlineCheckbox2">De Servicio</label>
-						  </div>
-                      </div>
-                    </li>	  
                   </ul>
                 </div>
 
@@ -247,6 +179,8 @@
       <script src="/js/countdown.js"></script>
       <script src="/js/init.js"></script>
       <script src="/js/CierreIncidente.js"></script>
+      <script src="/js/vueAdministrarRoles.js"></script>
+
 
     </body>
 </html>

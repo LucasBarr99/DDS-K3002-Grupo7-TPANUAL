@@ -36,4 +36,8 @@ public class Comunidad extends EntidadPersistente {
   public Comunidad(){}
 
 
+  public void agregarMiembro(Miembro miembro){
+    miembros.add(miembro);
+  }
+
 }
