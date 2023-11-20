@@ -4,7 +4,7 @@ var app = new Vue({
         miembros:[],
         idComunidad:""
     },
-    async created(){
+    created : function(){
         // Obtén la URL actual
         var url = window.location.href;
         // Utiliza una expresión regular para encontrar el número después de "/comunidades/"
@@ -19,10 +19,6 @@ var app = new Vue({
         }
         this.buscarMiembros();
     },
-    async mounted() {
-        this.marcarChecks();
-    },
-
     methods: {
         buscarMiembros : function(){
 
@@ -31,29 +27,37 @@ var app = new Vue({
                     .then(r => {
                         console.log(r);
                         this.miembros = r.miembros;
-                    })
+                    }).then(r => {this.marcarChecks()})
                 })
                 .catch(error => console.error('Error:', error));
         },
-        marcarChecks : function (){
-            console.log("HOLAAAAAAAAA");
+        marcarChecks : function(){
             this.miembros.forEach(m => {
+                var rol = "";
                 if(m.tipo === 'DE_SERVICIO'){
-                    console.log("rol1"+m.id);
-                    var id =  "rol1"+m.id;
-                    const elem =document.getElementById(id);
-                    console.log(elem);
-                    elem.checked = true;
+                    rol = "rol1";
+
                 }
                 else if(m.tipo === 'OBSERVADOR'){
-                    console.log("rol2"+m.id);
-                    var id =  "rol2"+m.id;
-                    const elem =document.getElementById(id);
-                    console.log(elem);
-                    elem.checked = true;
+                    rol = "rol2";
                 }
-
+                var idElemento =  rol+m.id;
+                console.log(idElemento);
+                const elem =document.getElementById(idElemento);
+                console.log(elem);
+                elem.checked = true;
             })
+        },
+        updateRol:function(miembro,nuevoRol){
+            var m = miembro.miembro;
+            console.log("Rol de miembro: "+m.id+" cambia a: "+nuevoRol);
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ miembroId: m.id, nuevoRol:nuevoRol })
+            };
+            fetch('/apiPesada/comunidades/' + this.idComunidad + '/usuarios', requestOptions).then (r =>console.log(r));
         }
+
     }
 })

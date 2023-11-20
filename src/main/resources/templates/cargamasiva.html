@@ -2,17 +2,18 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Rankings semanales</title>
+<title>Carga masiva de Entidades</title>
 	
 	 <!-- CSS FILES -->
-    <link href="../css/EstilosIncidentes.css" rel="stylesheet">
+    <link href="/css/EstilosIncidentes.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/bootstrap-icons.css" rel="stylesheet">
-    <link href="../css/tooplate-kool-form-pack.css" rel="stylesheet">
-    <link href="../css/animate.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	
 </head>
@@ -22,9 +23,8 @@
         <header class="site-header">
           <div class="container">
             <div class="row justify-content-between">
-
               <div class="col-lg-12 col-12 d-flex align-items-center">
-                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="/home">
                   <i class="bi-train-front"></i>
                   <span>SACMR</span>
                 </a>
@@ -52,31 +52,30 @@
           <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
             <nav>
               <ul>
+
                 <li>
-                  <a href="login.html">Inicia sesión</a>
+                  <a href="/cargaMasiva" class="active">Carga masiva de entidades</a>
                 </li>
 
                 <li>
-                  <a href="" class="active">Carga masiva de entidades</a>
+                    <a href="/comunidades">Comunidades</a>
                 </li>
 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Incidentes
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
-                  </ul>
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Incidentes
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                      <li><a class="dropdown-item" href="/sugerenciaIncidente">Sugerencias</a></li>
+                      <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+                      <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                    </ul>
                 </li>
 
                 <li>
-                  <a href="Rankings.html">Rankings</a>
+                  <a href="/rankings">Rankings</a>
                 </li>
 
-                <li>
-                  <a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
-                </li>
               </ul>
             </nav>
           </div>
@@ -94,7 +93,7 @@
 				  
 			  <div class="drop-zone d-flex flex-column" >
 				
-				<img src="../images/cargaMasivaIcono.png" class="img-fluid" alt="Responsive image">
+				<img src="/images/cargaMasivaIcono.png" class="img-fluid" alt="Responsive image">
         		<span class="drop-zoneprompt">Suelte el archivo aquí o haga clic para cargarlo</span>
                   <form id="idForm">
                     <input type="file" id="myFile" accept="text/csv" enctype="multipart/form-data">
@@ -111,7 +110,7 @@
           <!-- FONDO -->
           <div class="video-wrap">
             <video autoplay="" loop="" muted="" class="custom-video" poster="">
-              <source src="../videos/video.mp4" type="video/mp4">
+              <source src="/videos/video.mp4" type="video/mp4">
 
               Your browser does not support the video tag.
             </video>
@@ -121,11 +120,11 @@
       </main>
 
       <!-- JAVASCRIPT FILES -->
-      <script src="../js/jquery.min.js"></script>
-      <script src="../js/bootstrap.bundle.min.js"></script>
-      <script src="../js/countdown.js"></script>
-      <script src="../js/init.js"></script>
-      <script src="../js/subidaArchivo.js"></script>
+      <script src="/js/jquery.min.js"></script>
+      <script src="/js/bootstrap.bundle.min.js"></script>
+      <script src="/js/countdown.js"></script>
+      <script src="/js/init.js"></script>
+      <script src="/js/subidaArchivo.js"></script>
       <script src="/js/vueValidadorSesion.js"></script>
 
 

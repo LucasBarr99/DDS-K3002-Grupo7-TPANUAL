@@ -1,12 +1,11 @@
 package main.ApiClientePesado;
 
 import main.ApiClientePesado.Servicios.ServicioAdministracionUsuarios;
+import main.ApiClientePesado.dto.MiembroUpdateRequest;
 import main.ApiClientePesado.dto.MiembrosResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AdministracionUsuariosController {
@@ -22,5 +21,12 @@ public class AdministracionUsuariosController {
         return ResponseEntity.ok(resp);
     }
 
+    @PostMapping("/apiPesada/comunidades/{idComunidad}/usuarios")
+    public void cambiarRolMiembro(@PathVariable int idComunidad,@RequestBody MiembroUpdateRequest miembroUpdateRequest){
+        System.out.println("[POST] /apiPesada/comunidades/"+idComunidad+"/usuarios - Actualizacion de ROL");
+        System.out.println("miembroId: "+miembroUpdateRequest.getMiembroId());
+        System.out.println("nuevoROl: "+miembroUpdateRequest.getNuevoRol());
+        servicioAdministracion.actualizarRolMiembro(miembroUpdateRequest);
+    }
 
 }

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>SACMR - Rankings semanales</title>
+<title>Rankings semanales</title>
 	
 	 <!-- CSS FILES -->
     <link href="/css/EstilosIncidentes.css" rel="stylesheet">
@@ -13,6 +13,7 @@
     <link href="/css/bootstrap-icons.css" rel="stylesheet">
     <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
     <link href="/css/animate.min.css" rel="stylesheet">
+    <!-- VUE -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	
 </head>
@@ -24,39 +25,17 @@
             <div class="row justify-content-between">
 
               <div class="col-lg-12 col-12 d-flex align-items-center">
-                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="/home">
                   <i class="bi-train-front"></i>
                   <span>SACMR</span>
                 </a>
-				  <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
-                                <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
 
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-instagram"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
-                                </li>
-                            </ul>
-
-                  <div  id="vueValidadorSesion">
-                      <div class="fw-bold text-white" id="textoBienvenida">
-                          No estas logeado
-                      </div>
-                  </div>
-
-<!--
-                <div>
-                  <a href="#" class="custom-btn custom-border-btn btn" data-bs-toggle="modal" data-bs-target="#subscribeModal">Notify me
-                    <i class="bi-arrow-right ms-2"></i>
-                  </a>
+                <div  id="vueValidadorSesion">
+                    <div class="fw-bold text-white" id="textoBienvenida">
+                        No estas logeado
+                    </div>
                 </div>
--->
+
                 <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
 
               </div>
@@ -67,43 +46,40 @@
 
         <!-- Menu lateral -->
         <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
-          <div class="offcanvas-header">
-            <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
+            <div class="offcanvas-header">
+                <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
 
-          <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
-            <nav>
-              <ul>
-                <li>
-                  <a href="login.html">Inicia sesión</a>
-                </li>
-				  <li>
-                  <a  href="Comunidades.html">Comunidades</a>
-                </li>
-                <li>
-                  <a href="cargamasiva.html">Carga masiva de entidades</a>
-                </li>
+            <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+                <nav>
+                    <ul>
 
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Incidentes
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
-                  </ul>
-                </li>
+                        <li>
+                            <a href="/cargaMasiva" >Carga masiva de entidades</a>
+                        </li>
 
-                <li>
-                  <a class="active" href="Rankings.html">Rankings</a>
-                </li>
+                        <li>
+                            <a href="/comunidades" >Comunidades</a>
+                        </li>
 
-                <li>
-                  <a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Incidentes
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="/sugerenciaIncidente">Sugerencias</a></li>
+                                <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+                                <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="/rankings" class="active">Rankings</a>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
         </div>
 		
 		
@@ -146,27 +122,10 @@
                     </li>
                   </ul>
                  </div>
-
-				  
-				  
-				  
-				  
-				  
               </div>
             </div>
           </div>
-		  
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
-		   
+
           <!-- FONDO -->
           <div class="video-wrap">
             <video autoplay="" loop="" muted="" class="custom-video" poster="">
@@ -186,7 +145,6 @@
       <script src="/js/init.js"></script>
     <script src="/js/vueMostrarCriterios.js"></script>
     <script src="/js/vueValidadorSesion.js"></script>
-    <!--<script src="/js/mostrarRanking.js"></script>-->
 
     </body>
 </html>
