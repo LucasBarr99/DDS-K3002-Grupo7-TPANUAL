@@ -40,4 +40,5 @@ public class RepoUsuarios extends Repositorio<Usuario>{
         Usuario usuario = (Usuario) entityManager().createQuery(query).getResultList().get(0);
         return usuario.getContrasenia();
     }
+
 }

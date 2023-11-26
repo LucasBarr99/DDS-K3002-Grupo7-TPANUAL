@@ -40,6 +40,19 @@
             <artifactId>retrofit</artifactId>
             <version>2.9.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.github.jknack/handlebars -->
+        <dependency>
+            <groupId>com.github.jknack</groupId> <!--templating engine elegido-->
+            <artifactId>handlebars</artifactId>
+            <version>4.3.0</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>pl.allegro.tech.boot</groupId>
+            <artifactId>handlebars-spring-boot-starter</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        -->
         <dependency>
             <groupId>com.squareup.retrofit2</groupId>
             <artifactId>converter-gson</artifactId>

@@ -1,44 +1,38 @@
 package main;
+import Modelo.Comunidades.Comunidad;
+import Modelo.Comunidades.Miembro;
 import Modelo.Establecimientos.Estacion;
 import Modelo.Localizaciones.TipoLocalizacion;
 import Modelo.Localizaciones.Ubicacion;
 import Modelo.PrestadoresDeServicios.Empresa;
 import Modelo.PrestadoresDeServicios.PrestadorDeServicio;
+import Persistencia.Repositorios.RepoComunidades;
 import Persistencia.Repositorios.RepoEstaciones;
+import Persistencia.Repositorios.RepoMiembros;
 import Persistencia.Repositorios.RepoPrestadoresDeServicio;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Runner {
 
   public static void main(String[] args){
 
-    Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
-    Estacion estacion = new Estacion("Cochabamba", ubicacion1,null);
-
-    EntityManager em = PerThreadEntityManagers.getEntityManager();
-    EntityTransaction transaction = em.getTransaction();
-
-    transaction.begin();
-    em.persist(estacion);
-    transaction.commit();
-
-    RepoPrestadoresDeServicio repo = RepoPrestadoresDeServicio.instance();
-
-    repo.agregarPrestadorDeServicio(new Empresa("FRBA"));
-
-    List<Estacion> estaciones = RepoEstaciones.instance().obtenerEstacion("Cochabamba");
-
-    Estacion estacion1 = estaciones.get(0);
+    // Aca obtenemos las mebresias de un usuario en particular, la performance te la regalo, pero los devuelve, corta
+    List<Miembro> membresias = RepoMiembros.instance().obtenerMembresiasUsuario(2);
+    List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
 
 
-    System.out.println(estacion1.getId());
 
-    System.out.println(estacion1.getNombre());
+    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresias)).collect(Collectors.toList());
+
+    Comunidad comunidad1 = comunidades.get(0);
+
+    System.out.println(comunidad1.getId());
 
 
 

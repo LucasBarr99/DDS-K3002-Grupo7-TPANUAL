@@ -1,5 +1,6 @@
 package Persistencia.Repositorios;
 
+import Modelo.Comunidades.Comunidad;
 import Modelo.Comunidades.Miembro;
 import Modelo.Entidades.Entidad;
 
@@ -26,5 +27,11 @@ public class RepoMiembros extends Repositorio<Miembro>{
 
         String query = String.format("from Miembro where id='%s'", id);
         return (Miembro) entityManager().createQuery(query).getResultList().get(0);
+    }
+
+    public List<Miembro> obtenerMembresiasUsuario(int userId){
+        String query = String.format("from Miembro where idUsuario='%s'", userId);
+        return entityManager().createQuery(query).getResultList();
+
     }
 }

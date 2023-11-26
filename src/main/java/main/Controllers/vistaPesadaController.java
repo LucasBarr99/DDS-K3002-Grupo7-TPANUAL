@@ -1,7 +1,10 @@
 package main.Controllers;
 
+import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+
+import javax.transaction.Transactional;
 
 @Controller
 public class vistaPesadaController {
@@ -42,5 +45,7 @@ public class vistaPesadaController {
     public String errorPermisos(){
         return "ErrorPermisos";
     }
+
+
 
 }

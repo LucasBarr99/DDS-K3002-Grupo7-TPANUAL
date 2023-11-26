@@ -40,4 +40,20 @@ public class Comunidad extends EntidadPersistente {
     miembros.add(miembro);
   }
 
+
+  public List<Miembro> getMiembros() {
+    return miembros;
+  }
+
+  public List<Servicio> getServiciosDeInteres() {
+    return serviciosDeInteres;
+  }
+
+  public List<Usuario> getAdministradores() {
+    return administradores;
+  }
+
+  public boolean tieneMiembros(List<Miembro> miembros1){
+    return miembros.stream().anyMatch(miembro -> miembros1.contains(miembro));
+  }
 }
