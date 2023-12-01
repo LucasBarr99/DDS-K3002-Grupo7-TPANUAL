@@ -74,4 +74,8 @@ public class Usuario extends EntidadPersistente {
   public void agregarMembresia(Miembro miembro1) {
     this.membresias.add(miembro1);
   }
+
+  public void setMembresias(List<Miembro> membresias) {
+    this.membresias = membresias;
+  }
 }

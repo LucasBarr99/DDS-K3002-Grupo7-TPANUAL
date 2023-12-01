@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name = "Comunidades")
 public class Comunidad extends EntidadPersistente {
-
+  private String nombre;
   @OneToMany(cascade = { CascadeType.ALL })
   @JoinColumn(name = "idcomunidad")
   private List<Miembro> miembros;
@@ -27,7 +27,8 @@ public class Comunidad extends EntidadPersistente {
 
 
 
-  public Comunidad(List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Usuario> ListaAdministradores) {
+  public Comunidad(String nombre,List<Miembro> miembros, List<Servicio> serviciosDeInteres, List<Usuario> ListaAdministradores) {
+    this.nombre = nombre;
     this.miembros = miembros;
     this.serviciosDeInteres = serviciosDeInteres;
     this.administradores = ListaAdministradores;
@@ -55,5 +56,9 @@ public class Comunidad extends EntidadPersistente {
 
   public boolean tieneMiembros(List<Miembro> miembros1){
     return miembros.stream().anyMatch(miembro -> miembros1.contains(miembro));
+  }
+
+  public String getNombre() {
+    return nombre;
   }
 }

@@ -2,7 +2,11 @@ package main.Controllers;
 
 
 import Modelo.Comunidades.Comunidad;
+import Modelo.Comunidades.Miembro;
 import Modelo.Personas.Usuario;
+import Persistencia.Repositorios.RepoComunidades;
+import Persistencia.Repositorios.RepoMiembros;
+import Persistencia.Repositorios.RepoUsuarios;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import main.ApiClientePesado.SesionManager;
@@ -13,13 +17,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class vistaLivianaController {
@@ -41,7 +43,14 @@ public class vistaLivianaController {
     System.out.println(" idSesion: "+idSesion);
     SesionManager sesionManager = SesionManager.get();
     Map<String, Object> atributos = sesionManager.obtenerAtributos(idSesion);
-    Usuario user = (Usuario) atributos.get("user");
+    String nombreUsuario = (String) atributos.get("usuario");
+    Usuario user = RepoUsuarios.instance().obtenerUsuario(nombreUsuario);
+    List<Miembro> membresiasUsuario = RepoMiembros.instance().obtenerMembresiasUsuario(user.getId());
+
+    List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
+    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresiasUsuario)).toList();
+
+    model.put("comunidades", comunidadesUsuario);
 
 
     Template template = handlebars.compile("/templates/aperturaIncidentes");

@@ -23,16 +23,20 @@ public class Runner {
 
 
     // Aca obtenemos las mebresias de un usuario en particular, la performance te la regalo, pero los devuelve, corta
-    List<Miembro> membresias = RepoMiembros.instance().obtenerMembresiasUsuario(2);
+    List<Miembro> membresias = RepoMiembros.instance().obtenerMembresiasUsuario(1);
+
+
+
     List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
 
 
 
-    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresias)).collect(Collectors.toList());
+    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresias)).toList();
 
-    Comunidad comunidad1 = comunidades.get(0);
+    Comunidad comunidad1 = comunidadesUsuario.get(0);
 
     System.out.println(comunidad1.getId());
+    System.out.println(comunidad1.getNombre());
 
 
 

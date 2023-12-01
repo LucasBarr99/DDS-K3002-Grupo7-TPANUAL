@@ -55,7 +55,10 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       adminsComunidad1.add(usuario1);
 
-      Comunidad comunidad1 = new Comunidad(new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
+
+      Comunidad comunidad1 = new Comunidad("UTN SA",new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+      Comunidad comunidad2 = new Comunidad("DDS SRL",new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
+
 
       Miembro miembro1 = new Miembro("Cacho", "Antune", "cachoAntune@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, new ArrayList<>());
       usuario2.agregarMembresia(miembro1);
@@ -65,7 +68,9 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       usuario4.agregarMembresia(miembro2);
       comunidad1.agregarMiembro(miembro2);
 
-
+      Miembro miembro3 = new Miembro("Tito", "Antune", "TitoAntune@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, new ArrayList<>());
+      usuario1.agregarMembresia(miembro3);
+      comunidad1.agregarMiembro(miembro3);
 
       Entidad org = new Organizacion("Cacho S.A", ubicaciones,null, null );
       Entidad org2 = new Organizacion("UTN S.A", ubicaciones,null, null );
@@ -144,7 +149,9 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       persist(miembro1);
       persist(miembro2);
+      persist(miembro3);
       persist(comunidad1);
+      persist(comunidad2);
       persist(persona1);
 
       persist(org);

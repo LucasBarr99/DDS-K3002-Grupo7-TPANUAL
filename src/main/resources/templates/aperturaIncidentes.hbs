@@ -13,8 +13,9 @@
                             <div class="col-4">
                                 <label for="ComunidadId" class="form-label">Comunidad</label>
                                 <select name="comunidad" id="ComunidadId" class="form-select form-select-lg mb-3">
-                                    <option value="utn">UTN</option>
-                                    <option value="dds">DDS</option>
+                                    {{#comunidades}}
+                                    <option value="{{id}}">{{nombre}}</option>
+                                    {{/comunidades}}
                                 </select>
                             </div>
                             <div class="col-4">
