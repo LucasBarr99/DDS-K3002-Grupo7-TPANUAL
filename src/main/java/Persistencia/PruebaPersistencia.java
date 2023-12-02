@@ -17,6 +17,7 @@ import Modelo.Personas.TipoUsuario;
 import Modelo.Personas.Usuario;
 import Modelo.Servicios.Servicio;
 import ServiciosExternos.Notifcaciones.Notificacion;
+import ServiciosExternos.Notifcaciones.NotificacionJavaMail;
 import org.uqbarproject.jpa.java8.extras.EntityManagerOps;
 import org.uqbarproject.jpa.java8.extras.WithGlobalEntityManager;
 import org.uqbarproject.jpa.java8.extras.transaction.TransactionalOps;
@@ -36,6 +37,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
   void run(){
     withTransaction(() -> {
 
+      Notificacion servicioMail = new NotificacionJavaMail();
       List<Ubicacion> ubicaciones = new ArrayList<>();
       Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
 
@@ -56,29 +58,37 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       adminsComunidad1.add(usuario1);
 
 
-      Comunidad comunidad1 = new Comunidad("UTN SA",new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
-      Comunidad comunidad2 = new Comunidad("DDS SRL",new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
+      Comunidad comunidad1 = new Comunidad("Comunidad 1",new ArrayList<>(), new ArrayList<>(),new ArrayList<>());
+      Comunidad comunidad2 = new Comunidad("Comunidad 2",new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
 
+      List<Notificacion> serviciosNotificacionMiembros = new ArrayList<>();
+
+      serviciosNotificacionMiembros.add(servicioMail);
 
       Miembro miembro1 = new Miembro("Cacho", "Antune", "lucas.barrientos2899@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, serviciosNotificacionMiembros);
       usuario2.agregarMembresia(miembro1);
       comunidad1.agregarMiembro(miembro1);
 
-      Miembro miembro2 = new Miembro("Pepe", "Antune", "pepeAntune@gmail.com",comunidad1,TipoMiembro.OBSERVADOR, new ArrayList<>());
+      Miembro miembro2 = new Miembro("Pepe", "Antune", "lucasmarcelobatalla01@gmail.com",comunidad1,TipoMiembro.OBSERVADOR, serviciosNotificacionMiembros);
       usuario4.agregarMembresia(miembro2);
       comunidad1.agregarMiembro(miembro2);
 
-      Miembro miembro3 = new Miembro("Tito", "Antune", "TitoAntune@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, new ArrayList<>());
+      Miembro miembro3 = new Miembro("Tito", "Antune", "lucas.barrientos2899@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, serviciosNotificacionMiembros);
+
+      Miembro miembro4 = new Miembro("Raul", "Alutti", "Raul@gmail.com",comunidad2,TipoMiembro.DE_SERVICIO, new ArrayList<>());
+
       usuario1.agregarMembresia(miembro3);
+      usuario1.agregarMembresia(miembro4);
       comunidad1.agregarMiembro(miembro3);
+      comunidad2.agregarMiembro(miembro4);
 
       Entidad org = new Organizacion("Cacho S.A", ubicaciones,null, null );
       Entidad org2 = new Organizacion("UTN S.A", ubicaciones,null, null );
       Entidad org3 = new Organizacion("DDS S.A", ubicaciones,null, null );
 
-      Servicio servicio1= new Servicio("Baño de Hombres",null, org);
-      Servicio servicio2= new Servicio("Baño de Mujeres",null, org2);
-      Servicio servicio3= new Servicio("Baño de Mujeres",null, org3);
+      Servicio servicio1= new Servicio("Baño de Hombres Cacho S.A",null, org);
+      Servicio servicio2= new Servicio("Baño de Mujeres UTN S.A",null, org2);
+      Servicio servicio3= new Servicio("Baño de Mujeres DDS S.A",null, org3);
 
 
       List<Servicio> serviciosOrg1 = new ArrayList<>();
@@ -89,8 +99,9 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       serviciosOrg2.add(servicio2);
       serviciosOrg3.add(servicio3);
 
-
-
+      comunidad1.agregarServicio(servicio1);
+      comunidad1.agregarServicio(servicio2);
+      comunidad1.agregarServicio(servicio3);
       org.setServicios(serviciosOrg1);
 
       org2.setServicios(serviciosOrg2);
@@ -141,7 +152,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
 
 
-
+      persist(servicioMail);
       persist(usuario1);
       persist(usuario2);
       persist(usuario3);

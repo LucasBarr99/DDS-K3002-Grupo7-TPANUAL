@@ -8,6 +8,7 @@ import Persistencia.EntidadPersistente;
 import Persistencia.Repositorios.RepoIncidentes;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @Entity
@@ -19,14 +20,14 @@ public class Servicio extends EntidadPersistente {
   String descripcion;
   @OneToMany
   @JoinColumn(name = "idServicio")
-  List<Servicio> subServicios;
+  List<Servicio> subServicios = new ArrayList<>();
 
   @ManyToOne
   @JoinColumn(name = "idEntidad")
   Entidad entidad;
 
   @Transient
-  List<Incidente> incidentes;
+  List<Incidente> incidentes = new ArrayList<>();
 
   public Servicio() {
 
@@ -53,7 +54,6 @@ public class Servicio extends EntidadPersistente {
 
   public void agregarIncidente(Incidente incidente){
     incidentes.add(incidente);
-    RepoIncidentes.instance().agregarIncidente(incidente);
     entidad.reportarIncidente(incidente);
   }
 

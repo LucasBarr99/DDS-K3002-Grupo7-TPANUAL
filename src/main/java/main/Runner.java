@@ -6,10 +6,8 @@ import Modelo.Localizaciones.TipoLocalizacion;
 import Modelo.Localizaciones.Ubicacion;
 import Modelo.PrestadoresDeServicios.Empresa;
 import Modelo.PrestadoresDeServicios.PrestadorDeServicio;
-import Persistencia.Repositorios.RepoComunidades;
-import Persistencia.Repositorios.RepoEstaciones;
-import Persistencia.Repositorios.RepoMiembros;
-import Persistencia.Repositorios.RepoPrestadoresDeServicio;
+import Modelo.Servicios.Servicio;
+import Persistencia.Repositorios.*;
 import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import javax.persistence.EntityManager;
@@ -21,7 +19,7 @@ public class Runner {
 
   public static void main(String[] args){
 
-
+/*
     // Aca obtenemos las mebresias de un usuario en particular, la performance te la regalo, pero los devuelve, corta
     List<Miembro> membresias = RepoMiembros.instance().obtenerMembresiasUsuario(1);
 
@@ -37,8 +35,10 @@ public class Runner {
 
     System.out.println(comunidad1.getId());
     System.out.println(comunidad1.getNombre());
+*/
+    List<Servicio> servicios = RepoServicios.instance().obtenerServiciosDeComunidad(1);
 
-
+    System.out.println(servicios.size());
 
   }
 }

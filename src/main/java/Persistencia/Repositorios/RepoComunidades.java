@@ -37,10 +37,10 @@ public class RepoComunidades extends Repositorio<Comunidad>{
         return entityManager().createQuery(query).getResultList();
     }
 
-    public List<Comunidad> obtenerComunidad(int idComunidad) {
+    public Comunidad obtenerComunidad(String idComunidad) {
 
         String query = String.format("from Comunidad where id='%s'", idComunidad);
-        return entityManager().createQuery(query).getResultList();
+        return (Comunidad) entityManager().createQuery(query).getResultList().get(0);
     }
     public List<Comunidad> obtenerTodos() {
 

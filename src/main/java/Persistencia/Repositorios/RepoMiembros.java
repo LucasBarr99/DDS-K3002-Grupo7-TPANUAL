@@ -34,4 +34,9 @@ public class RepoMiembros extends Repositorio<Miembro>{
         return entityManager().createQuery(query).getResultList();
 
     }
+
+    public Miembro obtenerMembresiaUsuarioComunidad(int userId, int idComunidad){
+        String query = String.format("from Miembro where idUsuario='%s' and idcomunidad='%s'", userId, idComunidad);
+        return (Miembro) entityManager().createQuery(query).getResultList().get(0);
+    }
 }

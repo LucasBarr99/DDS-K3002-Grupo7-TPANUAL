@@ -1,11 +1,13 @@
 package Modelo.Comunidades;
 
+import Modelo.Incidentes.Incidente;
 import Modelo.Personas.Persona;
 import Modelo.Personas.Usuario;
 import Persistencia.EntidadPersistente;
 import Modelo.Servicios.Servicio;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "Comunidades")
@@ -20,7 +22,7 @@ public class Comunidad extends EntidadPersistente {
       joinColumns = { @JoinColumn(name = "idcomunidad") },
       inverseJoinColumns = { @JoinColumn(name = "idservicio") }
   )
-  private List<Servicio> serviciosDeInteres;
+  private List<Servicio> serviciosDeInteres = new ArrayList<>();
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idcomunidadadmin")
   private List <Usuario> administradores;
@@ -61,4 +63,17 @@ public class Comunidad extends EntidadPersistente {
   public String getNombre() {
     return nombre;
   }
+
+  public void agregarServicio(Servicio servicio){
+    serviciosDeInteres.add(servicio);
+  }
+
+  public  void agregarServicios(List<Servicio> servicios){
+    servicios.forEach(servicio -> serviciosDeInteres.add(servicio));
+  }
+
+  public void notificarIncidente(Incidente incidente){
+    miembros.forEach(miembro -> miembro.notificarIncidente(incidente));
+  }
+
 }

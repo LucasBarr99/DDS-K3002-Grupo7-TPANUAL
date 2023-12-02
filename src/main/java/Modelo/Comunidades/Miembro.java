@@ -103,4 +103,8 @@ public class Miembro extends EntidadPersistente {
      serviciosDeNotificacion.forEach( servicio -> servicio.notificar(incidente.getDescripcion(),"",correo, "Se sugiere revisar el servicio " + incidente.nombre));
   }
 
+  public void notificarIncidente(Incidente incidente){
+    serviciosDeNotificacion.forEach( servicio -> servicio.notificar(incidente.getDescripcion(),"",correo, "Ha ocurrido un incidente: " + incidente.nombre));
+  }
+
 }

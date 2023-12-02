@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Controller
 public class vistaLivianaController {
@@ -48,8 +49,26 @@ public class vistaLivianaController {
     List<Miembro> membresiasUsuario = RepoMiembros.instance().obtenerMembresiasUsuario(user.getId());
 
     List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
-    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresiasUsuario)).toList();
 
+    List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresiasUsuario)).toList();
+    model.put("idComunidadSeleccionada",idComunidad);
+
+    if(idComunidad == null){
+      model.put("comunidades", comunidadesUsuario);
+      Comunidad comunidad1 = comunidadesUsuario.get(0);
+      model.put("servicios", comunidad1.getServiciosDeInteres());
+    }
+    else {
+      Comunidad comunidadSeleccionada = comunidades.stream().filter(comunidad -> Integer.valueOf(idComunidad).equals(comunidad.getId())).toList().get(0);
+      comunidades.remove(comunidadSeleccionada);
+      List<Comunidad> comunidadesAMostrarSeleccion = new ArrayList<>();
+      comunidadesAMostrarSeleccion.add(comunidadSeleccionada);
+      comunidadesAMostrarSeleccion.addAll(comunidades);
+      model.put("comunidades", comunidadesAMostrarSeleccion);
+      model.put("servicios", comunidadSeleccionada.getServiciosDeInteres());
+      Miembro membresia = RepoMiembros.instance().obtenerMembresiaUsuarioComunidad(user.getId(), comunidadSeleccionada.getId());
+      model.put("idMiembro", membresia.getId());
+    }
 
 
 

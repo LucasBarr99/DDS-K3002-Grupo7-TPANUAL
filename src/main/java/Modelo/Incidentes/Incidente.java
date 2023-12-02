@@ -51,6 +51,14 @@ public class Incidente extends EntidadPersistente {
         this.miembro = miembro;
     }
 
+    public Incidente(String nombre, Date fechaApertura, Servicio servicioAfectado, String descripcion, EstadoIncidentes estado, Miembro miembro) {
+        this.nombre = nombre;
+        this.fechaAperturaBD = fechaApertura;
+        this.servicioAfectado = servicioAfectado;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.miembro = miembro;
+    }
     public Incidente() {
 
     }

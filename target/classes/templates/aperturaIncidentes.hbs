@@ -9,36 +9,35 @@
                     <p class="text-white fs-6">Por favor, complete todos los campos para poder tener el mayor detalle del incidente</p>
                     <!-- ACA ADENTRO PUEDEN PONER LO QUE QUIERAN-->
                     <div class="container">
-                        <form class="row" action="/submitIncident" method="post">
-                            <div class="col-4">
-                                <label for="ComunidadId" class="form-label">Comunidad</label>
-                                <select name="comunidad" id="ComunidadId" class="form-select form-select-lg mb-3">
-                                    {{#comunidades}}
-                                    <option value="{{id}}">{{nombre}}</option>
-                                    {{/comunidades}}
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <label for="EntidadId" class="form-label">Entidad</label>
-                                <select name="entidad" id="EntidadId" class="form-select form-select-lg mb-3">
-                                    <option value="lineaA">LineaA</option>
-                                    <option value="lineaB">LineaB</option>
-                                </select>
-                            </div>
-                            <div class="col-4">
-                                <label for="ServicioId" class="form-label">Servicio</label>
-                                <select name="servicio" id="ServicioId" class="form-select form-select-lg mb-3">
-                                    <option value="lineaA">LineaA</option>
-                                    <option value="lineaB">LineaB</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label for="descripcion" class="form-label">Descripcion</label>
-                                <textarea name="descripcion" class="form-control" aria-label="With textarea"></textarea>
-                            </div>
-                            <div class="col-12 mt-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
+                        <form class="row" action="/incidentes/nuevo?miembro={{idMiembro}}&comunidad={{idComunidadSeleccionada}}" method="post" id="vueServiciosComunidad">
+                            {{#if idComunidadSeleccionada}}
+                                <div class="col-4">
+                                    <label for="ServicioId" class="form-label">Servicio</label>
+                                    <select name="servicio" id="ServicioId" class="form-select form-select-lg mb-3" >
+                                        {{#servicios}}
+                                            <option value="{{id}}">{{descripcion}}</option>
+                                        {{/servicios}}
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="descripcion" class="form-label">Descripcion</label>
+                                    <textarea name="descripcion" class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button class="btn btn-primary" v-on:click="irAUrl($event)" >Regresar</button>
+                                </div>
+                            {{else}}
+                                <div class="col-4" >
+                                    <label for="ComunidadId" class="form-label">Comunidad</label>
+                                    <select name="comunidad" id="ComunidadId" v-model="comunidadSeleccionada" v-on:change="redireccionar()" class="form-select form-select-lg mb-3">
+                                        {{#comunidades}}
+                                            <option value="{{id}}">{{nombre}}</option>
+                                        {{/comunidades}}
+                                    </select>
+                                </div>
+                            {{/if}}
+
                         </form>
                     </div>
                 </div>
@@ -53,6 +52,12 @@
             </video>
         </div>
     </section>
+{{/partial}}
+
+{{#partial "scriptsAdicionales" }}
+
+    <script src="/js/vueRecuperarServicios.js"></script>
+
 {{/partial}}
 
 
