@@ -60,7 +60,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Comunidad comunidad2 = new Comunidad("DDS SRL",new ArrayList<>(), new ArrayList<>(),adminsComunidad1);
 
 
-      Miembro miembro1 = new Miembro("Cacho", "Antune", "cachoAntune@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, new ArrayList<>());
+      Miembro miembro1 = new Miembro("Cacho", "Antune", "lucas.barrientos2899@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, serviciosNotificacionMiembros);
       usuario2.agregarMembresia(miembro1);
       comunidad1.agregarMiembro(miembro1);
 

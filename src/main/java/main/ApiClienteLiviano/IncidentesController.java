@@ -3,6 +3,6 @@ package main.ApiClienteLiviano;
 
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class IncidentesController {
 }

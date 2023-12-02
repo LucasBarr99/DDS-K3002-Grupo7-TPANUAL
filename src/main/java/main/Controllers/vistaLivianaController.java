@@ -37,7 +37,7 @@ public class vistaLivianaController {
   }
 
   @GetMapping(value = "/aperturaIncidentes", produces = MediaType.TEXT_HTML_VALUE)
-  public ResponseEntity<String> aperturaIncidentes(@RequestParam("sesion") String idSesion) throws IOException {
+  public ResponseEntity<String> aperturaIncidentes(@RequestParam("sesion") String idSesion,@RequestParam(value="comunidad", required=false) String idComunidad) throws IOException {
 
     Map<String, Object> model = new HashMap<>();
     System.out.println(" idSesion: "+idSesion);
@@ -50,7 +50,7 @@ public class vistaLivianaController {
     List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
     List<Comunidad> comunidadesUsuario = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(membresiasUsuario)).toList();
 
-    model.put("comunidades", comunidadesUsuario);
+
 
 
     Template template = handlebars.compile("/templates/aperturaIncidentes");
