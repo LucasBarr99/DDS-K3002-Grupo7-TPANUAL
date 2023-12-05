@@ -95,6 +95,11 @@ public class Incidente extends EntidadPersistente {
         return miembro.getComunidad();
     }
 
-
+    public Date getFechaAperturaBD() {
+        return fechaAperturaBD;
+    }
+    public Date getFechaCierreBD() {
+        return fechaCierreBD;
+    }
 }
 

@@ -7,6 +7,7 @@ import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 import Modelo.Servicios.Servicio;
 import Persistencia.Repositorios.RepoComunidades;
+import Persistencia.Repositorios.RepoIncidentes;
 import Persistencia.Repositorios.RepoMiembros;
 import Persistencia.Repositorios.RepoServicios;
 import main.ApiClienteLiviano.dto.IncidenteRequest;
@@ -19,9 +20,12 @@ import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 import java.sql.Date;
 import java.time.Instant;
 import java.time.LocalDate;
+
+import static javax.transaction.Transactional.TxType.REQUIRES_NEW;
 
 @Controller
 public class IncidentesController {
@@ -30,7 +34,6 @@ public class IncidentesController {
   @PostMapping(value="/incidentes/nuevo", consumes = "application/x-www-form-urlencoded")
   public String cargarIncidente(@RequestParam("miembro") String idMiembro,@RequestParam("comunidad") String idComunidad,@ModelAttribute IncidenteRequest newIncidenteRequest){
     System.out.println("[POST] /incidentes/nuevo - Miembro: "+idMiembro+" - Request: "+newIncidenteRequest);
-
     Comunidad comunidad = RepoComunidades.instance().obtenerComunidad(idComunidad);
     Miembro miembro = RepoMiembros.instance().obtenerMiembro(idMiembro);
     Servicio servicio = RepoServicios.instance().obtenerServicio(newIncidenteRequest.getServicio());
@@ -47,9 +50,29 @@ public class IncidentesController {
     em.merge(servicio);
     transaction.commit();
 
-    comunidad.notificarIncidente(incidente);
-
-    return "redirect:/home";
+    //comunidad.notificarIncidente(incidente);
+    // TO DO: Estaria bueno que te redireccione al incidente que creaste pero provoca errores de concurrencia entre hilos
+    return "redirect:/incidentes/"+incidente.getId();
+    //return "redirect:/home";
   }
+
+  @PostMapping(value="/incidentes/{idIncidente}/cerrar")
+  public String cargarIncidente(@PathVariable int idIncidente){
+    RepoIncidentes repoIncidentes = RepoIncidentes.instance();
+    Incidente incidente = repoIncidentes.obtenerIncidente(idIncidente);
+
+    incidente.estado = EstadoIncidentes.CERRADO;
+    incidente.fechaCierre = LocalDate.now();
+    incidente.fechaCierreBD = Date.valueOf(LocalDate.now());
+
+    EntityManager em = PerThreadEntityManagers.getEntityManager();
+    EntityTransaction transaction = em.getTransaction();
+    transaction.begin();
+    em.merge(incidente);
+    transaction.commit();
+
+    return "redirect:/incidentes/"+incidente.getId();
+  }
+
 
 }

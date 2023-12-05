@@ -1,0 +1,67 @@
+
+<!-- BODY DE LA VISTA-->
+{{#partial "principal" }}
+<section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
+    <div class="container">
+        <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
+            <div class="card-header">INCIDENTE</div>
+                <div class="card-body">
+                    <!-- ACA ADENTRO PUEDEN PONER LO QUE QUIERAN-->
+                    <div class="d-flex flex-column">
+                        <ul class="overflow-auto p-0" style="height: 600px">
+                            <!-- ELEMENTO 1-->
+                            <li class="card m-2 p-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 style="margin: 0;font-size: 20px; height: 50px" >
+                                            Entidad: {{Entidad}}
+                                        </h4>
+						                <div class="m-3">
+                                            Servicio Afectado: {{Servicio}}
+                                        </div>
+                                        <div class="m-3" >
+                                           Descripcion: {{Descripcion}}
+                                        </div>
+                                        <div id="Estado" class="m-3" >
+                                            Estado: {{Estado}}
+                                        </div>
+                                    </div>
+                                    {{#if estaAbierto}}
+                                        <div class="col-1 d-flex justify-content-end align-items-start">
+                                            <form id="cerrarIncidenteForm" action="/incidentes/{{idIncidente}}/cerrar" method="post">
+                                                <button type="submit" class="btn btn-primary">Cerrar Incidente</button>
+                                            </form>
+                                        </div>
+                                    {{/if}}
+
+
+                                    <div class=" d-flex justify-content-start align-items-start" >
+                                        Fecha de apertura: {{FechaApertura}}
+                                    </div>
+                                    <div class=" d-flex justify-content-start align-items-start" >
+                                        Fecha de cierre: {{FechaCierre}}
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- FONDO -->
+        <div class="video-wrap">
+          <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="/videos/video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+        </div>
+    </div>
+</section>
+{{/partial}}
+
+{{#partial "scriptsAdicionales" }}
+
+{{/partial}}
+
+
+{{> layout }}
