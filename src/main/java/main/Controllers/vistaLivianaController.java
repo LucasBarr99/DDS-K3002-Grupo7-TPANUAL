@@ -3,6 +3,7 @@ package main.Controllers;
 
 import Modelo.Comunidades.Comunidad;
 import Modelo.Comunidades.Miembro;
+import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 import Modelo.Personas.Usuario;
 import Persistencia.Repositorios.RepoComunidades;
@@ -84,19 +85,45 @@ public class vistaLivianaController {
     RepoIncidentes repoIncidentes = RepoIncidentes.instance();
     Incidente incidente = repoIncidentes.obtenerIncidente(idIncidente);
 
-    Map<String, Object> model = new HashMap<>();
-      model.put("idIncidente",idIncidente);
-      model.put("Entidad",incidente.getServicio().getEntidad().getNombre());
-      model.put("Servicio",incidente.getServicio().getDescripcion());
-      model.put("Descripcion",incidente.getDescripcion());
-      model.put("Estado",incidente.getEstado());
-      model.put("FechaApertura",incidente.getFechaAperturaBD());
-      model.put("FechaCierre",incidente.getFechaCierreBD());
-      model.put("estaAbierto",! incidente.estaCerrado());
+    Map<String, Object> model = convertirIncidente(incidente);
     Template template = handlebars.compile("/templates/verIncidente");
 
     String html = template.apply(model);
     return ResponseEntity.status(200).body(html);
+  }
+
+  @GetMapping(value="/incidentes")
+  public ResponseEntity<String> consultarIncidentes(@RequestParam(value="estado", required=false) Integer estado) throws IOException{
+    RepoIncidentes repoIncidentes = RepoIncidentes.instance();
+    List<Incidente> incidentes = null;
+    if(estado != null){
+      incidentes = repoIncidentes.obtenerIncidentesConEstado(estado);
+    }
+    else{
+      incidentes = repoIncidentes.todos();
+    }
+    List<Map<String, Object>> incidentesMap = incidentes.stream()
+            .map(this::convertirIncidente)
+            .collect(Collectors.toList());
+    Map<String, Object> model = new HashMap<>();
+    model.put("Incidentes",incidentesMap);
+    Template template = handlebars.compile("/templates/consultaIncidentesPorEstado");
+
+    String html = template.apply(model);
+    return ResponseEntity.status(200).body(html);
+  }
+
+  private Map<String,Object> convertirIncidente(Incidente incidente){
+    Map<String,Object> mapIncidente = new HashMap<>();
+    mapIncidente.put("idIncidente",incidente.getId());
+    mapIncidente.put("Entidad",incidente.getServicio().getEntidad().getNombre());
+    mapIncidente.put("Servicio",incidente.getServicio().getDescripcion());
+    mapIncidente.put("Descripcion",incidente.getDescripcion());
+    mapIncidente.put("Estado",incidente.getEstado());
+    mapIncidente.put("FechaApertura",incidente.getFechaAperturaBD());
+    mapIncidente.put("FechaCierre",incidente.getFechaCierreBD());
+    mapIncidente.put("estaAbierto",! incidente.estaCerrado());
+    return mapIncidente;
   }
 
 }

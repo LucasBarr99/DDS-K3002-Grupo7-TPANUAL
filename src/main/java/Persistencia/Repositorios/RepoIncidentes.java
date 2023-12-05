@@ -1,5 +1,6 @@
 package Persistencia.Repositorios;
 
+import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 
 import java.util.ArrayList;
@@ -47,8 +48,12 @@ public class RepoIncidentes extends Repositorio<Incidente> {
   }
 
   public List<Incidente> obtenerIncidentesAbiertos() {
-
     String query = String.format("from Incidente where estado=0");
+    return entityManager().createQuery(query).getResultList();
+  }
+
+  public List<Incidente> obtenerIncidentesConEstado(int estado) {
+    String query = String.format("from Incidente where estado="+estado);
     return entityManager().createQuery(query).getResultList();
   }
 

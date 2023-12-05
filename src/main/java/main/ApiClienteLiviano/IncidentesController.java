@@ -58,6 +58,7 @@ public class IncidentesController {
 
   @PostMapping(value="/incidentes/{idIncidente}/cerrar")
   public String cargarIncidente(@PathVariable int idIncidente){
+    System.out.println("[POST] /incidentes/"+idIncidente+"/cerrar");
     RepoIncidentes repoIncidentes = RepoIncidentes.instance();
     Incidente incidente = repoIncidentes.obtenerIncidente(idIncidente);
 
@@ -70,7 +71,7 @@ public class IncidentesController {
     transaction.begin();
     em.merge(incidente);
     transaction.commit();
-
+    System.out.println("Incidente CERRADO: "+idIncidente);
     return "redirect:/incidentes/"+incidente.getId();
   }
 

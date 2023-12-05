@@ -1,0 +1,77 @@
+
+<!-- BODY DE LA VISTA-->
+{{#partial "principal" }}
+<section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
+    <div class="container">
+        <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
+            <div class="card-header">LISTADO DE INCIDENTES</div>
+                <div class="card-body">
+                    <p class="text-white fs-6 ">Consulta los incidentes reportados para conocer el estado de los servicios que soles utilizar</p>
+                    <!-- ACA ADENTRO PUEDEN PONER LO QUE QUIERAN-->
+                    <form action="/incidentes" method="GET">
+                        <label for="estado_incidente">Filtra por estado:</label>
+                        <select name="estado" id="estado">
+                            <option value="">Todos</option>
+                            <option value="0">Abierto</option>
+                            <option value="1">Cerrado</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Filtrar</button>
+                    </form>
+                    <br/>
+                    <div class="d-flex flex-column">
+                        <ul class="overflow-auto p-0" style="height: 400px">
+                        {{#Incidentes}}
+                            <li class="card m-2 p-2">
+                                <div class="row">
+                                    <!--Columna servicio / entidad / fecha -->
+                                    <div class="col">
+                                        <h4 style="margin: 0;font-size: 25px;">
+                                            {{Servicio}}
+                                        </h4>
+                                        <div>
+                                          {{Entidad}}
+                                        </div>
+                                    </div>
+                                    <!--Columna estado / ver / cerrar -->
+                                    <div class="col-4 d-flex justify-content-end align-items-start">
+                                    {{#if estaAbierto}}
+                                        <div id="Estado1" class="badge badge-pill bg-success">{{Estado}}</div>
+                                    {{else}}
+                                        <div id="Estado1" class="badge badge-pill bg-danger">{{Estado}}</div>
+                                    {{/if}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col d-flex flex-column justify-content-center align-items-center">
+                                        <div class="m-3">
+                                            {{Descripcion}}
+                                        </div>
+                                        <div class="wrapperBotones">
+                                            <a href="/incidentes/{{idIncidente}}" class="btn btn-primary">Ver</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        {{/Incidentes}}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FONDO -->
+    <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="../videos/video.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+{{/partial}}
+
+{{#partial "scriptsAdicionales" }}
+
+{{/partial}}
+
+
+{{> layout }}
