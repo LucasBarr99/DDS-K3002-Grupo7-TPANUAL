@@ -53,7 +53,6 @@ public class IncidentesController {
     //comunidad.notificarIncidente(incidente);
     // TO DO: Estaria bueno que te redireccione al incidente que creaste pero provoca errores de concurrencia entre hilos
     return "redirect:/incidentes/"+incidente.getId();
-    //return "redirect:/home";
   }
 
   @PostMapping(value="/incidentes/{idIncidente}/cerrar")
