@@ -19,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import javax.transaction.Transactional;
 import java.io.IOException;
@@ -40,6 +41,11 @@ public class vistaLivianaController {
     String html = template.apply(model);
     return ResponseEntity.status(200).body(html);
   }*/
+
+  public void limpiarEntityManager(){
+    PerThreadEntityManagers.getEntityManager();
+    PerThreadEntityManagers.closeEntityManager();
+  }
 
   @GetMapping(value = "/aperturaIncidentes", produces = MediaType.TEXT_HTML_VALUE)
   public ResponseEntity<String> aperturaIncidentes(@RequestParam("sesion") String idSesion,@RequestParam(value="comunidad", required=false) String idComunidad) throws IOException {
@@ -77,6 +83,7 @@ public class vistaLivianaController {
     Template template = handlebars.compile("/templates/aperturaIncidentes");
 
     String html = template.apply(model);
+    limpiarEntityManager();
     return ResponseEntity.status(200).body(html);
   }
 
@@ -89,6 +96,8 @@ public class vistaLivianaController {
     Template template = handlebars.compile("/templates/verIncidente");
 
     String html = template.apply(model);
+    limpiarEntityManager();
+
     return ResponseEntity.status(200).body(html);
   }
 
@@ -110,6 +119,8 @@ public class vistaLivianaController {
     Template template = handlebars.compile("/templates/consultaIncidentesPorEstado");
 
     String html = template.apply(model);
+    limpiarEntityManager();
+
     return ResponseEntity.status(200).body(html);
   }
 
@@ -123,6 +134,8 @@ public class vistaLivianaController {
     mapIncidente.put("FechaApertura",incidente.getFechaAperturaBD());
     mapIncidente.put("FechaCierre",incidente.getFechaCierreBD());
     mapIncidente.put("estaAbierto",! incidente.estaCerrado());
+    limpiarEntityManager();
+
     return mapIncidente;
   }
 

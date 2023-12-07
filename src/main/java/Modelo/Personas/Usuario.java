@@ -51,6 +51,7 @@ public class Usuario extends EntidadPersistente {
     return nombre;
   }
 
+
   public void setNombre(String nombre) {
     this.nombre = nombre;
   }

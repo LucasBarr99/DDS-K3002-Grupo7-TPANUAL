@@ -30,7 +30,10 @@ import static javax.transaction.Transactional.TxType.REQUIRES_NEW;
 @Controller
 public class IncidentesController {
 
-
+  public void limpiarEntityManager(){
+    PerThreadEntityManagers.getEntityManager();
+    PerThreadEntityManagers.closeEntityManager();
+  }
   @PostMapping(value="/incidentes/nuevo", consumes = "application/x-www-form-urlencoded")
   public String cargarIncidente(@RequestParam("miembro") String idMiembro,@RequestParam("comunidad") String idComunidad,@ModelAttribute IncidenteRequest newIncidenteRequest){
     System.out.println("[POST] /incidentes/nuevo - Miembro: "+idMiembro+" - Request: "+newIncidenteRequest);
@@ -49,9 +52,9 @@ public class IncidentesController {
     em.persist(incidente);
     em.merge(servicio);
     transaction.commit();
-
-    //comunidad.notificarIncidente(incidente);
-    // TO DO: Estaria bueno que te redireccione al incidente que creaste pero provoca errores de concurrencia entre hilos
+    em.close();
+    limpiarEntityManager();
+    comunidad.notificarIncidente(incidente);
     return "redirect:/incidentes/"+incidente.getId();
   }
 
@@ -71,6 +74,8 @@ public class IncidentesController {
     em.merge(incidente);
     transaction.commit();
     System.out.println("Incidente CERRADO: "+idIncidente);
+    em.close();
+    limpiarEntityManager();
     return "redirect:/incidentes/"+incidente.getId();
   }
 

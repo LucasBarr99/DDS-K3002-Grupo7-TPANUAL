@@ -3,6 +3,7 @@ package main.Controllers;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import javax.transaction.Transactional;
 
@@ -33,6 +34,7 @@ public class vistaPesadaController {
 
     @GetMapping("/comunidades/{id}/usuarios")
     public String administrarUsuarios(){
+
         return "AdministracionDeRolesDeUsuario";
     }
 
