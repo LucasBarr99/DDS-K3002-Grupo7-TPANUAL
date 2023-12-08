@@ -67,7 +67,7 @@ public class AdministracionUsuariosControllerLiviano {
 
     Comunidad comunidadBuscada = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(miembros)).collect(Collectors.toList()).get(0);
 
-    if(!rol2.equals("")){
+    if(rol.equalsIgnoreCase("OBSERVADOR")){
       miembro.setTipo(TipoMiembro.OBSERVADOR);
 
     } else
