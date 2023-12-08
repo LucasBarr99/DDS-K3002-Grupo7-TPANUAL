@@ -18,4 +18,8 @@ public abstract class GeneradorInforme extends EntidadPersistente {
   public GeneradorInforme(String nombre) {
     this.nombre = nombre;
   }
+
+  public String getNombre() {
+    return nombre;
+  }
 }

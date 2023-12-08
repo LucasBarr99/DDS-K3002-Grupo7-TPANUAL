@@ -5,11 +5,9 @@ import Modelo.Comunidades.Comunidad;
 import Modelo.Comunidades.Miembro;
 import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
+import Modelo.InformeRanking.GeneradorInforme;
 import Modelo.Personas.Usuario;
-import Persistencia.Repositorios.RepoComunidades;
-import Persistencia.Repositorios.RepoIncidentes;
-import Persistencia.Repositorios.RepoMiembros;
-import Persistencia.Repositorios.RepoUsuarios;
+import Persistencia.Repositorios.*;
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Template;
 import main.ApiClientePesado.SesionManager;
@@ -137,6 +135,32 @@ public class vistaLivianaController {
     limpiarEntityManager();
 
     return mapIncidente;
+  }
+
+  @GetMapping(value="/apiLiviana/rankings")
+  public ResponseEntity<String> consultarRankings() throws IOException{
+    List<GeneradorInforme> criteriosInforme = RepoCriteriosInforme.instance().obtenerCriterios();
+
+    Map<String,Object> model = new HashMap<>();
+
+    List<Map<String, Object>> criteriosMap = criteriosInforme.stream()
+        .map(this::convertirCriterio)
+        .collect(Collectors.toList());
+
+    model.put("criterios", criteriosMap);
+    Template template = handlebars.compile("/templates/RankingLiviano");
+
+    String html = template.apply(model);
+    limpiarEntityManager();
+
+    return ResponseEntity.status(200).body(html);
+  }
+  private Map<String,Object> convertirCriterio(GeneradorInforme criterio){
+    Map<String,Object> mapCriterios = new HashMap<>();
+    mapCriterios.put("nombre", criterio.getNombre());
+    mapCriterios.put("idCriterio", criterio.getId());
+
+    return mapCriterios;
   }
 
 }

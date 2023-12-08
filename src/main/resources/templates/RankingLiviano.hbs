@@ -1,0 +1,59 @@
+{{#partial "principal" }}
+<section class="hero-section d-flex justify-content-center align-items-top" id="vueRankings" style="padding-top: 130px">
+    <div class="container">
+        <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
+            <div class="card-header" align="center" style="font-size:40px">RANKINGS SEMANALES</div>
+            <div class="card-body">
+                <p class="text-white fs-6" align="center">Consulta los rankings semanales publicados</p>
+
+                <!-- SELECCION DEL CRITERIO DEL RANKING-->
+                <div class="text-white fs-6">
+                    <form name="idForm" action="/apiLiviana/informes" method="GET">
+
+                        <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
+                        <select name="criterioRanking" id="criterioRanking">
+                        {{#criterios}}
+                            <option value={{idCriterio}}>{{nombre}}</option>
+                        {{/criterios}}
+                        </select>
+                        <button type="submit" class="btn btn-primary">Obtener informe</button>
+                    </form>
+                </div>
+                <br>
+                <div class="d-flex flex-column">
+                    <ul class="overflow-auto p-0" style="height: 400px">
+
+                        <!-- POSICIONES RANKING-->
+                        {{#entidades}}
+                        <li class="card m-2 p-2">
+                            <div class="row">
+                                <div class="col">
+                                    <h4 style="margin: 1px; font-size: 30px; color: #ECB91C">
+                                        Posicion
+                                    </h4>
+                                    <ul>
+                                        {{nombre}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        {{/entidades}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FONDO -->
+    <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+            <source src="/videos/video.mp4" type="video/mp4">
+
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</section>
+{{/partial}}
+
+
+{{> layout }}

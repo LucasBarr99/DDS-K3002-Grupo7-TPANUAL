@@ -57,7 +57,7 @@ public class AdministracionUsuariosControllerLiviano {
   }
 
   @PostMapping("/miembros/{idMiembro}/nuevoRol")
-  public String cambiarRolMiembro(@PathVariable String idMiembro,@RequestParam(value="DE_SERVICIO", required = false) String rol1, @RequestParam(value="OBSERVADOR", required = false) String rol2){
+  public String cambiarRolMiembro(@PathVariable String idMiembro,@RequestParam("rol") String rol){
     Miembro miembro = RepoMiembros.instance().obtenerMiembro(idMiembro);
     List<Miembro> miembros = new ArrayList<>();
 
@@ -67,13 +67,13 @@ public class AdministracionUsuariosControllerLiviano {
 
     Comunidad comunidadBuscada = comunidades.stream().filter(comunidad -> comunidad.tieneMiembros(miembros)).collect(Collectors.toList()).get(0);
 
+
     if(rol.equalsIgnoreCase("OBSERVADOR")){
       miembro.setTipo(TipoMiembro.OBSERVADOR);
-
-    } else
-    {
+    } else {
       miembro.setTipo(TipoMiembro.DE_SERVICIO);
     }
+
     EntityManager em = PerThreadEntityManagers.getEntityManager();
     EntityTransaction transaction = em.getTransaction();
     transaction.begin();

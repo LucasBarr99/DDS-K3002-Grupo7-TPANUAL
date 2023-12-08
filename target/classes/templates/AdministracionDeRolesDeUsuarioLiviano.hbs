@@ -37,14 +37,14 @@
                                             Rol:
                                             <form action="/miembros/{{idMiembro}}/nuevoRol" method="POST">
                                                 {{#if esDeServicio}}
-                                                    <label><input type="radio" id="rol1" name="rol" value="DE_SERVICIO" checked="checked">De servicio</label>
+                                                    <label><input type="radio" id="rol" name="rol" value="DE_SERVICIO" checked="checked">De servicio</label>
                                                 {{else}}
-                                                    <label><input type="radio" id="rol1" name="rol" value="DE_SERVICIO" >De servicio</label>
+                                                    <label><input type="radio" id="rol" name="rol" value="DE_SERVICIO" >De servicio</label>
                                                 {{/if}}
                                                 {{#if esObservador}}
-                                                    <label><input type="radio" id="rol2" name="rol" value="OBSERVADOR" checked="checked">Observador</label>
+                                                    <label><input type="radio" id="rol" name="rol" value="OBSERVADOR" checked="checked">Observador</label>
                                                 {{else}}
-                                                    <label><input type="radio" id="rol2" name="rol" value="OBSERVADOR" >Observador</label>
+                                                    <label><input type="radio" id="rol" name="rol" value="OBSERVADOR" >Observador</label>
                                                 {{/if}}
                                                 </select>
                                                 <button type="submit" class="btn btn-primary">Cambiar Rol</button>
