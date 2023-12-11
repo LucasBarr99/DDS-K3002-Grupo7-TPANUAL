@@ -7,6 +7,7 @@ import Modelo.Entidades.Entidad;
 import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 import Modelo.InformeRanking.GeneradorInforme;
+import Modelo.InformeRanking.Informe;
 import Modelo.Personas.Usuario;
 import Persistencia.Repositorios.*;
 import com.github.jknack.handlebars.Handlebars;
@@ -150,6 +151,15 @@ public class vistaLivianaController {
 
     Template template = handlebars.compile("/templates/RankingLiviano");
 
+    if(idCriterio != null) {
+      Informe informe = RepoInformesRanking.instance().obtenerInformeRecientePorCriterio(idCriterio);
+      List<Map<String, Object>> entidadesMap = informe.getEntidades().stream()
+          .map(e -> convertirEntidad(e,informe.getEntidades().indexOf(e) + 1))
+          .collect(Collectors.toList());
+      model.put("entidades", entidadesMap);
+    }
+
+    model.put("criterios", criteriosMap);
     String html = template.apply(model);
     limpiarEntityManager();
 
