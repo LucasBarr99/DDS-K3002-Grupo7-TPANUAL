@@ -3,6 +3,7 @@ package main.Controllers;
 
 import Modelo.Comunidades.Comunidad;
 import Modelo.Comunidades.Miembro;
+import Modelo.Entidades.Entidad;
 import Modelo.Incidentes.EstadoIncidentes;
 import Modelo.Incidentes.Incidente;
 import Modelo.InformeRanking.GeneradorInforme;
@@ -138,7 +139,7 @@ public class vistaLivianaController {
   }
 
   @GetMapping(value="/apiLiviana/rankings")
-  public ResponseEntity<String> consultarRankings() throws IOException{
+  public ResponseEntity<String> consultarRankings(@RequestParam(value="criterioRanking", required=false) Integer idCriterio) throws IOException{
     List<GeneradorInforme> criteriosInforme = RepoCriteriosInforme.instance().obtenerCriterios();
 
     Map<String,Object> model = new HashMap<>();
@@ -147,7 +148,6 @@ public class vistaLivianaController {
         .map(this::convertirCriterio)
         .collect(Collectors.toList());
 
-    model.put("criterios", criteriosMap);
     Template template = handlebars.compile("/templates/RankingLiviano");
 
     String html = template.apply(model);
@@ -159,7 +159,13 @@ public class vistaLivianaController {
     Map<String,Object> mapCriterios = new HashMap<>();
     mapCriterios.put("nombre", criterio.getNombre());
     mapCriterios.put("idCriterio", criterio.getId());
+    return mapCriterios;
+  }
 
+  private Map<String,Object> convertirEntidad(Entidad entidad, Integer posicion){
+    Map<String,Object> mapCriterios = new HashMap<>();
+    mapCriterios.put("nombre", entidad.getNombre());
+    mapCriterios.put("posicion", posicion);
     return mapCriterios;
   }
 
