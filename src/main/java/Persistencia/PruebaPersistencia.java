@@ -49,6 +49,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Usuario usuario2 = new Usuario("Tomas","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
       Usuario usuario3 = new Usuario("Franco","TpAnual_030", TipoUsuario.BASICO);
       Usuario usuario4 = new Usuario("Santiago","TpAnual_031", TipoUsuario.BASICO);
+      Usuario usuario5 = new Usuario("lucas.barrientos2899","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
 
       Interesado persona1 = new Persona("Lucas",ubicacion1,"Lucas@gmail.com","12345678", new ArrayList<>(), new ArrayList<>());
       persona1.agregarUsuario(usuario1);
@@ -157,6 +158,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(usuario2);
       persist(usuario3);
       persist(usuario4);
+      persist(usuario5);
 
       persist(miembro1);
       persist(miembro2);

@@ -17,6 +17,7 @@
         <link rel="stylesheet" href="/css/bootstrap-icons.css" />
         <link rel="stylesheet" href="/css/tooplate-kool-form-pack.css" />
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
     </head>
     
     <body>
@@ -112,14 +113,10 @@
                             <form>
                                 <br>
                                 <div class="d-grid mb-2">
-                                    <button class="btn btn-github btn-login text-uppercase fw-bold" type="submit">
-                                        <i class="fab fa-github me-2"></i> Sign in with Github
+                                    <button class="btn btn-github btn-login text-uppercase fw-bold" type="button" id="authLogin">
+
                                         <img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" width="40" />
-                                    </button>
-                                </div>
-                                <div class="d-grid">
-                                    <button class="btn btn-google btn-login text-uppercase fw-bold" type="submit">
-                                        <i class="fab fa-google-f me-2"></i> Sign in with Google (Proximamente)
+                                        <i class="fab fa-github me-2"></i> Auth0 Login
                                         <img src="https://www.edigitalagency.com.au/wp-content/uploads/google-logo-icon-PNG-Transparent-Background-letter-G-multiple-colors.png" width="40" />
                                     </button>
                                 </div>

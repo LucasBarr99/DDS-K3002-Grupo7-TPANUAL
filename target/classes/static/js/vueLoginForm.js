@@ -1,3 +1,20 @@
+auth0.createAuth0Client({
+    domain: "dev-hel5bs2ionmhr2gk.us.auth0.com",
+    clientId: "3z9Wr1FfoK4kkdquJZHYYUEoJs7C8YV7"
+}).then(async (auth0Client) => {
+    // Assumes a button with id "login" in the DOM
+    const loginButton = document.getElementById('authLogin');
+
+    loginButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        auth0Client.loginWithRedirect({
+            authorizationParams: {
+                redirect_uri: 'http://localhost:8080/home'
+            }
+        })
+    });
+});
+
 var app = new Vue({
     el: "#vueLoginForm",
     data:{

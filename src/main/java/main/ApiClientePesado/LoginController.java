@@ -18,6 +18,12 @@ public class LoginController {
     return servicioLogin.handleLogin(newLoginRequest);
   }
 
+  @PostMapping(value="/apiPesada/loginOauth",produces = "application/json")
+  public String postLoginOauth(@RequestBody LoginRequest newLoginRequest, HttpServletResponse response){
+    System.out.println("[POST] /apiPesada/loginOauth Request: "+newLoginRequest);
+    return servicioLogin.handleLoginOauth(newLoginRequest);
+  }
+
   @PostMapping(value="/apiPesada/validarSesionId",produces = "application/json")
   public String validarSesionId(@RequestBody ValidacionRequest validacion, HttpServletResponse response){
     System.out.println("[POST] /apiPesada/validarSesionId - sesion: "+validacion.getSessionId() +" para url: /"+validacion.getUrl());

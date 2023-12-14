@@ -44,6 +44,22 @@ public class ServicioLogin {
         return json;
     }
 
+    public String handleLoginOauth(LoginRequest newLoginRequest) {
+        String user = newLoginRequest.getUsername();
+        System.out.println("User: "+user);
+        RepoUsuarios repo = RepoUsuarios.instance();
+        Usuario usuarioBuscado = repo.obtenerUsuario(user);
+
+        SesionManager sesionManager = SesionManager.get();
+        String idSesion = sesionManager.crearSesion("usuario",user);
+        System.out.println("Id de Sesion: "+idSesion);
+        TipoUsuario tipo = usuarioBuscado.getTipo();
+        sesionManager.agregarAtributo(idSesion,"rol", tipo);
+        System.out.println("ROL: "+tipo);
+        String json = "{\"sesionId\":\""+idSesion+"\"}";
+        return json;
+    }
+
     public String validar(ValidacionRequest validacionRequest) {
         String sesionId = validacionRequest.getSessionId();
         String url = validacionRequest.getUrl();
@@ -66,4 +82,6 @@ public class ServicioLogin {
         }
         return json;
     }
+
+
 }
