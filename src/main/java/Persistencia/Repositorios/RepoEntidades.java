@@ -32,4 +32,10 @@ public class RepoEntidades extends Repositorio<Entidad> {
     String query = String.format("from Entidad where id='%s'", id);
     return (Entidad) entityManager().createQuery(query).getResultList().get(0);
   }
+  public List<Entidad> obtenerTodas() {
+
+    String query = String.format("from Entidad");
+    return entityManager().createQuery(query).getResultList();
+  }
+
 }

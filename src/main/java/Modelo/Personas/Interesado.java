@@ -39,4 +39,11 @@ public abstract class Interesado extends EntidadPersistente {
   public void agregarUsuario(Usuario user){
     this.usuarios.add(user);
   }
+
+
+  public boolean tieneUsuario(Usuario usuario){
+    return usuarios.contains(usuario);
+  }
+
+
 }

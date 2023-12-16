@@ -8,6 +8,7 @@ import Modelo.Servicios.Servicio;
 import Persistencia.EntidadPersistente;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
@@ -24,7 +25,7 @@ public class Entidad extends EntidadPersistente {
   List<Servicio> servicios;
 
   @ElementCollection
-  List<Ubicacion> ubicacion;
+  List<Ubicacion> ubicacion = new ArrayList<>();
 
   @ManyToMany(cascade = { CascadeType.ALL })
   @JoinTable(
@@ -60,5 +61,9 @@ public class Entidad extends EntidadPersistente {
 
   public String getNombre() {
     return nombre;
+  }
+
+  public boolean estaEnUbicacion(Ubicacion ubicacion2){
+    return ubicacion.stream().anyMatch(ubicacion1 -> ubicacion1.estaCercaDe(ubicacion2));
   }
 }

@@ -62,5 +62,10 @@ public class Persona extends Interesado {
   public void agregarNotificacionIncidente(NotificacionIncidente notificacionIncidente) {
     notificacionesPendientes.add(notificacionIncidente);
   }
+
+
+  public Ubicacion getUbicacion() {
+    return ubicacion;
+  }
 }
 

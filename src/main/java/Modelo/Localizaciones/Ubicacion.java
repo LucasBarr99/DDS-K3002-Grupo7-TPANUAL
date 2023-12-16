@@ -24,4 +24,24 @@ public class Ubicacion  {
   public Ubicacion() {
 
   }
+
+  public TipoLocalizacion getTipo() {
+    return tipo;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public int getLatitud() {
+    return latitud;
+  }
+
+  public int getLongitud() {
+    return longitud;
+  }
+
+  public boolean estaCercaDe(Ubicacion ubicacion){
+    return ubicacion.getTipo() == getTipo() && ubicacion.getNombre().equals(getNombre());
+  }
 }

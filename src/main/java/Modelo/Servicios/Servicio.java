@@ -83,5 +83,13 @@ public class Servicio extends EntidadPersistente {
     return entidad;
   }
 
+  public boolean perteneceAEntidad(Entidad entidad1){
+    return entidad.equals(entidad1);
+  }
+
+  public boolean perteneceAalgunaEntidad(List<Entidad> entidades){
+    return entidades.contains(entidad);
+  }
+
 }
 

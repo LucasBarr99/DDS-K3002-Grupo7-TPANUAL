@@ -30,7 +30,7 @@ public class RepoUsuarios extends Repositorio<Usuario>{
 
     public Usuario obtenerUsuario(int id) {
 
-        String query = String.format("from usuarios where id='%s'", id);
+        String query = String.format("from Usuario where id='%s'", id);
         return (Usuario) entityManager().createQuery(query).getResultList().get(0);
     }
 
@@ -40,5 +40,6 @@ public class RepoUsuarios extends Repositorio<Usuario>{
         Usuario usuario = (Usuario) entityManager().createQuery(query).getResultList().get(0);
         return usuario.getContrasenia();
     }
+
 
 }

@@ -2,6 +2,7 @@
 package Persistencia.Repositorios;
 
 import Modelo.Personas.Interesado;
+import Modelo.Personas.Persona;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,11 @@ public class RepoInteresados extends Repositorio<Interesado> {
   public List<Interesado> todos()  {
 
     String query = String.format("from Interesado i Join Usuario u on i.id = u.id Join Invitado in on i.id = in.id");
+    return entityManager().createQuery(query).getResultList();
+  }
+
+  public List<Persona> obtenerTodasLasPersonas(){
+    String query = String.format("from Interesado");
     return entityManager().createQuery(query).getResultList();
   }
 

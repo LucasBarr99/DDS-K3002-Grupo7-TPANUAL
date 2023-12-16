@@ -39,7 +39,15 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       Notificacion servicioMail = new NotificacionJavaMail();
       List<Ubicacion> ubicaciones = new ArrayList<>();
+
+      List<Ubicacion> ubicacionesOrg2 = new ArrayList<>();
+      List<Ubicacion> ubicacionesOrg3 = new ArrayList<>();
       Ubicacion ubicacion1 = new Ubicacion(TipoLocalizacion.MUNICIPIO,"Cochabamba", 1,1);
+      Ubicacion ubicacion2 = new Ubicacion(TipoLocalizacion.PROVINCIA, "Chimborazo",1,1);
+      Ubicacion ubicacion3 =  new Ubicacion(TipoLocalizacion.DEPARTAMENTO, "Carachapay y Camarones", 2, 2);
+
+      ubicacionesOrg2.add(ubicacion2);
+      ubicacionesOrg3.add(ubicacion3);
 
       ubicaciones.add(ubicacion1);
 
@@ -51,7 +59,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Usuario usuario4 = new Usuario("Santiago","TpAnual_031", TipoUsuario.BASICO);
       Usuario usuario5 = new Usuario("lucas.barrientos2899","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
 
-      Interesado persona1 = new Persona("Lucas",ubicacion1,"Lucas@gmail.com","12345678", new ArrayList<>(), new ArrayList<>());
+      Interesado persona1 = new Persona("Lucas",ubicacion2,"Lucas@gmail.com","12345678", new ArrayList<>(), new ArrayList<>());
       persona1.agregarUsuario(usuario1);
 
       List<Usuario> adminsComunidad1 = new ArrayList<>();
@@ -84,8 +92,8 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       comunidad2.agregarMiembro(miembro4);
 
       Entidad org = new Organizacion("Cacho S.A", ubicaciones,null, null );
-      Entidad org2 = new Organizacion("UTN S.A", ubicaciones,null, null );
-      Entidad org3 = new Organizacion("DDS S.A", ubicaciones,null, null );
+      Entidad org2 = new Organizacion("UTN S.A", ubicacionesOrg2,null, null );
+      Entidad org3 = new Organizacion("DDS S.A", ubicacionesOrg3,null, null );
 
       Servicio servicio1= new Servicio("Baño de Hombres Cacho S.A",null, org);
       Servicio servicio2= new Servicio("Baño de Mujeres UTN S.A",null, org2);
@@ -103,28 +111,33 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       comunidad1.agregarServicio(servicio1);
       comunidad1.agregarServicio(servicio2);
       comunidad1.agregarServicio(servicio3);
-      org.setServicios(serviciosOrg1);
 
+      org.setServicios(serviciosOrg1);
       org2.setServicios(serviciosOrg2);
+      org3.setServicios(serviciosOrg3);
 
       Incidente incidente1 = new Incidente("Incidente1", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Se revento un banitory", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente2 = new Incidente("Incidente2", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Detonaron un inodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente3 = new Incidente("Incidente3", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Exploto un bidet", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente4 = new Incidente("Incidente4", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Hay uno durmiendo en el inodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente5 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente6 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio1, "El lavamanos gotea", EstadoIncidentes.ABIERTO, miembro1);
+      Incidente incidente6 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),null, servicio1, "El lavamanos gotea", EstadoIncidentes.ABIERTO, miembro1);
       Incidente incidente15 = new Incidente("Incidente7", Date.valueOf(LocalDate.of(2023,9,22)),null, servicio1, "Detonaron el baño", EstadoIncidentes.ABIERTO, miembro1);
       Incidente incidente16 = new Incidente("Incidente16", Date.valueOf(LocalDate.of(2023,9,24)),null, servicio1, "Reventaron el espejo del baño", EstadoIncidentes.ABIERTO, miembro1);
 
       Incidente incidente7 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio2, "Hay uno durmiendo en el inonodoro", EstadoIncidentes.CERRADO, miembro1);
       Incidente incidente8 = new Incidente("Incidente7", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio2, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente9 = new Incidente("Incidente7", Date.valueOf(LocalDate.of(2023,9,25)),null, servicio2, "El espejo esta roto", EstadoIncidentes.ABIERTO, miembro1);
 
-      Incidente incidente9 = new Incidente("Incidente1", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Se revento un banitory", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente10 = new Incidente("Incidente2", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Detonaron un inodoro", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente11 = new Incidente("Incidente3", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Exploto un bidet", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente12 = new Incidente("Incidente4", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Hay uno durmiendo en el inodoro", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente13 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
-      Incidente incidente14 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "El lavamanos gotea", EstadoIncidentes.CERRADO, miembro1);
+
+      Incidente incidente10 = new Incidente("Incidente1", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Se revento un banitory", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente11 = new Incidente("Incidente2", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Detonaron un inodoro", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente12 = new Incidente("Incidente3", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Exploto un bidet", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente13 = new Incidente("Incidente4", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Hay uno durmiendo en el inodoro", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente14 = new Incidente("Incidente5", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "Reventaron los azulejos de los baños", EstadoIncidentes.CERRADO, miembro1);
+      Incidente incidente17 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),Date.valueOf(LocalDate.of(2023,9,26)), servicio3, "El lavamanos gotea", EstadoIncidentes.CERRADO, miembro1);
+
+      Incidente incidente18 = new Incidente("Incidente6", Date.valueOf(LocalDate.of(2023,9,25)),null, servicio3, "Se afanaron un inodoro", EstadoIncidentes.ABIERTO, miembro1);
 
       GeneradorInforme criterio1 =  new MayorTiempoPromedioDeCierreIncidentes("Tiempo promedio de cierre de Incidentes");
       GeneradorInforme criterio2 =  new MayorCantidadDeIncidentesReportadosSemana("Mayor cantidad de Incidentes reportados");
@@ -189,6 +202,8 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(incidente14);
       persist(incidente15);
       persist(incidente16);
+      persist(incidente17);
+      persist(incidente18);
       persist(criterio1);
       persist(criterio2);
       persist(criterio3);
