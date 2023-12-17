@@ -35,7 +35,7 @@ public class ServicioLogin {
         }
 
         SesionManager sesionManager = SesionManager.get();
-        String idSesion = sesionManager.crearSesion("usuario",user);
+        String idSesion = sesionManager.crearSesion("usuario",usuarioBuscado);
         System.out.println("Id de Sesion: "+idSesion);
         TipoUsuario tipo = usuarioBuscado.getTipo();
         sesionManager.agregarAtributo(idSesion,"rol", tipo);

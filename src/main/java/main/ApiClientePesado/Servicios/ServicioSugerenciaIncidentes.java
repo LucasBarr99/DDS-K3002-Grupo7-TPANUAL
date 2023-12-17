@@ -12,22 +12,30 @@ import Persistencia.Repositorios.RepoEntidades;
 import Persistencia.Repositorios.RepoIncidentes;
 import Persistencia.Repositorios.RepoInteresados;
 import Persistencia.Repositorios.RepoUsuarios;
+import main.ApiClientePesado.SesionManager;
 import main.ApiClientePesado.dto.IncidentResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.uqbarproject.jpa.java8.extras.PerThreadEntityManagers;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.stream.Collectors;
 
 @Service
 public class ServicioSugerenciaIncidentes {
 
-  public IncidentResponse incidenteASugerir(){
-    int idUsuario = 1; //Esto lo pasariamos por query param
+  public IncidentResponse incidenteASugerir(String sessionId){
+    // En vez de recibir el id de usuario, es mas sencillo con el session id (ya esta guardado en local storage, puede ser mas "Seguro")
+    SesionManager sesionManager = SesionManager.get();
+    //int idUsuario = 1; //Esto lo pasariamos por query param
+    Map<String, Object> atributosSesion = sesionManager.obtenerAtributos(sessionId);
+    Usuario user = (Usuario) atributosSesion.get("usuario");
+    System.out.println("USER ID: "+user.getId());
 
     Incidente incidenteASugerir = null;
-    Usuario usuario = RepoUsuarios.instance().obtenerUsuario(idUsuario);
+    Usuario usuario = RepoUsuarios.instance().obtenerUsuario(user.getId());
     List<Persona> interesados = RepoInteresados.instance().obtenerTodasLasPersonas();
 
     Persona personaBuscada = interesados.stream().filter(interesado -> interesado.tieneUsuario(usuario)).collect(Collectors.toList()).get(0);
@@ -56,7 +64,10 @@ public class ServicioSugerenciaIncidentes {
       }
     }
 
-    return new IncidentResponse(incidenteASugerir.getNombre(),incidenteASugerir.fechaAperturaBD, incidenteASugerir.fechaCierreBD,
+    PerThreadEntityManagers.getEntityManager();
+    PerThreadEntityManagers.closeEntityManager();
+
+    return new IncidentResponse(incidenteASugerir.getId(),incidenteASugerir.getNombre(),incidenteASugerir.fechaAperturaBD, incidenteASugerir.fechaCierreBD,
         incidenteASugerir.getServicioAfectado().getDescripcion(), incidenteASugerir.getDescripcion(), incidenteASugerir.getEstado(),
         incidenteASugerir.getServicio().getEntidad().getNombre());
 

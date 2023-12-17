@@ -9,6 +9,8 @@ import java.sql.Date;
 import java.time.LocalDate;
 
 public class IncidentResponse {
+  public int idIncidente;
+
   public String nombre;
 
   public Date fechaApertura;
@@ -22,7 +24,8 @@ public class IncidentResponse {
   public EstadoIncidentes estado;
 
   public String entidadServicio;
-  public IncidentResponse(String nombre, Date fechaApertura, Date fechaCierre, String servicioAfectado, String descripcion, EstadoIncidentes estado, String entidadServicio) {
+  public IncidentResponse(int idIncidente, String nombre, Date fechaApertura, Date fechaCierre, String servicioAfectado, String descripcion, EstadoIncidentes estado, String entidadServicio) {
+    this.idIncidente = idIncidente;
     this.nombre = nombre;
     this.fechaApertura = fechaApertura;
     this.fechaCierre = fechaCierre;

@@ -25,11 +25,10 @@ public class SugerenciaController {
   @Autowired
   ServicioSugerenciaIncidentes servicio;
 
-
-
   @GetMapping("/apiPesada/sugerenciaIncidente")
-  public ResponseEntity<IncidentResponse> revisarIncidente(){
-    IncidentResponse resp = servicio.incidenteASugerir();
+  public ResponseEntity<IncidentResponse> revisarIncidente(@RequestParam("sessionId") String sessionId){
+    System.out.println("[GET] /apiPesada/sugerenciaIncidente - Session: "+sessionId);
+    IncidentResponse resp = servicio.incidenteASugerir(sessionId);
     return ResponseEntity.ok(resp);
   }
 }
