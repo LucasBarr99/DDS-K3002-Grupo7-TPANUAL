@@ -33,7 +33,7 @@
             <div class="row justify-content-between">
 
                 <div class="col-12 d-flex align-items-center">
-                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="/homeLiviano">
+                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="/home">
                         <i class="bi-train-front"></i>
                         <span>SACMR</span>
                     </a>
@@ -54,9 +54,8 @@
                     </ul>
 
 
-                    <div class="fw-bold text-white">
-                        {{# block "nombreUsuario" }}
-                        {{/block}}
+                    <div class="fw-bold text-white" id="textoBienvenida">
+                        No estas logeado
                     </div>
 
                     <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
@@ -77,15 +76,10 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="../../templates/login.html">Inicia sesión</a>
+                        <a href="/cargaMasiva">Carga masiva de entidades</a>
                     </li>
-
                     <li>
-                        <a href="../../templates/Comunidades.html">Comunidades</a>
-                    </li>
-
-                    <li>
-                        <a href="">Carga masiva de entidades</a>
+                         <a href="/comunidades">Comunidades</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -93,17 +87,14 @@
                             Incidentes
                         </a>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="../../templates/Incidentes.html">Consulta por estado</a></li>
-                            <li><a class="dropdown-item" href="../../templates/AperturaIncidentes.html">Abrir incidente</a></li>
+                            <li><a class="dropdown-item" href="/sugerenciaIncidente">Sugerencias</a></li>
+                            <li><a class="dropdown-item" href="/incidentes">Consulta por estado</a></li>
+                            <li><button class="dropdown-item" v-on:click="irAUrl()" >Abrir incidente</button></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="../../templates/Rankings.html">Rankings</a>
-                    </li>
-
-                    <li>
-                        <a href="">Administrar Usuarios</a>
+                        <a href="/rankings">Rankings</a>
                     </li>
                 </ul>
             </nav>

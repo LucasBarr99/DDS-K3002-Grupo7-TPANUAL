@@ -55,8 +55,9 @@ public class vistaLivianaController {
     SesionManager sesionManager = SesionManager.get();
     Map<String, Object> atributos = sesionManager.obtenerAtributos(idSesion);
     Usuario user = (Usuario) atributos.get("usuario");
-    //Usuario user = RepoUsuarios.instance().obtenerUsuario(nombreUsuario);
-    List<Miembro> membresiasUsuario = RepoMiembros.instance().obtenerMembresiasUsuario(user.getId());
+    System.out.println("USER ID: "+user.getId());
+    Usuario usuario = RepoUsuarios.instance().obtenerUsuario(user.getNombre());
+    List<Miembro> membresiasUsuario = RepoMiembros.instance().obtenerMembresiasUsuario(usuario.getId());
 
     List<Comunidad> comunidades = RepoComunidades.instance().obtenerTodos();
 
