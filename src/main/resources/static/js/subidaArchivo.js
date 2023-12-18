@@ -14,6 +14,8 @@ form.addEventListener("submit", ev => {
         method: 'POST',
         body: formData
     };
+    console.log('FormData' + formData);
+
     fetch(ruta, requestOptions)
         .then(response => { response.json().then(r => {this.respuesta = r.respuesta;
             console.log(r.respuesta);

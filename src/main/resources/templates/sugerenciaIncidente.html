@@ -23,7 +23,7 @@
 
   </head>
     <body>
-      <main>
+      <main id="vueValidadorSesion">
 
         <header class="site-header">
           <div class="container">
@@ -35,7 +35,7 @@
                   <span>SACMR</span>
                 </a>
 
-                  <div  id="vueValidadorSesion">
+                  <div>
                       <div class="fw-bold text-white" id="textoBienvenida">
                           No estas logeado
                       </div>
@@ -72,8 +72,8 @@
                               </a>
                               <ul class="dropdown-menu dropdown-menu-dark">
                                   <li><a class="dropdown-item active" href="/sugerenciaIncidente">Sugerencias</a></li>
-                                  <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                                  <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                                  <li><a class="dropdown-item" href="/incidentes">Consulta por estado</a></li>
+                                  <li><button class="dropdown-item" v-on:click="irAUrl()" >Abrir incidente</button></li>
                               </ul>
                           </li>
 

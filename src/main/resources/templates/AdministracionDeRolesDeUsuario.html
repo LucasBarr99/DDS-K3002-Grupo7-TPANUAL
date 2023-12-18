@@ -24,6 +24,7 @@
   </head>
     <body>
       <main>
+        <div id="vueValidadorSesion">
         <header class="site-header">
           <div class="container">
             <div class="row justify-content-between">
@@ -33,7 +34,7 @@
                   <span>SACMR</span>
                 </a>
 
-                <div  id="vueValidadorSesion">
+                <div>
                   <div class="fw-bold text-white" id="textoBienvenida">
                     No estas logeado
                   </div>
@@ -70,9 +71,9 @@
                     Incidentes
                   </a>
                   <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="/sugerenciaIncidente">Sugerencias</a></li>
-                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
-                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                    <li><a class="dropdown-item " href="/sugerenciaIncidente">Sugerencias</a></li>
+                    <li><a class="dropdown-item" href="/incidentes">Consulta por estado</a></li>
+                    <li><button class="dropdown-item" v-on:click="irAUrl()" >Abrir incidente</button></li>
                   </ul>
                 </li>
 
@@ -84,7 +85,7 @@
             </nav>
           </div>
         </div>
-
+        </div>
         <!-- BODY DE LA VISTA-->
         <section class="hero-section d-flex justify-content-center align-items-top" id="vueAdministrarRoles" style="padding-top: 130px">
           <div class="container">
