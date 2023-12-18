@@ -6,6 +6,7 @@ import Modelo.Servicios.Servicio;
 import ServiciosExternos.Notifcaciones.Notificacion;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 @Entity
 @Table(name = "Miembros")
@@ -28,13 +29,13 @@ public class Miembro extends EntidadPersistente {
   @OneToMany
   @JoinColumn(name = "id_miembro")
   */
-  @ManyToMany(cascade = { CascadeType.ALL })
+  @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
   @JoinTable(
-      name = "ServicioNotificacionPorMiembro",
+      name = "servicionotificacionpormiembro",
       joinColumns = { @JoinColumn(name = "idMiembro") },
       inverseJoinColumns = { @JoinColumn(name = "idServicio") }
   )
-  List<Notificacion> serviciosDeNotificacion;
+  List<Notificacion> serviciosDeNotificacion = new ArrayList<>();
 
 
   public Miembro() {

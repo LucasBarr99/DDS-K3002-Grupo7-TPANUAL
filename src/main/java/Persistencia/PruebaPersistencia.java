@@ -58,6 +58,8 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       Usuario usuario3 = new Usuario("Franco","TpAnual_030", TipoUsuario.BASICO);
       Usuario usuario4 = new Usuario("Santiago","TpAnual_031", TipoUsuario.BASICO);
       Usuario usuario5 = new Usuario("lucas.barrientos2899","TpAnual_029", TipoUsuario.ADMINPRESTADORA);
+      Usuario usuario6 = new Usuario("tboltin","TpAnual_025", TipoUsuario.ADMINPRESTADORA);
+      Usuario usuario7 = new Usuario("ailin","TpAnual_027", TipoUsuario.ADMINPRESTADORA);
 
       Interesado persona1 = new Persona("Lucas",ubicacion2,"Lucas@gmail.com","12345678", new ArrayList<>(), new ArrayList<>());
       persona1.agregarUsuario(usuario1);
@@ -84,7 +86,7 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
 
       Miembro miembro3 = new Miembro("Tito", "Antune", "lucas.barrientos2899@gmail.com",comunidad1,TipoMiembro.DE_SERVICIO, serviciosNotificacionMiembros);
 
-      Miembro miembro4 = new Miembro("Raul", "Alutti", "Raul@gmail.com",comunidad2,TipoMiembro.DE_SERVICIO, new ArrayList<>());
+      Miembro miembro4 = new Miembro("Raul", "Alutti", "lucasmarcelobatalla01@gmail.com",comunidad2,TipoMiembro.DE_SERVICIO, serviciosNotificacionMiembros);
 
       usuario1.agregarMembresia(miembro3);
       usuario1.agregarMembresia(miembro4);
@@ -172,6 +174,8 @@ public class PruebaPersistencia implements WithGlobalEntityManager, EntityManage
       persist(usuario3);
       persist(usuario4);
       persist(usuario5);
+      persist(usuario6);
+      persist(usuario7);
 
       persist(miembro1);
       persist(miembro2);

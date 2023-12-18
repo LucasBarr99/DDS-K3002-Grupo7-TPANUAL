@@ -13,10 +13,10 @@ import java.util.List;
 @Table(name = "Comunidades")
 public class Comunidad extends EntidadPersistente {
   private String nombre;
-  @OneToMany(cascade = { CascadeType.ALL })
+  @OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
   @JoinColumn(name = "idcomunidad")
-  private List<Miembro> miembros;
-  @ManyToMany(cascade = { CascadeType.ALL })
+  private List<Miembro> miembros = new ArrayList<>();
+  @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
   @JoinTable(
       name = "ServicioPorComunidad",
       joinColumns = { @JoinColumn(name = "idcomunidad") },
@@ -25,7 +25,7 @@ public class Comunidad extends EntidadPersistente {
   private List<Servicio> serviciosDeInteres = new ArrayList<>();
   @OneToMany(cascade = {CascadeType.ALL})
   @JoinColumn(name = "idcomunidadadmin")
-  private List <Usuario> administradores;
+  private List <Usuario> administradores = new ArrayList<>();
 
 
 

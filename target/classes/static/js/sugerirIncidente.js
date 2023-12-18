@@ -38,7 +38,8 @@ var app = new Vue({
                     headers: { 'Content-Type': 'application/json' },
                     body: ''
                 }
-                fetch('http://localhost:8080/incidentes/'+this.idIncidente+'/cerrar',requestOptions)
+                fetch('http://localhost:8080/incidentes/'+this.idIncidente+'/cerrar',requestOptions);
+                this.cargarIncidente();
             }
 
         }
