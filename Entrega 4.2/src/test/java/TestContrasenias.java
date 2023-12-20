@@ -28,6 +28,7 @@ public class TestContrasenias {
   List<ValidacionesContrasenia> mensajes = validadorContrasenias.cargarValidaciones("dragon");
   assertTrue(mensajes.contains(ValidacionesContrasenia.CONTRASENIA_EN_TOP_10000));
 
+
  }
 
 
