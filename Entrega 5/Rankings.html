@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SACMR - Rankings semanales</title>
+	
+	 <!-- CSS FILES -->
+    <link href="css/EstilosIncidentes.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+	
+</head>
+<body>
+	<main>
+
+        <header class="site-header">
+          <div class="container">
+            <div class="row justify-content-between">
+
+              <div class="col-lg-12 col-12 d-flex align-items-center">
+                <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="index.html">
+                  <i class="bi-train-front"></i>
+                  <span>SACMR</span>
+                </a>
+				  <ul class="social-icon d-flex justify-content-center align-items-center mx-auto">
+                                <span class="text-white me-4 d-none d-lg-block">Mantenete conectado</span>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-instagram"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-twitter"></a>
+                                </li>
+
+                                <li class="social-icon-item">
+                                    <a href="#" class="social-icon-link bi-whatsapp"></a>
+                                </li>
+                            </ul>
+
+                <div class="fw-bold text-white">
+                  Bienvenido, #NombreDeUsuario !
+                </div>
+
+<!--
+                <div>
+                  <a href="#" class="custom-btn custom-border-btn btn" data-bs-toggle="modal" data-bs-target="#subscribeModal">Notify me
+                    <i class="bi-arrow-right ms-2"></i>
+                  </a>
+                </div>
+-->
+                <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
+              </div>
+
+            </div>
+          </div>
+        </header>
+
+        <!-- Menu lateral -->
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+          <div class="offcanvas-header">
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+
+          <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+            <nav>
+              <ul>
+                <li>
+                  <a href="login.html">Inicia sesión</a>
+                </li>
+				  <li>
+                  <a  href="Comunidades.html">Comunidades</a>
+                </li>
+                <li>
+                  <a href="CargaMasiva.html">Carga masiva de entidades</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Incidentes
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-dark">
+                    <li><a class="dropdown-item" href="Incidentes.html">Consulta por estado</a></li>
+                    <li><a class="dropdown-item" href="AperturaIncidentes.html">Abrir incidente</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a class="active" href="Rankings.html">Rankings</a>
+                </li>
+
+                <li>
+                  <a href="AdministracionDeRolesDeUsuario.html">Administrar Usuarios</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+		
+		
+       <!-- BODY DE LA VISTA -->
+		  <section class="hero-section d-flex justify-content-center align-items-top" id="section_Ranking" style="padding-top: 130px">
+          <div class="container">
+            <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
+              <div class="card-header" align="center" style="font-size:40px">RANKINGS SEMANALES</div>
+              <div class="card-body">
+                <p class="text-white fs-6" align="center">Consulta los rankings semanales publicados</p>
+				  
+                <!-- SELECCION DEL CRITERIO DEL RANKING-->
+				<div class="text-white fs-6">  
+                 <form action="generar_listado.java" method="post">
+                  <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
+                  <select name="criterio" id="criterio_ranking">
+                    <option value="criterio1">Entidades con mayor tiempo promedio de tiempo de cierre de incidentes</option>
+                    <option value="criterio2">Entidades con mayor cantidad de incidentes reportados en la semana</option>
+                    <option value="criterio3">Mayor grado de impacto de las problemáticas</option>
+                  </select>
+                 </form>
+				</div>
+				  
+				<br> 
+				
+                <div class="d-flex flex-column">
+                  <ul class="overflow-auto p-0" style="height: 400px">
+                   
+					<!-- POSICION DEL RANKING 1-->
+                
+					<li class="card m-2 p-2">
+                      <div class="row">
+                        <div class="col">
+                          <h4 style="margin: 1;font-size: 30px; color: #ECB91C">
+                            Posicion 1
+                          </h4>
+                          <div>
+                            Entidad: numero 1
+                          </div>
+						  <div>Comentarios: </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="card m-2 p-2">
+                      <div class="row">
+                        <div class="col">
+                          <h4 style="margin: 1;font-size: 30px; color: #928D8D">
+                            Posicion 2
+                          </h4>
+                          <div>
+                            Entidad: numero 2
+                          </div>
+						  <div>Comentarios: </div>
+                        </div>
+                      </div>
+                    </li>
+					<li class="card m-2 p-2">
+                      <div class="row">
+                        <div class="col">
+                          <h4 style="margin: 1;font-size: 30px; color: #D47E2A">
+                            Posicion 3
+                          </h4>
+                          <div>
+                            Entidad: numero 2
+                          </div>
+						  <div>Comentarios: </div>
+                        </div>
+                      </div>
+					 </li>
+					  <li class="card m-2 p-2">
+                      <div class="row">
+                        <div class="col">
+                          <h4 style="margin: 1;font-size: 30px; color: #000000">
+                            Posicion 4
+                          </h4>
+                          <div>
+                            Entidad: numero 2
+                          </div>
+						  <div>Comentarios: </div>
+                        </div>
+                      </div>
+					 </li>
+				      <li class="card m-2 p-2">
+                      <div class="row">
+                        <div class="col">
+                          <h4 style="margin: 1;font-size: 30px; color: #000000">
+                            Posicion 5
+                          </h4>
+                          <div>
+                            Entidad: numero 2
+                          </div>
+						  <div>Comentarios: </div>
+                        </div>
+                      </div>
+					 </li>
+					
+					
+                  </ul>
+                </div>
+
+				  
+				  
+				  
+				  
+				  
+              </div>
+            </div>
+          </div>
+		  
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+		   
+          <!-- FONDO -->
+          <div class="video-wrap">
+            <video autoplay="" loop="" muted="" class="custom-video" poster="">
+              <source src="videos/video.mp4" type="video/mp4">
+
+              Your browser does not support the video tag.
+            </video>
+          </div>
+       </section>
+
+      </main>
+
+      <!-- JAVASCRIPT FILES -->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/countdown.js"></script>
+      <script src="js/init.js"></script>
+
+    </body>
+</html>
