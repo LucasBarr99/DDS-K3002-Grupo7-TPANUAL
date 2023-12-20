@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Rankings semanales</title>
+
+    <!-- CSS FILES -->
+    <link href="/css/EstilosIncidentes.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="/css/tooplate-kool-form-pack.css" rel="stylesheet">
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <!-- VUE -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+
+<body>
+<main>
+
+    <div id="vueValidadorSesion">
+    <header class="site-header">
+        <div class="container">
+            <div class="row justify-content-between">
+
+                <div class="col-lg-12 col-12 d-flex align-items-center">
+                    <a class="site-header-text d-flex justify-content-center align-items-center me-auto" href="/home">
+                        <i class="bi-train-front"></i>
+                        <span>SACMR</span>
+                    </a>
+
+                    <div>
+                        <div class="fw-bold text-white" id="textoBienvenida">
+                            No estás logeado
+                        </div>
+                    </div>
+
+                    <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Menu lateral -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header" >
+            <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+            <nav>
+                <ul>
+
+                    <li>
+                        <a href="/cargaMasiva">Carga masiva de entidades</a>
+                    </li>
+
+                    <li>
+                        <a href="/comunidades">Comunidades</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Incidentes
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item " href="/sugerenciaIncidente">Sugerencias</a></li>
+                            <li><a class="dropdown-item" href="/incidentes">Consulta por estado</a></li>
+                            <li><button class="dropdown-item" v-on:click="irAUrl()" >Abrir incidente</button></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="/rankings" class="active">Rankings</a>
+                    </li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    </div>
+    <!-- BODY DE LA VISTA -->
+    <section class="hero-section d-flex justify-content-center align-items-top" id="vueRankings" style="padding-top: 130px">
+        <div class="container">
+            <div class="card text-white fs-4 mb-3" style="background-color: rgba(0, 0, 0, 0.65);border-radius: var(--border-radius-medium);">
+                <div class="card-header" align="center" style="font-size:40px">RANKINGS SEMANALES</div>
+                <div class="card-body">
+                    <p class="text-white fs-6" align="center">Consulta los rankings semanales publicados</p>
+
+                    <!-- SELECCION DEL CRITERIO DEL RANKING-->
+                    <div class="text-white fs-6">
+                        <form name="idForm">
+                            <label for="criterio_ranking">Selecciona el criterio del ranking: </label>
+                            <select name="criterio" id="criterio_ranking" v-model="criterioSeleccionado" v-on:change="buscarInforme()">
+                                <option v-for="criterio in criterios" :value="criterio.id">{{criterio.nombre}}</option>
+                            </select>
+                        </form>
+                    </div>
+
+                    <br>
+
+                    <div class="d-flex flex-column">
+                        <ul class="overflow-auto p-0" style="height: 400px">
+
+                            <!-- POSICIONES RANKING-->
+                            <li v-for="(entidad, index) in entidades" class="card m-2 p-2">
+                                <div class="row">
+                                    <div class="col">
+                                        <h4 style="margin: 1px;font-size: 30px; color: #ECB91C">
+                                            Posicion {{index + 1}}
+                                        </h4>
+                                        <ul>
+                                            {{entidad.nombre}}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FONDO -->
+        <div class="video-wrap">
+            <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                <source src="/videos/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+</main>
+
+<!-- JAVASCRIPT FILES -->
+<script src="/js/jquery.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/countdown.js"></script>
+<script src="/js/init.js"></script>
+<script src="/js/vueMostrarCriterios.js"></script>
+<script src="/js/vueValidadorSesion.js"></script>
+</body>
+
+</html>

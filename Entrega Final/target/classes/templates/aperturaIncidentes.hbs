@@ -1,0 +1,64 @@
+
+<!-- BODY DE LA VISTA-->
+{{#partial "principal" }}
+    <section class="hero-section d-flex justify-content-center align-items-top" id="section_1" style="padding-top: 130px">
+        <div class="container">
+            <div class="card text-white fs-4 mb-3" style="background-color: rgba(0,0,0,0.65);border-radius: var(--border-radius-medium);">
+                <div class="card-header">APERTURA DE INCIDENTES</div>
+                <div class="card-body">
+                    <p class="text-white fs-6">Por favor, complete todos los campos para poder tener el mayor detalle del incidente</p>
+                    <!-- ACA ADENTRO PUEDEN PONER LO QUE QUIERAN-->
+                    <div class="container">
+                        <form class="row" action="/incidentes/nuevo?miembro={{idMiembro}}&comunidad={{idComunidadSeleccionada}}" method="post" id="vueServiciosComunidad">
+                            {{#if idComunidadSeleccionada}}
+                                <div class="col-4">
+                                    <label for="ServicioId" class="form-label">Servicio</label>
+                                    <select name="servicio" id="ServicioId" class="form-select form-select-lg mb-3" >
+                                        {{#servicios}}
+                                            <option value="{{id}}">{{descripcion}}</option>
+                                        {{/servicios}}
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label for="descripcion" class="form-label">Descripcion</label>
+                                    <textarea name="descripcion" class="form-control" aria-label="With textarea"></textarea>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                    <button class="btn btn-primary" v-on:click="irAUrl($event)" >Regresar</button>
+                                </div>
+                            {{else}}
+                                <div class="col-4" >
+                                    <label for="ComunidadId" class="form-label">Comunidad</label>
+                                    <select name="comunidad" id="ComunidadId" v-model="comunidadSeleccionada" v-on:change="redireccionar()" class="form-select form-select-lg mb-3">
+                                        {{#comunidades}}
+                                            <option value="{{id}}">{{nombre}}</option>
+                                        {{/comunidades}}
+                                    </select>
+                                </div>
+                            {{/if}}
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FONDO -->
+        <div class="video-wrap">
+            <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                <source src="videos/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+{{/partial}}
+
+{{#partial "scriptsAdicionales" }}
+
+    <script src="/js/vueRecuperarServicios.js"></script>
+
+{{/partial}}
+
+
+{{> layout }}
